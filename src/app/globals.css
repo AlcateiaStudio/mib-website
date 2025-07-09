@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for hand-drawn, crayon-like aesthetic */
+@layer base {
+  * {
+    @apply selection:bg-secondary-300 selection:text-secondary-900;
+  }
+  
+  body {
+    @apply bg-neutral-50 text-neutral-800;
+    font-family: 'Comic Sans MS', cursive;
+  }
+  
+  /* Custom cursor styles for playful interaction */
+  .cursor-crayon {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="rgba(234, 179, 8, 0.8)" stroke="rgba(202, 138, 4, 1)" stroke-width="2"/></svg>'), auto;
+  }
+}
+
+@layer components {
+  /* Hand-drawn button styles */
+  .btn-crayon {
+    @apply px-6 py-3 bg-primary-400 text-white font-bold rounded-crayon border-2 border-primary-600 
+           hover:bg-primary-500 hover:scale-105 active:scale-95 transition-all duration-200 
+           shadow-lg hover:shadow-xl cursor-crayon;
+    transform: rotate(-1deg);
+  }
+  
+  .btn-crayon:hover {
+    transform: rotate(0deg) scale(1.05);
+  }
+  
+  /* Hand-drawn card styles */
+  .card-crayon {
+    @apply bg-white rounded-crayon border-2 border-neutral-300 shadow-lg p-6;
+    transform: rotate(0.5deg);
+  }
+  
+  /* Playful headings */
+  .heading-crayon {
+    @apply font-crayon text-primary-700 leading-relaxed;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Interactive mascot container */
+  .mascot-container {
+    @apply relative cursor-crayon transition-all duration-300 hover:scale-105;
+  }
+  
+  /* Navigation menu positioning */
+  .nav-menu {
+    @apply absolute inset-0 pointer-events-none;
+  }
+  
+  .nav-button {
+    @apply pointer-events-auto transition-all duration-300 hover:scale-110 active:scale-95;
+  }
+  
+  /* Language switcher styles */
+  .language-switcher {
+    @apply fixed top-4 right-4 z-50 flex gap-2;
+  }
+  
+  .flag-button {
+    @apply w-8 h-8 rounded-full border-2 border-white shadow-lg hover:scale-110 
+           transition-all duration-200 cursor-crayon overflow-hidden;
+  }
+  
+  /* Content layout styles */
+  .content-layout {
+    @apply min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50;
+  }
+  
+  .content-header {
+    @apply sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b border-neutral-200;
+  }
+  
+  .content-main {
+    @apply max-w-4xl mx-auto px-4 py-8;
+  }
+  
+  /* Animations for sprite cycling */
+  .sprite-idle {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .sprite-hover {
+    animation: wiggle 0.5s ease-in-out infinite;
+  }
+  
+  .sprite-click {
+    animation: bounce-slow 0.6s ease-out;
+  }
+  
+  /* Smoke puff animation */
+  .smoke-puff {
+    @apply absolute inset-0 pointer-events-none;
+    animation: puff 0.5s ease-out;
+  }
+  
+  /* Responsive design helpers */
+  .center-content {
+    @apply flex items-center justify-center min-h-screen;
+  }
+  
+  .homepage-layout {
+    @apply h-screen overflow-hidden bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50;
+  }
+}
+
+@layer utilities {
+  /* Utility classes for hand-drawn effects */
+  .rotate-crayon-1 {
+    transform: rotate(-1deg);
+  }
+  
+  .rotate-crayon-2 {
+    transform: rotate(1deg);
+  }
+  
+  .rotate-crayon-3 {
+    transform: rotate(-0.5deg);
+  }
+  
+  /* Text shadows for depth */
+  .text-shadow-crayon {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-strong {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Box shadows for layered effect */
+  .shadow-crayon {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), 
+                2px 2px 4px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-crayon-lg {
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15), 
+                3px 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Disable text selection for interactive elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Ensure images maintain aspect ratio */
+  .aspect-mascot {
+    aspect-ratio: 1 / 1;
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  .transition-crayon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

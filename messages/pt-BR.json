@@ -1,0 +1,41 @@
+{
+  "navigation": {
+    "team": "Equipe",
+    "illustrations": "Ilustrações",
+    "games": "Jogos", 
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "homepage": {
+    "title": "Made in Bugs",
+    "subtitle": "Estúdio de Jogos Indie",
+    "description": "Abraçando a natureza caótica do desenvolvimento de jogos com perseverança e criatividade."
+  },
+  "pages": {
+    "team": {
+      "title": "Nossa Equipe",
+      "description": "Conheça os bugs por trás dos jogos"
+    },
+    "illustrations": {
+      "title": "Ilustrações", 
+      "description": "Arte e assets visuais desenhados à mão"
+    },
+    "games": {
+      "title": "Nossos Jogos",
+      "description": "Jogos indie feitos com amor e bugs"
+    },
+    "about": {
+      "title": "Sobre Nós",
+      "description": "A história por trás do estúdio Made in Bugs"
+    },
+    "contact": {
+      "title": "Contato",
+      "description": "Entre em contato conosco"
+    }
+  },
+  "ui": {
+    "language": "Idioma",
+    "loading": "Carregando...",
+    "error": "Algo deu errado"
+  }
+}

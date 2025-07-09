@@ -1,0 +1,41 @@
+{
+  "navigation": {
+    "team": "Team",
+    "illustrations": "Illustrations", 
+    "games": "Games",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "homepage": {
+    "title": "Made in Bugs",
+    "subtitle": "Indie Game Studio",
+    "description": "Embracing the chaotic nature of game development with perseverance and creativity."
+  },
+  "pages": {
+    "team": {
+      "title": "Our Team",
+      "description": "Meet the bugs behind the games"
+    },
+    "illustrations": {
+      "title": "Illustrations",
+      "description": "Hand-drawn art and visual assets"
+    },
+    "games": {
+      "title": "Our Games",
+      "description": "Indie games made with love and bugs"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "The story behind Made in Bugs studio"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch with us"
+    }
+  },
+  "ui": {
+    "language": "Language",
+    "loading": "Loading...",
+    "error": "Something went wrong"
+  }
+}
