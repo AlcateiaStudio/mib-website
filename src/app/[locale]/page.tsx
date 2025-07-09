@@ -1,8 +1,4 @@
-import { useTranslations } from 'next-intl';
-
 export default function HomePage() {
-  const t = useTranslations('homepage');
-
   return (
     <div className="homepage-layout center-content">
       <div className="text-center space-y-8">
@@ -14,13 +10,13 @@ export default function HomePage() {
         {/* Title and subtitle */}
         <div className="space-y-4">
           <h1 className="text-6xl font-bold heading-crayon text-shadow-strong">
-            {t('title')}
+            Made in Bugs
           </h1>
           <h2 className="text-2xl text-primary-600 text-shadow-crayon">
-            {t('subtitle')}
+            Indie Game Studio
           </h2>
           <p className="text-lg text-neutral-700 max-w-md mx-auto">
-            {t('description')}
+            Embracing the chaotic nature of game development with perseverance and creativity.
           </p>
         </div>
 
