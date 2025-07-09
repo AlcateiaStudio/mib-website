@@ -4,11 +4,11 @@ const withNextIntl = require('next-intl/plugin')(
 );
 
 module.exports = withNextIntl({
-  output: 'export',
+  // output: 'export', // Commented out for development mode
   trailingSlash: true,
   images: {
     unoptimized: true
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/made-in-bugs-website' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/made-in-bugs-website/' : '',
+  // basePath: process.env.NODE_ENV === 'production' ? '/made-in-bugs-website' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/made-in-bugs-website/' : '',
 });

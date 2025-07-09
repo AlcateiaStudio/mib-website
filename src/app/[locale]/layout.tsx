@@ -14,9 +14,19 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  
+  // Validate that the incoming `locale` parameter is valid
+  const isValidLocale = locales.includes(locale);
+  const finalLocale = isValidLocale ? locale : 'pt-BR';
 
   return (
-    <html lang={locale}>
+    <html lang={finalLocale}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Made in Bugs - Indie Game Studio</title>
+        <meta name="description" content="Embracing the chaotic nature of game development with perseverance and creativity." />
+      </head>
       <body className="font-crayon">
         {children}
       </body>
