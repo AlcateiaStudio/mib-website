@@ -1,41 +1,16 @@
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { getTranslations, normalizeLocale } from '@/lib/i18n';
 
 interface Props {
   params: Promise<{ locale: string }>;
 }
 
 export default async function HomePage({ params }: Props) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  const locale = normalizeLocale(rawLocale);
   
-  // Simple translations object for testing
-  const translations = {
-    'pt-BR': {
-      title: 'Made in Bugs',
-      subtitle: 'Estúdio de Jogos Indie',
-      description: 'Abraçando a natureza caótica do desenvolvimento de jogos com perseverança e criatividade.',
-      nav: {
-        team: 'Equipe',
-        illustrations: 'Ilustrações',
-        games: 'Jogos',
-        about: 'Sobre',
-        contact: 'Contato'
-      }
-    },
-    'en': {
-      title: 'Made in Bugs',
-      subtitle: 'Indie Game Studio',
-      description: 'Embracing the chaotic nature of game development with perseverance and creativity.',
-      nav: {
-        team: 'Team',
-        illustrations: 'Illustrations',
-        games: 'Games',
-        about: 'About',
-        contact: 'Contact'
-      }
-    }
-  };
-
-  const t = translations[locale as keyof typeof translations] || translations['pt-BR'];
+  // Load translations from JSON files
+  const t = await getTranslations(locale);
 
   return (
     <div className="homepage-layout center-content">
@@ -48,27 +23,27 @@ export default async function HomePage({ params }: Props) {
         {/* Title and subtitle */}
         <div className="space-y-4">
           <h1 className="text-6xl font-bold heading-crayon text-shadow-strong">
-            {t.title}
+            {t.homepage.title}
           </h1>
           <h2 className="text-2xl text-primary-600 text-shadow-crayon">
-            {t.subtitle}
+            {t.homepage.subtitle}
           </h2>
           <p className="text-lg text-neutral-700 max-w-md mx-auto">
-            {t.description}
+            {t.homepage.description}
           </p>
         </div>
 
         {/* Temporary navigation buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-12">
-          <button className="btn-crayon">{t.nav.team}</button>
-          <button className="btn-crayon">{t.nav.illustrations}</button>
-          <button className="btn-crayon">{t.nav.games}</button>
-          <button className="btn-crayon">{t.nav.about}</button>
-          <button className="btn-crayon">{t.nav.contact}</button>
+          <button className="btn-crayon">{t.navigation.team}</button>
+          <button className="btn-crayon">{t.navigation.illustrations}</button>
+          <button className="btn-crayon">{t.navigation.games}</button>
+          <button className="btn-crayon">{t.navigation.about}</button>
+          <button className="btn-crayon">{t.navigation.contact}</button>
         </div>
 
         {/* Functional language switcher */}
-        <LanguageSwitcher />
+        <LanguageSwitcher translations={t.common.language_switcher} />
       </div>
     </div>
   );

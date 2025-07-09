@@ -37,5 +37,11 @@
     "language": "Language",
     "loading": "Loading...",
     "error": "Something went wrong"
+  },
+  "common": {
+    "language_switcher": {
+      "portuguese": "Português",
+      "english": "English"
+    }
   }
 }

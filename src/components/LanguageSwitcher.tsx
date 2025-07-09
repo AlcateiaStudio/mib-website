@@ -2,7 +2,14 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 
-export default function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+  translations?: {
+    portuguese: string;
+    english: string;
+  };
+}
+
+export default function LanguageSwitcher({ translations }: LanguageSwitcherProps) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -25,7 +32,7 @@ export default function LanguageSwitcher() {
             ? 'bg-green-600 ring-2 ring-green-300' 
             : 'bg-green-500 hover:bg-green-600'
         }`}
-        title="Português (Brasil)"
+        title={translations?.portuguese || 'Português (Brasil)'}
       >
         🇧🇷
       </button>
@@ -36,7 +43,7 @@ export default function LanguageSwitcher() {
             ? 'bg-blue-600 ring-2 ring-blue-300' 
             : 'bg-blue-500 hover:bg-blue-600'
         }`}
-        title="English"
+        title={translations?.english || 'English'}
       >
         🇺🇸
       </button>
