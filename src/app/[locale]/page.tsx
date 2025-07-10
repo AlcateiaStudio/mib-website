@@ -1,5 +1,6 @@
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import { getTranslations, normalizeLocale } from '@/lib/i18n';
+import NavigationMenu from '@/components/NavigationMenu';
+import { getTranslations, normalizeLocale } from '../../lib/i18n';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -14,36 +15,28 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <div className="homepage-layout center-content">
-      <div className="text-center space-y-8">
-        {/* Temporary placeholder for the mascot */}
-        <div className="w-64 h-64 mx-auto bg-primary-200 rounded-crayon border-4 border-primary-400 flex items-center justify-center">
-          <div className="text-6xl">🪲</div>
-        </div>
+      <div className="relative w-full h-screen max-w-6xl mx-auto">
+        {/* Navigation Menu with 5-point star layout - positioned first */}
+        <NavigationMenu translations={t.navigation} />
         
-        {/* Title and subtitle */}
-        <div className="space-y-4">
-          <h1 className="text-6xl font-bold heading-crayon text-shadow-strong">
-            {t.homepage.title}
-          </h1>
-          <h2 className="text-2xl text-primary-600 text-shadow-crayon">
-            {t.homepage.subtitle}
-          </h2>
-          <p className="text-lg text-neutral-700 max-w-md mx-auto">
-            {t.homepage.description}
-          </p>
-        </div>
+        {/* Central content area */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="text-center space-y-6">
+            {/* Temporary placeholder for the mascot - 10% smaller */}
+            <div className="w-56 h-56 mx-auto bg-primary-200 rounded-crayon border-4 border-primary-400 flex items-center justify-center">
+            </div>
+            
+            {/* Title only */}
+            <div>
+              <h1 className="text-4xl font-bold heading-crayon text-shadow-strong">
+                {t.homepage.title}
+              </h1>
+            </div>
 
-        {/* Temporary navigation buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mt-12">
-          <button className="btn-crayon">{t.navigation.team}</button>
-          <button className="btn-crayon">{t.navigation.illustrations}</button>
-          <button className="btn-crayon">{t.navigation.games}</button>
-          <button className="btn-crayon">{t.navigation.about}</button>
-          <button className="btn-crayon">{t.navigation.contact}</button>
+            {/* Functional language switcher */}
+            <LanguageSwitcher translations={t.common.language_switcher} />
+          </div>
         </div>
-
-        {/* Functional language switcher */}
-        <LanguageSwitcher translations={t.common.language_switcher} />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import '../globals.css';
+import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return [
@@ -12,20 +13,24 @@ interface Props {
   params: Promise<{ locale: string }>;
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  
+  return {
+    title: 'Made in Bugs - Indie Game Studio',
+    description: 'Embracing the chaotic nature of game development with perseverance and creativity.',
+    other: {
+      'locale': locale,
+    }
+  };
+}
+
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
 
   return (
-    <html lang={locale}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Made in Bugs - Indie Game Studio</title>
-        <meta name="description" content="Embracing the chaotic nature of game development with perseverance and creativity." />
-      </head>
-      <body className="font-crayon">
-        {children}
-      </body>
-    </html>
+    <div className="locale-layout" data-locale={locale}>
+      {children}
+    </div>
   );
 }
