@@ -1,5 +1,6 @@
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import NavigationMenu from '@/components/NavigationMenu';
+import CenterLogo from '@/components/CenterLogo';
 import { getTranslations, normalizeLocale } from '../../lib/i18n';
 
 interface Props {
@@ -20,11 +21,10 @@ export default async function HomePage({ params }: Props) {
         <NavigationMenu translations={t.navigation} />
         
         {/* Central content area */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="text-center space-y-6">
-            {/* Temporary placeholder for the mascot - 10% smaller */}
-            <div className="w-56 h-56 mx-auto bg-primary-200 rounded-crayon border-4 border-primary-400 flex items-center justify-center">
-            </div>
+        <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+          <div className="text-center space-y-6 pointer-events-auto">
+            {/* Center logo with hover effect */}
+            <CenterLogo />
             
             {/* Title only */}
             <div>

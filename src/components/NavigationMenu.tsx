@@ -62,7 +62,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       bottom: '16%',
       border: '3px solid blue', 
       backgroundColor: 'rgba(0,0,255,0.1)',
-      zIndex: 15
+      zIndex: 15,
+      pointerEvents: 'none'
     }}>
       <div style={{ 
         position: 'absolute', 
@@ -84,7 +85,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
         transform: 'translateX(-50%)',
         backgroundColor: 'rgba(255,0,0,0.5)', 
         border: '2px solid red',
-        zIndex: 20
+        zIndex: 20,
+        pointerEvents: 'auto'
       }}>
         <NavButton
           href={buttons[0].href}
@@ -101,7 +103,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
         right: '30px',
         backgroundColor: 'rgba(255,0,0,0.5)', 
         border: '2px solid red',
-        zIndex: 20
+        zIndex: 20,
+        pointerEvents: 'auto'
       }}>
         <NavButton
           href={buttons[1].href}
@@ -118,7 +121,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
         right: '110px',
         backgroundColor: 'rgba(255,0,0,0.5)', 
         border: '2px solid red',
-        zIndex: 20
+        zIndex: 20,
+        pointerEvents: 'auto'
       }}>
         <NavButton
           href={buttons[2].href}
@@ -135,7 +139,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
         left: '110px',
         backgroundColor: 'rgba(255,0,0,0.5)', 
         border: '2px solid red',
-        zIndex: 20
+        zIndex: 20,
+        pointerEvents: 'auto'
       }}>
         <NavButton
           href={buttons[3].href}
@@ -152,7 +157,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
         left: '30px',
         backgroundColor: 'rgba(255,0,0,0.5)', 
         border: '2px solid red',
-        zIndex: 20
+        zIndex: 20,
+        pointerEvents: 'auto'
       }}>
         <NavButton
           href={buttons[4].href}

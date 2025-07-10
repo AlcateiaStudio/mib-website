@@ -44,7 +44,9 @@ export default function NavButton({
         height: '120px',
         border: '2px solid green',
         backgroundColor: 'rgba(0,255,0,0.2)',
-        zIndex: 25
+        zIndex: 30,
+        pointerEvents: 'auto',
+        cursor: 'pointer'
       }}
     >
       {/* Temporary: using regular img instead of Next.js Image */}
@@ -57,7 +59,8 @@ export default function NavButton({
           display: 'block',
           width: '100%',
           height: '100%',
-          objectFit: 'contain'
+          objectFit: 'contain',
+          pointerEvents: 'none'
         }}
       />
       {/* Debug text */}
@@ -69,7 +72,8 @@ export default function NavButton({
         fontSize: '10px',
         color: 'black',
         backgroundColor: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        pointerEvents: 'none'
       }}>
         {labelTextKey}
       </div>
