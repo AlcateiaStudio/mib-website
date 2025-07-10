@@ -92,14 +92,14 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.15 }}
               className={`absolute inset-0 ${globalStyles.overlayColor} flex items-center justify-center`}
             >
               <div className="text-center text-white p-6">
                 <motion.h3
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.1, duration: 0.3 }}
+                  transition={{ delay: 0.05, duration: 0.2 }}
                   className="text-xl font-bold mb-2 drop-shadow-lg"
                 >
                   {localizedTitle}
@@ -107,7 +107,7 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
                 <motion.p
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.3 }}
+                  transition={{ delay: 0.1, duration: 0.2 }}
                   className="text-sm opacity-90 drop-shadow"
                 >
                   {localizedSubtitle}

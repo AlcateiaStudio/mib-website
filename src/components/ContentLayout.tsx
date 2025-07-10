@@ -32,7 +32,7 @@ function NavButtonHeader({ href, imageSrc, hoverImageSrc, label, isActive, isMob
       href={href}
       className={`
         relative transition-all duration-200 hover:scale-105
-        ${isMobile ? 'w-12 h-12' : 'w-16 h-16'}
+        ${isMobile ? 'w-16 h-16' : 'w-24 h-24'}
         ${isActive ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
       `}
       onMouseEnter={() => setIsHovered(true)}
@@ -42,8 +42,8 @@ function NavButtonHeader({ href, imageSrc, hoverImageSrc, label, isActive, isMob
       <Image
         src={isHovered ? hoverImageSrc : imageSrc}
         alt={label}
-        width={isMobile ? 48 : 64}
-        height={isMobile ? 48 : 64}
+        width={isMobile ? 64 : 96}
+        height={isMobile ? 64 : 96}
         className="w-full h-full object-contain"
       />
     </Link>
@@ -94,20 +94,20 @@ export default function ContentLayout({ children, translations, locale }: Conten
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${globalStyles.backgroundColor}`}>
-      {/* Header - seamless with background */}
-      <header className="static z-50 pt-6 pb-4">
+      {/* Header - seamless with background, 50% larger */}
+      <header className="static z-50 pt-9 pb-6">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between">
-            {/* Left side: Logo + Navigation */}
-            <div className="flex items-center space-x-8">
-              {/* Logo */}
+          <div className="flex items-center justify-center">
+            {/* Centered content: Logo + Navigation + Language Switcher */}
+            <div className="flex items-center space-x-12">
+              {/* Logo - slightly larger */}
               <Link href={`/${locale}`} className="flex-shrink-0">
-                <div className="w-12 h-12 relative hover:scale-105 transition-transform duration-200">
+                <div className="w-16 h-16 relative hover:scale-105 transition-transform duration-200">
                   <Image
                     src="/assets/logo_center.png"
                     alt="Made in Bugs Logo"
-                    width={48}
-                    height={48}
+                    width={64}
+                    height={64}
                     className="w-full h-full object-contain"
                     priority
                   />
@@ -127,27 +127,29 @@ export default function ContentLayout({ children, translations, locale }: Conten
                   />
                 ))}
               </nav>
-            </div>
 
-            {/* Right side: Language Switcher */}
-            <div className="flex-shrink-0">
-              <LanguageSwitcher translations={translations.common.language_switcher} />
+              {/* Language Switcher */}
+              <div className="flex-shrink-0">
+                <LanguageSwitcher translations={translations.common.language_switcher} />
+              </div>
             </div>
           </div>
 
-          {/* Mobile Navigation */}
-          <nav className="md:hidden mt-4 grid grid-cols-5 gap-4">
-            {navItems.map((item) => (
-              <NavButtonHeader
-                key={item.key}
-                href={item.href}
-                imageSrc={item.imageSrc}
-                hoverImageSrc={item.hoverImageSrc}
-                label={item.label}
-                isActive={pathname === item.href}
-                isMobile={true}
-              />
-            ))}
+          {/* Mobile Navigation - centered */}
+          <nav className="md:hidden mt-6 flex justify-center">
+            <div className="grid grid-cols-5 gap-6">
+              {navItems.map((item) => (
+                <NavButtonHeader
+                  key={item.key}
+                  href={item.href}
+                  imageSrc={item.imageSrc}
+                  hoverImageSrc={item.hoverImageSrc}
+                  label={item.label}
+                  isActive={pathname === item.href}
+                  isMobile={true}
+                />
+              ))}
+            </div>
           </nav>
         </div>
       </header>

@@ -33,7 +33,7 @@ export const projectsDatabase: ProjectData[] = [
       '/assets/projects/asumi/asumi-2.png',
       '/assets/projects/asumi/asumi-3.png'
     ],
-    cycleDuration: 0.8,
+    cycleDuration: 1.8,
     featured: true,
     year: 2025,
     category: 'unity'

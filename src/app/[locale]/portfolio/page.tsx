@@ -38,7 +38,7 @@ export default async function PortfolioPage({ params }: Props) {
             const rows: Row[] = [];
             let currentIndex = 0;
             
-            // Define row patterns: [number of items, width multipliers]
+            // Define row patterns: [number of items, width multipliers, row height]
             const rowPatterns: RowPattern[] = [
               { count: 3, widths: [1.2, 0.8, 1.0] },     // 3 items: wide, narrow, normal
               { count: 4, widths: [1.0, 1.3, 0.7, 1.0] }, // 4 items: normal, wide, narrow, normal
@@ -46,6 +46,16 @@ export default async function PortfolioPage({ params }: Props) {
               { count: 5, widths: [0.9, 1.1, 0.8, 1.0, 1.2] }, // 5 items: varied
               { count: 3, widths: [0.7, 1.4, 0.9] },      // 3 items: narrow, very wide, small
               { count: 4, widths: [1.1, 0.9, 1.2, 0.8] }, // 4 items: mixed
+            ];
+
+            // Define custom row heights (in Tailwind classes)
+            const rowHeights = [
+              'h-64',  // 256px
+              'h-72',  // 288px
+              'h-60',  // 240px
+              'h-80',  // 320px
+              'h-56',  // 224px
+              'h-68',  // 272px
             ];
             
             while (currentIndex < projects.length) {
@@ -68,21 +78,31 @@ export default async function PortfolioPage({ params }: Props) {
               const totalMultiplier = row.widths.reduce((sum: number, width: number) => sum + width, 0);
               const percentages = row.widths.map((width: number) => (width / totalMultiplier) * 100);
               
+              // Get custom row height
+              const rowHeight = rowHeights[rowIndex % rowHeights.length];
+              
               return (
-                <div key={rowIndex} className="flex gap-4 h-64"> {/* Fixed row height */}
-                  {row.projects.map((project, projectIndex) => (
-                    <div
-                      key={project.id}
-                      style={{ width: `${percentages[projectIndex]}%` }}
-                      className="flex-shrink-0"
-                    >
-                      <ProjectThumbnail
-                        project={project}
-                        locale={locale as 'en' | 'pt-BR'}
-                        className="hover:z-10 h-full w-full aspect-auto"
-                      />
-                    </div>
-                  ))}
+                <div key={rowIndex} className={`flex gap-4 ${rowHeight} justify-center`}>
+                  {row.projects.map((project, projectIndex) => {
+                    // Apply maximum width constraint (40%) for single items or very wide items
+                    const widthPercentage = percentages[projectIndex];
+                    const maxWidth = row.projects.length === 1 ? 40 : widthPercentage > 50 ? 50 : widthPercentage;
+                    const finalWidth = Math.min(widthPercentage, maxWidth);
+                    
+                    return (
+                      <div
+                        key={project.id}
+                        style={{ width: `${finalWidth}%` }}
+                        className="flex-shrink-0"
+                      >
+                        <ProjectThumbnail
+                          project={project}
+                          locale={locale as 'en' | 'pt-BR'}
+                          className="hover:z-10 h-full w-full aspect-auto"
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
               );
             });
