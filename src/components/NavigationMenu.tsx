@@ -21,11 +21,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 
   const buttons = [
     {
-      key: 'team',
-      href: '/team',
-      imageSrc: '/assets/team_button_idle.png',
-      hoverImageSrc: '/assets/team_button_hover.png',
-      label: translations.team,
+      key: 'asumi',
+      href: '/asumi',
+      imageSrc: '/assets/games_button_idle.png', // TODO: Replace with asumi_button_idle.png
+      hoverImageSrc: '/assets/games_button_hover.png', // TODO: Replace with asumi_button_hover.png
+      label: translations.asumi,
       // Top position (12 o'clock)
       style: {
         position: 'absolute' as const,
@@ -37,11 +37,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       }
     },
     {
-      key: 'illustrations',
-      href: '/illustrations',
-      imageSrc: '/assets/illustrations_button_idle.png',
-      hoverImageSrc: '/assets/illustrations_button_hover.png',
-      label: translations.illustrations,
+      key: 'portfolio',
+      href: '/portfolio',
+      imageSrc: '/assets/illustrations_button_idle.png', // TODO: Replace with portfolio_button_idle.png
+      hoverImageSrc: '/assets/illustrations_button_hover.png', // TODO: Replace with portfolio_button_hover.png
+      label: translations.portfolio,
       // Top-right position (2 o'clock) - 60 degrees
       style: {
         position: 'absolute' as const,
@@ -52,11 +52,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       }
     },
     {
-      key: 'games',
-      href: '/games',
-      imageSrc: '/assets/games_button_idle.png',
-      hoverImageSrc: '/assets/games_button_hover.png',
-      label: translations.games,
+      key: 'work',
+      href: '/work',
+      imageSrc: '/assets/team_button_idle.png', // TODO: Replace with work_button_idle.png
+      hoverImageSrc: '/assets/team_button_hover.png', // TODO: Replace with work_button_hover.png
+      label: translations.work,
       // Bottom-right position (4 o'clock) - 120 degrees
       style: {
         position: 'absolute' as const,

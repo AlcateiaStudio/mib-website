@@ -64,7 +64,7 @@ Each button is a separate instance of this component.
 - **Visuals:** The button's appearance is an image/drawing (e.g., `button_team.png`).
 - **Hover Effect:** On `onMouseEnter`, the `src` of the button's image **MUST** be swapped to the `hoverImageSrc` (e.g., `button_team_hover.png`). On `onMouseLeave`, it **MUST** revert.
 - **Navigation:** On `onClick`, the component **MUST** navigate the user to the corresponding page. Example: move to `/illustrations`.
-- **Initial Buttons:** Team, Illustrations, Games, About, Contact.
+- **Initial Buttons:** Asumi, About Us, Portfolio, Contact, Work With Us.
 
 ### 4.2. Content Pages (Template)
 This applies to all sub-pages like `/about`, `/team`, `/games`, etc.
@@ -186,11 +186,11 @@ All assets should be provided as high-quality PNGs with transparent backgrounds,
 - Ensure consistent styling across all pages
 
 #### Step 11: Individual Content Pages
-- Create `src/app/[locale]/about/page.tsx`
-- Create `src/app/[locale]/team/page.tsx`
-- Create `src/app/[locale]/games/page.tsx`
-- Create `src/app/[locale]/illustrations/page.tsx`
-- Create `src/app/[locale]/contact/page.tsx`
+- Create `src/app/[locale]/asumi/page.tsx` (most recent project showcase)
+- Create `src/app/[locale]/about/page.tsx` (about the studio)
+- Create `src/app/[locale]/portfolio/page.tsx` (project grid/gallery)
+- Create `src/app/[locale]/contact/page.tsx` (contact information)
+- Create `src/app/[locale]/work/page.tsx` (careers/collaboration opportunities)
 - Add placeholder content for each page
 - Ensure all pages use ContentLayout template
 
