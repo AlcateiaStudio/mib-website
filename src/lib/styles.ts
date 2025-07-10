@@ -12,6 +12,6 @@ export const globalStyles = {
 	// - Pink theme: 'from-pink-50 to-purple-50' and 'bg-pink-50'
 
 	// Other global styles can be added here
-	overlayColor: 'bg-blue-600/80', // Project thumbnail hover overlay
+	overlayColor: 'bg-blue-600 bg-opacity-10', // Project thumbnail hover overlay
 	primaryColor: 'blue', // For buttons, links, etc.
 };

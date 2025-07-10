@@ -90,10 +90,10 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
 					{isHovered && (
 						<motion.div
 							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
+							animate={{ opacity: 0.7 }}
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.15 }}
-							className={`absolute inset-0 ${globalStyles.overlayColor} flex items-center justify-center`}
+							className={`absolute inset-0 bg-green-400 flex items-center justify-center`}
 						>
 							<div className="text-center text-white p-6">
 								<motion.h3
