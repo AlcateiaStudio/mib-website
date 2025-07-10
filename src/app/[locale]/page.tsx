@@ -21,17 +21,10 @@ export default async function HomePage({ params }: Props) {
         <NavigationMenu translations={t.navigation} />
         
         {/* Central content area */}
-        <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+        <div className="absolute w-full pointer-events-none" style={{ top: '265px' }}>
           <div className="text-center space-y-6 pointer-events-auto">
             {/* Center logo with hover effect */}
             <CenterLogo />
-            
-            {/* Title only */}
-            <div>
-              <h1 className="text-4xl font-bold heading-crayon text-shadow-strong">
-                {t.homepage.title}
-              </h1>
-            </div>
 
             {/* Functional language switcher */}
             <LanguageSwitcher translations={t.common.language_switcher} />

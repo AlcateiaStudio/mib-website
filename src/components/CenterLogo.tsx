@@ -8,7 +8,7 @@ export default function CenterLogo() {
 
   return (
     <div 
-      className="w-56 h-56 mx-auto cursor-pointer transition-all duration-300 hover:scale-105 relative z-10"
+      className="w-56 h-56 mx-auto cursor-pointer transition-all duration-300 hover:scale-105 relative z-20"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{ pointerEvents: 'auto' }}

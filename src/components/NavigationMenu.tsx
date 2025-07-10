@@ -8,7 +8,16 @@ interface NavigationMenuProps {
 }
 
 export default function NavigationMenu({ translations }: NavigationMenuProps) {
-  console.log('NavigationMenu render:', translations);
+  // Configuration for logo and button positioning
+  const logoTopOffset = 280; // Should match the top offset in page.tsx
+  const logoSize = 224; // 56 * 4 = 224px (w-56 h-56)
+  const logoCenterY = logoTopOffset + (logoSize / 2); // Center Y of the logo
+  const logoCenterX = '50%'; // Horizontally centered
+  
+  // Star positioning - pixel offsets from logo center
+  const starRadius = 270; // Distance from logo center to buttons (increased for better spacing)
+  const buttonSize = 120; // Size of each button
+  const buttonOffset = buttonSize / 2; // Half button size for centering
 
   const buttons = [
     {
@@ -17,7 +26,15 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       imageSrc: '/assets/team_button_idle.png',
       hoverImageSrc: '/assets/team_button_hover.png',
       label: translations.team,
-      className: 'nav-button-team' // Top position
+      // Top position (12 o'clock)
+      style: {
+        position: 'absolute' as const,
+        top: `${logoCenterY - starRadius - buttonOffset}px`,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 20,
+        pointerEvents: 'auto' as const
+      }
     },
     {
       key: 'illustrations',
@@ -25,7 +42,14 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       imageSrc: '/assets/illustrations_button_idle.png',
       hoverImageSrc: '/assets/illustrations_button_hover.png',
       label: translations.illustrations,
-      className: 'nav-button-illustrations' // Top-right position
+      // Top-right position (2 o'clock) - 60 degrees
+      style: {
+        position: 'absolute' as const,
+        top: `${logoCenterY - (starRadius * Math.cos(Math.PI / 3)) - buttonOffset}px`,
+        right: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
+        zIndex: 20,
+        pointerEvents: 'auto' as const
+      }
     },
     {
       key: 'games',
@@ -33,7 +57,14 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       imageSrc: '/assets/games_button_idle.png',
       hoverImageSrc: '/assets/games_button_hover.png',
       label: translations.games,
-      className: 'nav-button-games' // Bottom-right position
+      // Bottom-right position (4 o'clock) - 120 degrees
+      style: {
+        position: 'absolute' as const,
+        top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 4)) - buttonOffset}px`,
+        right: `calc(50% - ${starRadius * Math.sin(Math.PI / 4) + buttonOffset}px)`,
+        zIndex: 20,
+        pointerEvents: 'auto' as const
+      }
     },
     {
       key: 'about',
@@ -41,7 +72,14 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       imageSrc: '/assets/about_button_idle.png',
       hoverImageSrc: '/assets/about_button_hover.png',
       label: translations.about,
-      className: 'nav-button-about' // Bottom-left position
+      // Bottom-left position (8 o'clock) - 240 degrees
+      style: {
+        position: 'absolute' as const,
+        top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 4)) - buttonOffset}px`,
+        left: `calc(50% - ${starRadius * Math.sin(Math.PI / 4) + buttonOffset}px)`,
+        zIndex: 20,
+        pointerEvents: 'auto' as const
+      }
     },
     {
       key: 'contact',
@@ -49,124 +87,37 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       imageSrc: '/assets/contact_button_idle.png',
       hoverImageSrc: '/assets/contact_button_hover.png',
       label: translations.contact,
-      className: 'nav-button-contact' // Left position
+      // Top-left position (10 o'clock) - 300 degrees
+      style: {
+        position: 'absolute' as const,
+        top: `${logoCenterY - (starRadius * Math.cos(Math.PI / 3)) - buttonOffset}px`,
+        left: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
+        zIndex: 20,
+        pointerEvents: 'auto' as const
+      }
     }
   ];
 
   return (
     <div style={{ 
       position: 'absolute',
-      top: '10%',
-      left: '18%',
-      right: '18%',
-      bottom: '16%',
-      border: '3px solid blue', 
-      backgroundColor: 'rgba(0,0,255,0.1)',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
       zIndex: 15,
       pointerEvents: 'none'
     }}>
-      <div style={{ 
-        position: 'absolute', 
-        top: '10px', 
-        left: '10px', 
-        background: 'yellow', 
-        padding: '4px', 
-        zIndex: 1000,
-        fontSize: '12px'
-      }}>
-        Debug: NavigationMenu Active - {buttons.length} buttons
-      </div>
-      
-      {/* Team button - Top */}
-      <div style={{
-        position: 'absolute',
-        top: '30px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        backgroundColor: 'rgba(255,0,0,0.5)', 
-        border: '2px solid red',
-        zIndex: 20,
-        pointerEvents: 'auto'
-      }}>
-        <NavButton
-          href={buttons[0].href}
-          imageSrc={buttons[0].imageSrc}
-          hoverImageSrc={buttons[0].hoverImageSrc}
-          labelTextKey={buttons[0].label}
-        />
-      </div>
-      
-      {/* Illustrations button - Top-right */}
-      <div style={{
-        position: 'absolute',
-        top: '200px',
-        right: '30px',
-        backgroundColor: 'rgba(255,0,0,0.5)', 
-        border: '2px solid red',
-        zIndex: 20,
-        pointerEvents: 'auto'
-      }}>
-        <NavButton
-          href={buttons[1].href}
-          imageSrc={buttons[1].imageSrc}
-          hoverImageSrc={buttons[1].hoverImageSrc}
-          labelTextKey={buttons[1].label}
-        />
-      </div>
-      
-      {/* Games button - Bottom-right */}
-      <div style={{
-        position: 'absolute',
-        bottom: '40px',
-        right: '110px',
-        backgroundColor: 'rgba(255,0,0,0.5)', 
-        border: '2px solid red',
-        zIndex: 20,
-        pointerEvents: 'auto'
-      }}>
-        <NavButton
-          href={buttons[2].href}
-          imageSrc={buttons[2].imageSrc}
-          hoverImageSrc={buttons[2].hoverImageSrc}
-          labelTextKey={buttons[2].label}
-        />
-      </div>
-      
-      {/* About button - Bottom-left */}
-      <div style={{
-        position: 'absolute',
-        bottom: '40px',
-        left: '110px',
-        backgroundColor: 'rgba(255,0,0,0.5)', 
-        border: '2px solid red',
-        zIndex: 20,
-        pointerEvents: 'auto'
-      }}>
-        <NavButton
-          href={buttons[3].href}
-          imageSrc={buttons[3].imageSrc}
-          hoverImageSrc={buttons[3].hoverImageSrc}
-          labelTextKey={buttons[3].label}
-        />
-      </div>
-      
-      {/* Contact button - Top-left */}
-      <div style={{
-        position: 'absolute',
-        top: '200px',
-        left: '30px',
-        backgroundColor: 'rgba(255,0,0,0.5)', 
-        border: '2px solid red',
-        zIndex: 20,
-        pointerEvents: 'auto'
-      }}>
-        <NavButton
-          href={buttons[4].href}
-          imageSrc={buttons[4].imageSrc}
-          hoverImageSrc={buttons[4].hoverImageSrc}
-          labelTextKey={buttons[4].label}
-        />
-      </div>
+      {buttons.map((button) => (
+        <div key={button.key} style={button.style}>
+          <NavButton
+            href={button.href}
+            imageSrc={button.imageSrc}
+            hoverImageSrc={button.hoverImageSrc}
+            labelTextKey={button.label}
+          />
+        </div>
+      ))}
     </div>
   );
 }
