@@ -1,47 +1,47 @@
 {
-  "navigation": {
-    "asumi": "Asumi",
-    "about": "Sobre Nós",
-    "portfolio": "Portfólio",
-    "contact": "Contato",
-    "work": "Trabalhe Conosco"
-  },
-  "homepage": {
-    "title": "Made in Bugs",
-    "subtitle": "Estúdio de Jogos Indie",
-    "description": "Abraçando a natureza caótica do desenvolvimento de jogos com perseverança e criatividade."
-  },
-  "pages": {
-    "asumi": {
-      "title": "Asumi",
-      "description": "Nosso projeto mais recente"
-    },
-    "about": {
-      "title": "Sobre Nós",
-      "description": "A história por trás do estúdio Made in Bugs"
-    },
-    "portfolio": {
-      "title": "Portfólio",
-      "description": "Veja nossos jogos e projetos"
-    },
-    "contact": {
-      "title": "Contato",
-      "description": "Entre em contato conosco"
-    },
-    "work": {
-      "title": "Trabalhe Conosco",
-      "description": "Junte-se à nossa equipe ou colabore conosco"
-    }
-  },
-  "ui": {
-    "language": "Idioma",
-    "loading": "Carregando...",
-    "error": "Algo deu errado"
-  },
-  "common": {
-    "language_switcher": {
-      "portuguese": "Português",
-      "english": "English"
-    }
-  }
+	"navigation": {
+		"asumi": "Asumi",
+		"about": "Sobre Nós",
+		"portfolio": "Portfólio",
+		"contact": "Contato",
+		"work": "Trabalhe Conosco"
+	},
+	"homepage": {
+		"title": "Made in Bugs",
+		"subtitle": "Estúdio de Jogos Indie",
+		"description": "Abraçando a natureza caótica do desenvolvimento de jogos com perseverança e criatividade."
+	},
+	"pages": {
+		"asumi": {
+			"title": "Asumi",
+			"description": "Nosso projeto mais recente"
+		},
+		"about": {
+			"title": "Sobre Nós",
+			"description": "A história por trás do estúdio Made in Bugs"
+		},
+		"portfolio": {
+			"title": "Portfólio",
+			"description": "Veja nossos jogos e projetos"
+		},
+		"contact": {
+			"title": "Contato",
+			"description": "Entre em contato conosco"
+		},
+		"work": {
+			"title": "Trabalhe Conosco",
+			"description": "Junte-se à nossa equipe ou colabore conosco"
+		}
+	},
+	"ui": {
+		"language": "Idioma",
+		"loading": "Carregando...",
+		"error": "Algo deu errado"
+	},
+	"common": {
+		"language_switcher": {
+			"portuguese": "Português",
+			"english": "English"
+		}
+	}
 }

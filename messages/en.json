@@ -1,47 +1,47 @@
 {
-  "navigation": {
-    "asumi": "Asumi",
-    "about": "About Us",
-    "portfolio": "Portfolio",
-    "contact": "Contact",
-    "work": "Work With Us"
-  },
-  "homepage": {
-    "title": "Made in Bugs",
-    "subtitle": "Indie Game Studio",
-    "description": "Embracing the chaotic nature of game development with perseverance and creativity."
-  },
-  "pages": {
-    "asumi": {
-      "title": "Asumi",
-      "description": "Our most recent project"
-    },
-    "about": {
-      "title": "About Us",
-      "description": "The story behind Made in Bugs studio"
-    },
-    "portfolio": {
-      "title": "Portfolio",
-      "description": "Check out our games and projects"
-    },
-    "contact": {
-      "title": "Contact",
-      "description": "Get in touch with us"
-    },
-    "work": {
-      "title": "Work With Us",
-      "description": "Join our team or collaborate with us"
-    }
-  },
-  "ui": {
-    "language": "Language",
-    "loading": "Loading...",
-    "error": "Something went wrong"
-  },
-  "common": {
-    "language_switcher": {
-      "portuguese": "Português",
-      "english": "English"
-    }
-  }
+	"navigation": {
+		"asumi": "Asumi",
+		"about": "About Us",
+		"portfolio": "Portfolio",
+		"contact": "Contact",
+		"work": "Work With Us"
+	},
+	"homepage": {
+		"title": "Made in Bugs",
+		"subtitle": "Indie Game Studio",
+		"description": "Embracing the chaotic nature of game development with perseverance and creativity."
+	},
+	"pages": {
+		"asumi": {
+			"title": "Asumi",
+			"description": "Our most recent project"
+		},
+		"about": {
+			"title": "About Us",
+			"description": "The story behind Made in Bugs studio"
+		},
+		"portfolio": {
+			"title": "Portfolio",
+			"description": "Check out our games and projects"
+		},
+		"contact": {
+			"title": "Contact",
+			"description": "Get in touch with us"
+		},
+		"work": {
+			"title": "Work With Us",
+			"description": "Join our team or collaborate with us"
+		}
+	},
+	"ui": {
+		"language": "Language",
+		"loading": "Loading...",
+		"error": "Something went wrong"
+	},
+	"common": {
+		"language_switcher": {
+			"portuguese": "Português",
+			"english": "English"
+		}
+	}
 }
