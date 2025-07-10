@@ -94,12 +94,12 @@ export default function ContentLayout({ children, translations, locale }: Conten
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${globalStyles.backgroundColor}`}>
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+      {/* Header - seamless with background */}
+      <header className="static z-50 pt-6 pb-4">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between">
             {/* Left side: Logo + Navigation */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-8">
               {/* Logo */}
               <Link href={`/${locale}`} className="flex-shrink-0">
                 <div className="w-12 h-12 relative hover:scale-105 transition-transform duration-200">
@@ -115,7 +115,7 @@ export default function ContentLayout({ children, translations, locale }: Conten
               </Link>
 
               {/* Navigation Buttons */}
-              <nav className="hidden md:flex items-center space-x-4">
+              <nav className="hidden md:flex items-center space-x-12">
                 {navItems.map((item) => (
                   <NavButtonHeader
                     key={item.key}
@@ -136,7 +136,7 @@ export default function ContentLayout({ children, translations, locale }: Conten
           </div>
 
           {/* Mobile Navigation */}
-          <nav className="md:hidden mt-4 grid grid-cols-5 gap-2">
+          <nav className="md:hidden mt-4 grid grid-cols-5 gap-4">
             {navItems.map((item) => (
               <NavButtonHeader
                 key={item.key}
@@ -153,7 +153,7 @@ export default function ContentLayout({ children, translations, locale }: Conten
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 py-8">
+      <main className="max-w-6xl mx-auto px-6 py-0">
         {children}
       </main>
 

@@ -36,25 +36,25 @@ export const projectsDatabase: ProjectData[] = [
     cycleDuration: 0.8,
     featured: true,
     year: 2025,
-    category: 'game'
+    category: 'unity'
   },
-  {
-    id: 'animunch',
+    {
+    id: 'phora',
     title: {
-      en: 'Animunch',
-      'pt-BR': 'Animunch'
+      en: 'Roblox Phora Lab',
+      'pt-BR': 'Roblox Phora Lab'
     },
     subtitle: {
-      en: 'Mobile Arcade Puzzle Game',
-      'pt-BR': 'Jogo Mobile Puzzle Arcade'
+      en: 'Roblox Fashion Game',
+      'pt-BR': 'Roblox Fashion Game',
     },
     images: [
-      '/assets/projects/animunch/animunch-1.jpg',
-      '/assets/projects/animunch/animunch-2.jpg'
+      '/assets/projects/phora/phora-1.jpg',
+      '/assets/projects/phora/phora-2.jpg',
     ],
     cycleDuration: 4,
-    year: 2023,
-    category: 'game'
+    year: 2025,
+    category: 'roblox'
   },
   {
     id: 'pizza',
@@ -72,7 +72,25 @@ export const projectsDatabase: ProjectData[] = [
     ],
     cycleDuration: 2.5,
     year: 2024,
-    category: 'game'
+    category: 'unity'
+  },
+    {
+    id: 'animunch',
+    title: {
+      en: 'Animunch',
+      'pt-BR': 'Animunch'
+    },
+    subtitle: {
+      en: 'Mobile Arcade Puzzle Game',
+      'pt-BR': 'Jogo Mobile Puzzle Arcade'
+    },
+    images: [
+      '/assets/projects/animunch/animunch-1.jpg',
+      '/assets/projects/animunch/animunch-2.jpg'
+    ],
+    cycleDuration: 4,
+    year: 2023,
+    category: 'unity'
   },
 ];
 

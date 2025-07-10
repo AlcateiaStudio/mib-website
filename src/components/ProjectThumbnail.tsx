@@ -39,7 +39,7 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
     <Link href={`/${locale}/projects/${project.id}`}>
       <motion.div
         className={`
-          group relative aspect-[4/3] overflow-hidden cursor-pointer
+          group relative overflow-hidden cursor-pointer
           shadow-md hover:shadow-xl transition-shadow duration-300
           ${className}
         `}

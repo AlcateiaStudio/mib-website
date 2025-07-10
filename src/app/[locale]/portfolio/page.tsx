@@ -20,16 +20,73 @@ export default async function PortfolioPage({ params }: Props) {
   return (
     <ContentLayout translations={t} locale={locale}>
       <div className="space-y-8">
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <ProjectThumbnail
-              key={project.id}
-              project={project}
-              locale={locale as 'en' | 'pt-BR'}
-              className="hover:z-10"
-            />
-          ))}
+        {/* Projects Grid - Irregular widths, consistent row heights */}
+        <div className="space-y-6">
+          {/* Group projects into rows with different layouts */}
+          {(() => {
+            interface RowPattern {
+              count: number;
+              widths: number[];
+            }
+            
+            interface Row {
+              projects: typeof projects;
+              widths: number[];
+              startIndex: number;
+            }
+            
+            const rows: Row[] = [];
+            let currentIndex = 0;
+            
+            // Define row patterns: [number of items, width multipliers]
+            const rowPatterns: RowPattern[] = [
+              { count: 3, widths: [1.2, 0.8, 1.0] },     // 3 items: wide, narrow, normal
+              { count: 4, widths: [1.0, 1.3, 0.7, 1.0] }, // 4 items: normal, wide, narrow, normal
+              { count: 3, widths: [1.2, 0.8, 1.0] },     // 3 items: wide, narrow, normal
+              { count: 5, widths: [0.9, 1.1, 0.8, 1.0, 1.2] }, // 5 items: varied
+              { count: 3, widths: [0.7, 1.4, 0.9] },      // 3 items: narrow, very wide, small
+              { count: 4, widths: [1.1, 0.9, 1.2, 0.8] }, // 4 items: mixed
+            ];
+            
+            while (currentIndex < projects.length) {
+              const pattern = rowPatterns[rows.length % rowPatterns.length];
+              const rowProjects = projects.slice(currentIndex, currentIndex + pattern.count);
+              
+              if (rowProjects.length > 0) {
+                rows.push({
+                  projects: rowProjects,
+                  widths: pattern.widths.slice(0, rowProjects.length),
+                  startIndex: currentIndex
+                });
+              }
+              
+              currentIndex += pattern.count;
+            }
+            
+            return rows.map((row, rowIndex) => {
+              // Calculate actual percentages based on multipliers
+              const totalMultiplier = row.widths.reduce((sum: number, width: number) => sum + width, 0);
+              const percentages = row.widths.map((width: number) => (width / totalMultiplier) * 100);
+              
+              return (
+                <div key={rowIndex} className="flex gap-4 h-64"> {/* Fixed row height */}
+                  {row.projects.map((project, projectIndex) => (
+                    <div
+                      key={project.id}
+                      style={{ width: `${percentages[projectIndex]}%` }}
+                      className="flex-shrink-0"
+                    >
+                      <ProjectThumbnail
+                        project={project}
+                        locale={locale as 'en' | 'pt-BR'}
+                        className="hover:z-10 h-full w-full aspect-auto"
+                      />
+                    </div>
+                  ))}
+                </div>
+              );
+            });
+          })()}
         </div>
 
         {/* Empty state if no projects */}
