@@ -20,16 +20,6 @@ export default async function PortfolioPage({ params }: Props) {
   return (
     <ContentLayout translations={t} locale={locale}>
       <div className="space-y-8">
-        {/* Page Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold heading-crayon text-shadow-strong">
-            {t.pages.portfolio.title}
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {t.pages.portfolio.description}
-          </p>
-        </div>
-
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (

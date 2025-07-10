@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { globalStyles } from '../lib/styles';
 import type { ProjectData } from '../lib/projects';
 
 interface ProjectThumbnailProps {
@@ -38,7 +39,7 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
     <Link href={`/${locale}/projects/${project.id}`}>
       <motion.div
         className={`
-          group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer
+          group relative aspect-[4/3] overflow-hidden cursor-pointer
           shadow-md hover:shadow-xl transition-shadow duration-300
           ${className}
         `}
@@ -92,7 +93,7 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-blue-600/80 flex items-center justify-center"
+              className={`absolute inset-0 ${globalStyles.overlayColor} flex items-center justify-center`}
             >
               <div className="text-center text-white p-6">
                 <motion.h3
@@ -119,16 +120,16 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
         {/* Featured badge */}
         {project.featured && (
           <div className="absolute top-3 left-3">
-            <div className="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-bold shadow-lg">
+            <div className="bg-yellow-400 text-yellow-900 px-2 py-1 text-xs font-bold shadow-lg">
               ⭐ Featured
             </div>
           </div>
         )}
 
-        {/* Year badge */}
+        {/* Year badge - hidden as requested */}
         {project.year && (
           <div className="absolute bottom-3 left-3">
-            <div className="bg-black/50 text-white px-2 py-1 rounded text-xs font-medium">
+            <div className="bg-black text-white px-2 py-1 text-xs font-medium">
               {project.year}
             </div>
           </div>

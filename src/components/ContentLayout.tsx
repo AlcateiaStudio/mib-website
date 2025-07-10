@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
+import { globalStyles } from '../lib/styles';
 import type { Translations } from '../lib/i18n';
 
 interface ContentLayoutProps {
@@ -13,26 +14,92 @@ interface ContentLayoutProps {
   locale: string;
 }
 
+// Header navigation button component
+interface NavButtonHeaderProps {
+  href: string;
+  imageSrc: string;
+  hoverImageSrc: string;
+  label: string;
+  isActive: boolean;
+  isMobile?: boolean;
+}
+
+function NavButtonHeader({ href, imageSrc, hoverImageSrc, label, isActive, isMobile = false }: NavButtonHeaderProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Link
+      href={href}
+      className={`
+        relative transition-all duration-200 hover:scale-105
+        ${isMobile ? 'w-12 h-12' : 'w-16 h-16'}
+        ${isActive ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
+      `}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      title={label}
+    >
+      <Image
+        src={isHovered ? hoverImageSrc : imageSrc}
+        alt={label}
+        width={isMobile ? 48 : 64}
+        height={isMobile ? 48 : 64}
+        className="w-full h-full object-contain"
+      />
+    </Link>
+  );
+}
+
 export default function ContentLayout({ children, translations, locale }: ContentLayoutProps) {
   const pathname = usePathname();
   
-  // Header navigation items (same as homepage navigation)
+  // Header navigation items with button images (same as homepage navigation)
   const navItems = [
-    { key: 'asumi', href: `/${locale}/asumi`, label: translations.navigation.asumi },
-    { key: 'about', href: `/${locale}/about`, label: translations.navigation.about },
-    { key: 'portfolio', href: `/${locale}/portfolio`, label: translations.navigation.portfolio },
-    { key: 'contact', href: `/${locale}/contact`, label: translations.navigation.contact },
-    { key: 'work', href: `/${locale}/work`, label: translations.navigation.work },
+    { 
+      key: 'asumi', 
+      href: `/${locale}/asumi`, 
+      label: translations.navigation.asumi,
+      imageSrc: '/assets/games_button_idle.png', // TODO: Replace with asumi_button_idle.png
+      hoverImageSrc: '/assets/games_button_hover.png' // TODO: Replace with asumi_button_hover.png
+    },
+    { 
+      key: 'about', 
+      href: `/${locale}/about`, 
+      label: translations.navigation.about,
+      imageSrc: '/assets/about_button_idle.png',
+      hoverImageSrc: '/assets/about_button_hover.png'
+    },
+    { 
+      key: 'portfolio', 
+      href: `/${locale}/portfolio`, 
+      label: translations.navigation.portfolio,
+      imageSrc: '/assets/illustrations_button_idle.png', // TODO: Replace with portfolio_button_idle.png
+      hoverImageSrc: '/assets/illustrations_button_hover.png' // TODO: Replace with portfolio_button_hover.png
+    },
+    { 
+      key: 'contact', 
+      href: `/${locale}/contact`, 
+      label: translations.navigation.contact,
+      imageSrc: '/assets/contact_button_idle.png',
+      hoverImageSrc: '/assets/contact_button_hover.png'
+    },
+    { 
+      key: 'work', 
+      href: `/${locale}/work`, 
+      label: translations.navigation.work,
+      imageSrc: '/assets/team_button_idle.png', // TODO: Replace with work_button_idle.png
+      hoverImageSrc: '/assets/team_button_hover.png' // TODO: Replace with work_button_hover.png
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+    <div className={`min-h-screen bg-gradient-to-br ${globalStyles.backgroundColor}`}>
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Left side: Logo + Navigation */}
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-6">
               {/* Logo */}
               <Link href={`/${locale}`} className="flex-shrink-0">
                 <div className="w-12 h-12 relative hover:scale-105 transition-transform duration-200">
@@ -48,21 +115,16 @@ export default function ContentLayout({ children, translations, locale }: Conten
               </Link>
 
               {/* Navigation Buttons */}
-              <nav className="hidden md:flex items-center space-x-6">
+              <nav className="hidden md:flex items-center space-x-4">
                 {navItems.map((item) => (
-                  <Link
+                  <NavButtonHeader
                     key={item.key}
                     href={item.href}
-                    className={`
-                      px-4 py-2 rounded-lg font-medium transition-all duration-200
-                      ${pathname === item.href 
-                        ? 'bg-blue-100 text-blue-700 shadow-sm' 
-                        : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
-                      }
-                    `}
-                  >
-                    {item.label}
-                  </Link>
+                    imageSrc={item.imageSrc}
+                    hoverImageSrc={item.hoverImageSrc}
+                    label={item.label}
+                    isActive={pathname === item.href}
+                  />
                 ))}
               </nav>
             </div>
@@ -74,21 +136,17 @@ export default function ContentLayout({ children, translations, locale }: Conten
           </div>
 
           {/* Mobile Navigation */}
-          <nav className="md:hidden mt-4 flex flex-wrap gap-2">
+          <nav className="md:hidden mt-4 grid grid-cols-5 gap-2">
             {navItems.map((item) => (
-              <Link
+              <NavButtonHeader
                 key={item.key}
                 href={item.href}
-                className={`
-                  px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200
-                  ${pathname === item.href 
-                    ? 'bg-blue-100 text-blue-700' 
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
-                  }
-                `}
-              >
-                {item.label}
-              </Link>
+                imageSrc={item.imageSrc}
+                hoverImageSrc={item.hoverImageSrc}
+                label={item.label}
+                isActive={pathname === item.href}
+                isMobile={true}
+              />
             ))}
           </nav>
         </div>

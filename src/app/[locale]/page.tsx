@@ -2,6 +2,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 import NavigationMenu from '@/components/NavigationMenu';
 import CenterLogo from '@/components/CenterLogo';
 import { getTranslations, normalizeLocale } from '../../lib/i18n';
+import { globalStyles } from '../../lib/styles';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -15,7 +16,7 @@ export default async function HomePage({ params }: Props) {
   const t = await getTranslations(locale);
 
   return (
-    <div className="homepage-layout center-content">
+    <div className={`homepage-layout center-content bg-gradient-to-br ${globalStyles.backgroundColor}`}>
       <div className="relative w-full h-screen max-w-6xl mx-auto">
         {/* Navigation Menu with 5-point star layout - positioned first */}
         <NavigationMenu translations={t.navigation} />
