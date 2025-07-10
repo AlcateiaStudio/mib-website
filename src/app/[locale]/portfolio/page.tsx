@@ -38,17 +38,15 @@ export default async function PortfolioPage({ params }: Props) {
             const rows: Row[] = [];
             let currentIndex = 0;
             
-            // Define row patterns: [number of items, width multipliers, row height]
             const rowPatterns: RowPattern[] = [
-              { count: 3, widths: [1.2, 0.8, 1.0] },     // 3 items: wide, narrow, normal
-              { count: 4, widths: [1.0, 1.3, 0.7, 1.0] }, // 4 items: normal, wide, narrow, normal
-              { count: 3, widths: [1.2, 0.8, 1.0] },     // 3 items: wide, narrow, normal
-              { count: 5, widths: [0.9, 1.1, 0.8, 1.0, 1.2] }, // 5 items: varied
-              { count: 3, widths: [0.7, 1.4, 0.9] },      // 3 items: narrow, very wide, small
-              { count: 4, widths: [1.1, 0.9, 1.2, 0.8] }, // 4 items: mixed
+              { count: 3, widths: [1.2, 0.8, 1.0] },
+              { count: 4, widths: [1.0, 1.3, 0.7, 1.0] },
+              { count: 3, widths: [1.2, 0.8, 1.0] },
+              { count: 5, widths: [0.9, 1.1, 0.8, 1.0, 1.2] },
+              { count: 3, widths: [0.7, 1.4, 0.9] },
+              { count: 4, widths: [1.1, 0.9, 1.2, 0.8] },
             ];
 
-            // Define custom row heights (in Tailwind classes)
             const rowHeights = [
               'h-64',  // 256px
               'h-72',  // 288px
