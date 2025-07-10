@@ -45,8 +45,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       // Top-right position (2 o'clock) - 60 degrees
       style: {
         position: 'absolute' as const,
-        top: `${logoCenterY - (starRadius * Math.cos(Math.PI / 3)) - buttonOffset}px`,
-        right: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
+        top: `${logoCenterY - (starRadius * Math.cos(Math.PI / 2.8)) - buttonOffset}px`,
+        right: `calc(50% - ${starRadius * Math.sin(Math.PI / 2.5) + buttonOffset}px)`,
         zIndex: 20,
         pointerEvents: 'auto' as const
       }
@@ -90,8 +90,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
       // Top-left position (10 o'clock) - 300 degrees
       style: {
         position: 'absolute' as const,
-        top: `${logoCenterY - (starRadius * Math.cos(Math.PI / 3)) - buttonOffset}px`,
-        left: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
+        top: `${logoCenterY - (starRadius * Math.cos(Math.PI / 2.8)) - buttonOffset}px`,
+        left: `calc(50% - ${starRadius * Math.sin(Math.PI / 2.5) + buttonOffset}px)`,
         zIndex: 20,
         pointerEvents: 'auto' as const
       }
