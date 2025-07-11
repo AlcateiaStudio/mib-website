@@ -16,7 +16,9 @@ export default async function HomePage({ params }: Props) {
 	const t = await getTranslations(locale);
 
 	return (
-		<div className={`homepage-layout center-content bg-gradient-to-br ${globalStyles.backgroundColor}`}>
+		<div
+			className={`homepage-layout center-content bg-gradient-to-br ${globalStyles.backgroundColor}`}
+		>
 			<div className="relative w-full h-screen max-w-6xl mx-auto">
 				{/* Navigation Menu with 5-point star layout - positioned first */}
 				<NavigationMenu translations={t.navigation} />

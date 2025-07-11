@@ -79,7 +79,9 @@ export default function ContentLayout({ children, translations, locale }: Conten
 	];
 
 	return (
-		<div className={`min-h-screen bg-gradient-to-br ${globalStyles.backgroundColor}`}>
+		<div
+			className={`min-h-screen bg-gradient-to-br ${globalStyles.backgroundColor}`}
+		>
 			{/* Header - seamless with background, 50% larger */}
 			<header className="static z-50 pt-9 pb-6">
 				<div className="max-w-6xl mx-auto px-6">

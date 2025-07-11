@@ -4,6 +4,18 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/lib/**/*.{js,ts,jsx,tsx}', // Include lib directory for styles.ts
+  ],
+  safelist: [
+    // Ensure gradient classes from styles.ts are never purged
+    'bg-gradient-to-br',
+    'from-orange-50', 'from-orange-100', 'from-orange-200', 'from-orange-300', 'from-orange-400', 'from-orange-500',
+    'to-red-50', 'to-red-100', 'to-red-200', 'to-red-300', 'to-red-400', 'to-red-500',
+    'to-amber-50', 'to-amber-100', 'to-amber-200', 'to-amber-300', 'to-amber-400', 'to-amber-500',
+    'via-amber-50', 'via-amber-100', 'via-amber-200', 'via-amber-300', 'via-amber-400', 'via-amber-500',
+    'to-yellow-50', 'to-yellow-100', 'to-yellow-200', 'to-yellow-300', 'to-yellow-400', 'to-yellow-500',
+    // Solid background classes
+    'bg-orange-50', 'bg-orange-100', 'bg-orange-200', 'bg-orange-300', 'bg-orange-400', 'bg-orange-500',
   ],
   theme: {
     extend: {

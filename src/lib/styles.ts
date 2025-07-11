@@ -1,8 +1,9 @@
 // Global style configuration
 export const globalStyles = {
-	// Background colors - Change these to update the entire site
-	backgroundColor: 'from-orange-100 to-red-200', // Tailwind gradient classes
-	solidBackgroundColor: 'bg-orange-200', // For solid backgrounds
+	// Background colors - Enhanced orange theme
+	// NOTE: These classes are added to safelist in tailwind.config.js to prevent purging
+	backgroundColor: 'from-orange-50 to-amber-50', // Very strong, visible orange gradient
+	solidBackgroundColor: 'bg-orange-400', // For solid backgrounds
 
 	// You can easily change the background by updating these values:
 	// Examples:

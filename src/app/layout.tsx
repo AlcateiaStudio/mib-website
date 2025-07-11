@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className="font-sans bg-neutral-50 text-neutral-800">
+      <body className="font-sans text-neutral-800">
         {children}
       </body>
     </html>
