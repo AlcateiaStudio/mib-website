@@ -12,10 +12,10 @@ interface NavButtonProps {
   className?: string;
 }
 
-export default function NavButton({ 
-  href, 
-  imageSrc, 
-  hoverImageSrc, 
+export default function NavButton({
+  href,
+  imageSrc,
+  hoverImageSrc,
   labelTextKey,
   className = ''
 }: NavButtonProps) {
@@ -42,8 +42,6 @@ export default function NavButton({
         display: 'block',
         width: '120px',
         height: '120px',
-        border: '2px solid green',
-        backgroundColor: 'rgba(0,255,0,0.2)',
         zIndex: 30,
         pointerEvents: 'auto',
         cursor: 'pointer'

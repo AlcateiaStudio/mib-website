@@ -20,9 +20,6 @@ export default async function ContactPage({ params }: Props) {
 					<h1 className="text-4xl font-bold heading-crayon text-shadow-strong">
 						{t.pages.contact.title}
 					</h1>
-					<p className="text-lg text-gray-600 max-w-2xl mx-auto">
-						{t.pages.contact.description}
-					</p>
 				</div>
 
 				{/* Contact Content */}
