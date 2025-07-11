@@ -21,11 +21,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 
 	const buttons = [
 		{
-			key: 'asumi',
-			href: '/asumi',
-			imageSrc: '/assets/games_button_idle.png', // TODO: Replace with asumi_button_idle.png
-			hoverImageSrc: '/assets/games_button_hover.png', // TODO: Replace with asumi_button_hover.png
-			label: translations.asumi,
+			key: 'portfolio',
+			href: '/portfolio',
+			imageSrc: '/assets/illustrations_button_idle.png', // TODO: Replace with portfolio_button_idle.png
+			hoverImageSrc: '/assets/illustrations_button_hover.png', // TODO: Replace with portfolio_button_hover.png
+			label: translations.portfolio,
 			// Top position (12 o'clock)
 			style: {
 				position: 'absolute' as const,
@@ -37,46 +37,16 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			}
 		},
 		{
-			key: 'portfolio',
-			href: '/portfolio',
-			imageSrc: '/assets/illustrations_button_idle.png', // TODO: Replace with portfolio_button_idle.png
-			hoverImageSrc: '/assets/illustrations_button_hover.png', // TODO: Replace with portfolio_button_hover.png
-			label: translations.portfolio,
-			// Top-right position (2 o'clock) - 60 degrees
-			style: {
-				position: 'absolute' as const,
-				top: `${logoCenterY - (starRadius * Math.cos(Math.PI / 2.8)) - buttonOffset}px`,
-				right: `calc(50% - ${starRadius * Math.sin(Math.PI / 2.5) + buttonOffset}px)`,
-				zIndex: 20,
-				pointerEvents: 'auto' as const
-			}
-		},
-		{
-			key: 'work',
-			href: '/work',
-			imageSrc: '/assets/team_button_idle.png', // TODO: Replace with work_button_idle.png
-			hoverImageSrc: '/assets/team_button_hover.png', // TODO: Replace with work_button_hover.png
-			label: translations.work,
-			// Bottom-right position (4 o'clock) - 120 degrees
-			style: {
-				position: 'absolute' as const,
-				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 4)) - buttonOffset}px`,
-				right: `calc(50% - ${starRadius * Math.sin(Math.PI / 4) + buttonOffset}px)`,
-				zIndex: 20,
-				pointerEvents: 'auto' as const
-			}
-		},
-		{
 			key: 'about',
 			href: '/about',
 			imageSrc: '/assets/about_button_idle.png',
 			hoverImageSrc: '/assets/about_button_hover.png',
 			label: translations.about,
-			// Bottom-left position (8 o'clock) - 240 degrees
+			// Bottom-right position (4 o'clock) - 120 degrees
 			style: {
 				position: 'absolute' as const,
 				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 4)) - buttonOffset}px`,
-				left: `calc(50% - ${starRadius * Math.sin(Math.PI / 4) + buttonOffset}px)`,
+				right: `calc(50% - ${starRadius * Math.sin(Math.PI / 2) + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
 			}
@@ -87,11 +57,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/contact_button_idle.png',
 			hoverImageSrc: '/assets/contact_button_hover.png',
 			label: translations.contact,
-			// Top-left position (10 o'clock) - 300 degrees
+			// Bottom-left position (8 o'clock) - 240 degrees
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY - (starRadius * Math.cos(Math.PI / 2.8)) - buttonOffset}px`,
-				left: `calc(50% - ${starRadius * Math.sin(Math.PI / 2.5) + buttonOffset}px)`,
+				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 4)) - buttonOffset}px`,
+				left: `calc(50% - ${starRadius * Math.sin(Math.PI / 2) + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
 			}

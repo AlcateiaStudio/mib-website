@@ -1,10 +1,8 @@
 {
 	"navigation": {
-		"asumi": "Asumi",
 		"about": "Sobre Nós",
 		"portfolio": "Portfólio",
-		"contact": "Contato",
-		"work": "Trabalhe Conosco"
+		"contact": "Contato"
 	},
 	"homepage": {
 		"title": "Made in Bugs",
@@ -12,10 +10,6 @@
 		"description": "Abraçando a natureza caótica do desenvolvimento de jogos com perseverança e criatividade."
 	},
 	"pages": {
-		"asumi": {
-			"title": "Asumi",
-			"description": "Nosso projeto mais recente"
-		},
 		"about": {
 			"title": "Sobre Nós",
 			"description": "A história por trás do estúdio Made in Bugs"
@@ -26,11 +20,7 @@
 		},
 		"contact": {
 			"title": "Contato",
-			"description": "Entre em contato conosco"
-		},
-		"work": {
-			"title": "Trabalhe Conosco",
-			"description": "Junte-se à nossa equipe ou colabore conosco"
+			"description": "Entre em contato conosco ou colabore com a gente"
 		}
 	},
 	"ui": {

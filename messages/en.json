@@ -1,10 +1,8 @@
 {
 	"navigation": {
-		"asumi": "Asumi",
 		"about": "About Us",
 		"portfolio": "Portfolio",
-		"contact": "Contact",
-		"work": "Work With Us"
+		"contact": "Contact"
 	},
 	"homepage": {
 		"title": "Made in Bugs",
@@ -12,10 +10,6 @@
 		"description": "Embracing the chaotic nature of game development with perseverance and creativity."
 	},
 	"pages": {
-		"asumi": {
-			"title": "Asumi",
-			"description": "Our most recent project"
-		},
 		"about": {
 			"title": "About Us",
 			"description": "The story behind Made in Bugs studio"
@@ -26,11 +20,7 @@
 		},
 		"contact": {
 			"title": "Contact",
-			"description": "Get in touch with us"
-		},
-		"work": {
-			"title": "Work With Us",
-			"description": "Join our team or collaborate with us"
+			"description": "Get in touch with us or collaborate with us"
 		}
 	},
 	"ui": {

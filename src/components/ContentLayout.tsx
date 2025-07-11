@@ -56,13 +56,6 @@ export default function ContentLayout({ children, translations, locale }: Conten
 	// Header navigation items with button images (same as homepage navigation)
 	const navItems = [
 		{
-			key: 'asumi',
-			href: `/${locale}/asumi`,
-			label: translations.navigation.asumi,
-			imageSrc: '/assets/games_button_idle.png', // TODO: Replace with asumi_button_idle.png
-			hoverImageSrc: '/assets/games_button_hover.png' // TODO: Replace with asumi_button_hover.png
-		},
-		{
 			key: 'about',
 			href: `/${locale}/about`,
 			label: translations.navigation.about,
@@ -82,14 +75,7 @@ export default function ContentLayout({ children, translations, locale }: Conten
 			label: translations.navigation.contact,
 			imageSrc: '/assets/contact_button_idle.png',
 			hoverImageSrc: '/assets/contact_button_hover.png'
-		},
-		{
-			key: 'work',
-			href: `/${locale}/work`,
-			label: translations.navigation.work,
-			imageSrc: '/assets/team_button_idle.png', // TODO: Replace with work_button_idle.png
-			hoverImageSrc: '/assets/team_button_hover.png' // TODO: Replace with work_button_hover.png
-		},
+		}
 	];
 
 	return (

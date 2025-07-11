@@ -4,11 +4,9 @@ import path from 'path';
 // Define the structure of our translation files
 export interface Translations {
 	navigation: {
-		asumi: string;
 		about: string;
 		portfolio: string;
 		contact: string;
-		work: string;
 	};
 	homepage: {
 		title: string;
@@ -16,10 +14,6 @@ export interface Translations {
 		description: string;
 	};
 	pages: {
-		asumi: {
-			title: string;
-			description: string;
-		};
 		about: {
 			title: string;
 			description: string;
@@ -29,10 +23,6 @@ export interface Translations {
 			description: string;
 		};
 		contact: {
-			title: string;
-			description: string;
-		};
-		work: {
 			title: string;
 			description: string;
 		};
