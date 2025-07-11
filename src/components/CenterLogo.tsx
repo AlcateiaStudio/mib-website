@@ -7,10 +7,10 @@ export default function CenterLogo() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="text-center space-y-4 relative z-20" style={{ pointerEvents: 'auto' }}>
+    <div className="text-center relative z-10" style={{ pointerEvents: 'auto' }}>
       {/* Logo */}
       <div
-        className="w-56 h-56 mx-auto cursor-pointer transition-all duration-300 hover:scale-105"
+        className="w-56 h-56 mx-auto cursor-pointer transition-all duration-300 hover:scale-105 relative z-10"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -24,8 +24,14 @@ export default function CenterLogo() {
         />
       </div>
 
-      {/* Studio Name */}
-      <h1 className="font-logo text-2xl md:text-3xl font-medium text-gray-800 tracking-wide">
+      {/* Studio Name - Positioned very close to logo with lower z-index */}
+      <h1
+        className="font-logo text-2xl md:text-3xl font-medium text-gray-800 tracking-wide relative z-5"
+        style={{
+          marginTop: '4px',
+          pointerEvents: 'none'
+        }}
+      >
         Made in Bugs
       </h1>
     </div>

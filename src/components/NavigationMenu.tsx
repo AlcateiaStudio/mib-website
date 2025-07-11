@@ -42,11 +42,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/about_button_idle.png',
 			hoverImageSrc: '/assets/about_button_hover.png',
 			label: translations.about,
-			// Bottom-right position (4 o'clock) - 120 degrees
+			// Bottom-right position (4 o'clock) - 120 degrees from top
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 4)) - buttonOffset}px`,
-				right: `calc(50% - ${starRadius * Math.sin(Math.PI / 2) + buttonOffset}px)`,
+				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 3)) - buttonOffset}px`,
+				right: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
 			}
@@ -57,11 +57,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/contact_button_idle.png',
 			hoverImageSrc: '/assets/contact_button_hover.png',
 			label: translations.contact,
-			// Bottom-left position (8 o'clock) - 240 degrees
+			// Bottom-left position (8 o'clock) - 240 degrees from top
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 4)) - buttonOffset}px`,
-				left: `calc(50% - ${starRadius * Math.sin(Math.PI / 2) + buttonOffset}px)`,
+				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 3)) - buttonOffset}px`,
+				left: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
 			}
