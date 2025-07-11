@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&family=Comfortaa:wght@300;400;500&family=Inter:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +12,24 @@
   
   body {
     @apply bg-neutral-50 text-neutral-800;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: 'Inter', 'Segoe UI', sans-serif; /* Default body text */
+  }
+  
+  /* Font classes for different elements */
+  .font-h1 {
+    font-family: 'Fredoka', 'Comic Sans MS', cursive !important; /* H1 headings */
+  }
+  
+  .font-h2 {
+    font-family: 'Nunito', 'Arial', sans-serif !important; /* H2 headings */
+  }
+  
+  .font-logo {
+    font-family: 'Comfortaa', 'Comic Sans MS', cursive !important; /* Logo text */
+  }
+  
+  .font-body {
+    font-family: 'Inter', 'Segoe UI', sans-serif !important; /* Body text */
   }
   
   /* Custom cursor styles for playful interaction */
@@ -38,9 +57,9 @@
     transform: rotate(0.5deg);
   }
   
-  /* Playful headings */
+  /* Playful headings - now using new font system */
   .heading-crayon {
-    @apply font-crayon text-primary-700 leading-relaxed;
+    @apply font-h1 text-primary-700 leading-relaxed;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
   

@@ -33,11 +33,11 @@ export default async function ProjectPage({ params }: Props) {
 					<h1 className="text-4xl font-bold heading-crayon text-shadow-strong">
 						{localizedTitle}
 					</h1>
-					<p className="text-xl text-gray-600">
+					<p className="font-body text-xl text-gray-600">
 						{localizedSubtitle}
 					</p>
 					{project.year && (
-						<p className="text-sm text-gray-500">
+						<p className="font-body text-sm text-gray-500">
 							{project.year}
 						</p>
 					)}
@@ -51,10 +51,10 @@ export default async function ProjectPage({ params }: Props) {
 					<div className="space-y-6">
 						{project.description && (
 							<div className="bg-white rounded-lg shadow-sm p-6">
-								<h3 className="text-xl font-bold mb-3">
+								<h3 className="font-h2 text-xl font-bold mb-3">
 									{locale === 'en' ? 'About' : 'Sobre'}
 								</h3>
-								<p className="text-gray-600 leading-relaxed">
+								<p className="font-body text-gray-600 leading-relaxed">
 									{project.description[locale as 'en' | 'pt-BR']}
 								</p>
 							</div>
@@ -62,10 +62,10 @@ export default async function ProjectPage({ params }: Props) {
 
 						{project.longDescription && (
 							<div className="bg-white rounded-lg shadow-sm p-6">
-								<h3 className="text-xl font-bold mb-3">
+								<h3 className="font-h2 text-xl font-bold mb-3">
 									{locale === 'en' ? 'Detailed Description' : 'Descrição Detalhada'}
 								</h3>
-								<div className="text-gray-600 leading-relaxed whitespace-pre-line">
+								<div className="font-body text-gray-600 leading-relaxed whitespace-pre-line">
 									{project.longDescription[locale as 'en' | 'pt-BR']}
 								</div>
 							</div>
@@ -93,16 +93,16 @@ export default async function ProjectPage({ params }: Props) {
 						{/* Only show Project Info if there's meaningful content */}
 						{(project.status || project.releaseDate || project.teamSize) && (
 							<div className="bg-white rounded-lg shadow-sm p-6">
-								<h3 className="text-xl font-bold mb-4">
+								<h3 className="font-h2 text-xl font-bold mb-4">
 									{locale === 'en' ? 'Project Info' : 'Informações do Projeto'}
 								</h3>
 								<div className="space-y-3">
 									{project.status && (
 										<div className="flex justify-between">
-											<span className="font-medium text-gray-700">
+											<span className="font-body font-medium text-gray-700">
 												{locale === 'en' ? 'Status:' : 'Status:'}
 											</span>
-											<span className={`capitalize px-2 py-1 rounded text-sm ${project.status === 'released' ? 'bg-green-100 text-green-800' :
+											<span className={`font-body capitalize px-2 py-1 rounded text-sm ${project.status === 'released' ? 'bg-green-100 text-green-800' :
 												project.status === 'development' ? 'bg-blue-100 text-blue-800' :
 													project.status === 'prototype' ? 'bg-yellow-100 text-yellow-800' :
 														'bg-gray-100 text-gray-800'
@@ -114,10 +114,10 @@ export default async function ProjectPage({ params }: Props) {
 
 									{project.releaseDate && (
 										<div className="flex justify-between">
-											<span className="font-medium text-gray-700">
+											<span className="font-body font-medium text-gray-700">
 												{locale === 'en' ? 'Release Date:' : 'Data de Lançamento:'}
 											</span>
-											<span className="text-gray-600">{project.releaseDate}</span>
+											<span className="font-body text-gray-600">{project.releaseDate}</span>
 										</div>
 									)}
 

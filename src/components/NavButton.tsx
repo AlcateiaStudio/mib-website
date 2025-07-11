@@ -61,19 +61,18 @@ export default function NavButton({
           pointerEvents: 'none'
         }}
       />
-      {/* Debug text */}
+      {/* Button Label */}
       <div style={{
         position: 'absolute',
-        bottom: '-20px',
-        left: '0',
-        right: '0',
-        fontSize: '10px',
-        color: 'black',
-        backgroundColor: 'white',
-        textAlign: 'center',
+        bottom: '-35px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        whiteSpace: 'nowrap',
         pointerEvents: 'none'
       }}>
-        {labelTextKey}
+        <h2 className="font-h2 text-sm font-semibold text-gray-700 text-center">
+          {labelTextKey}
+        </h2>
       </div>
     </button>
   );
