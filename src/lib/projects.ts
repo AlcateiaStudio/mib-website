@@ -75,7 +75,7 @@ export const projectsDatabase: ProjectData[] = [
 		platform: ['Windows', 'Mac', 'Steam'],
 		status: 'development',
 		releaseDate: '2025 Q3',
-		teamSize: 3,
+		teamSize: 6,
 		links: {
 			steam: 'https://store.steampowered.com/app/asumi',
 			website: 'https://madeinbugs.com/asumi'
@@ -98,8 +98,6 @@ export const projectsDatabase: ProjectData[] = [
 		},
 		gallery: [
 			'/assets/projects/asumi/gallery-1.jpg',
-			'/assets/projects/asumi/gallery-2.jpg',
-			'/assets/projects/asumi/gallery-3.jpg'
 		],
 		images: [
 			'/assets/projects/asumi/asumi-1.png',
