@@ -32,7 +32,7 @@ function NavButtonHeader({ href, imageSrc, hoverImageSrc, label, isActive, isMob
 			href={href}
 			className={`
         relative transition-all duration-200 hover:scale-105
-        ${isMobile ? 'w-16 h-16' : 'w-24 h-24'}
+        ${isMobile ? 'w-20 h-20' : 'w-28 h-28'}
         ${isActive ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
       `}
 			onMouseEnter={() => setIsHovered(true)}
@@ -66,8 +66,8 @@ export default function ContentLayout({ children, translations, locale }: Conten
 			key: 'portfolio',
 			href: `/${locale}/portfolio`,
 			label: translations.navigation.portfolio,
-			imageSrc: '/assets/illustrations_button_idle.png', // TODO: Replace with portfolio_button_idle.png
-			hoverImageSrc: '/assets/illustrations_button_hover.png' // TODO: Replace with portfolio_button_hover.png
+			imageSrc: '/assets/portfolio_button_idle.png',
+			hoverImageSrc: '/assets/portfolio_button_hover.png'
 		},
 		{
 			key: 'contact',

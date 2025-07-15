@@ -40,8 +40,8 @@ export default function NavButton({
       style={{
         position: 'relative',
         display: 'block',
-        width: '120px',
-        height: '120px',
+        width: '150px', // Increased from 120px
+        height: '150px', // Increased from 120px
         zIndex: 30,
         pointerEvents: 'auto',
         cursor: 'pointer'
@@ -51,8 +51,8 @@ export default function NavButton({
       <img
         src={isHovered ? hoverImageSrc : imageSrc}
         alt={labelTextKey}
-        width={120}
-        height={120}
+        width={150} // Increased from 120
+        height={150} // Increased from 120
         style={{
           display: 'block',
           width: '100%',
@@ -64,7 +64,7 @@ export default function NavButton({
       {/* Button Label */}
       <div style={{
         position: 'absolute',
-        bottom: '-35px',
+        bottom: '-35px', // Adjusted for larger button size
         left: '50%',
         transform: 'translateX(-50%)',
         whiteSpace: 'nowrap',

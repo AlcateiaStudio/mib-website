@@ -15,21 +15,21 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 	const logoCenterX = '50%'; // Horizontally centered
 
 	// Star positioning - pixel offsets from logo center
-	const starRadius = 270; // Distance from logo center to buttons (increased for better spacing)
-	const buttonSize = 120; // Size of each button
+	const starRadius = 320; // Distance from logo center to buttons (increased for better spacing)
+	const buttonSize = 150; // Size of each button (increased from 120px)
 	const buttonOffset = buttonSize / 2; // Half button size for centering
 
 	const buttons = [
 		{
 			key: 'portfolio',
 			href: '/portfolio',
-			imageSrc: '/assets/illustrations_button_idle.png', // TODO: Replace with portfolio_button_idle.png
-			hoverImageSrc: '/assets/illustrations_button_hover.png', // TODO: Replace with portfolio_button_hover.png
+			imageSrc: '/assets/portfolio_button_idle.png',
+			hoverImageSrc: '/assets/portfolio_button_hover.png',
 			label: translations.portfolio,
 			// Top position (12 o'clock)
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY - starRadius - buttonOffset}px`,
+				top: `${logoCenterY - starRadius - buttonOffset + 40}px`,
 				left: '50%',
 				transform: 'translateX(-50%)',
 				zIndex: 20,
@@ -45,7 +45,7 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			// Bottom-right position (4 o'clock) - 120 degrees from top
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 3)) - buttonOffset}px`,
+				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 3.5)) - buttonOffset}px`,
 				right: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
@@ -60,7 +60,7 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			// Bottom-left position (8 o'clock) - 240 degrees from top
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 3)) - buttonOffset}px`,
+				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 3.5)) - buttonOffset}px`,
 				left: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
