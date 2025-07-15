@@ -1,6 +1,7 @@
 'use client';
 
 import NavButton from './NavButton';
+import FloatingCard from './FloatingCard';
 import type { Translations } from '../lib/i18n';
 
 interface NavigationMenuProps {
@@ -19,6 +20,13 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 	const buttonSize = 150; // Size of each button (increased from 120px)
 	const buttonOffset = buttonSize / 2; // Half button size for centering
 
+	// Floating animation configuration - easy for designers to tweak!
+	const floatingConfig = {
+		portfolio: { radius: 35, speed: 0.9, intensity: 0.7, delay: 0 },
+		about: { radius: 30, speed: 0.8, intensity: 0.6, delay: 500 },
+		contact: { radius: 32, speed: 0.7, intensity: 0.65, delay: 1000 }
+	};
+
 	const buttons = [
 		{
 			key: 'portfolio',
@@ -34,7 +42,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 				transform: 'translateX(-50%)',
 				zIndex: 20,
 				pointerEvents: 'auto' as const
-			}
+			},
+			floating: floatingConfig.portfolio
 		},
 		{
 			key: 'about',
@@ -49,7 +58,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 				right: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
-			}
+			},
+			floating: floatingConfig.about
 		},
 		{
 			key: 'contact',
@@ -64,7 +74,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 				left: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
-			}
+			},
+			floating: floatingConfig.contact
 		}
 	];
 
@@ -80,12 +91,21 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 		}}>
 			{buttons.map((button) => (
 				<div key={button.key} style={button.style}>
-					<NavButton
-						href={button.href}
-						imageSrc={button.imageSrc}
-						hoverImageSrc={button.hoverImageSrc}
-						labelTextKey={button.label}
-					/>
+					<FloatingCard
+						radius={button.floating.radius}
+						speed={button.floating.speed}
+						intensity={button.floating.intensity}
+						delay={button.floating.delay}
+						rotationSpeed={0.3}
+						pulseIntensity={0.08}
+					>
+						<NavButton
+							href={button.href}
+							imageSrc={button.imageSrc}
+							hoverImageSrc={button.hoverImageSrc}
+							labelTextKey={button.label}
+						/>
+					</FloatingCard>
 				</div>
 			))}
 		</div>
