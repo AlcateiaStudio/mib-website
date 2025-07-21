@@ -12,12 +12,13 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 	// Configuration for logo and button positioning
 	const logoTopOffset = 280; // Should match the top offset in page.tsx
 	const logoSize = 224; // 56 * 4 = 224px (w-56 h-56)
-	const logoCenterY = logoTopOffset + (logoSize / 2); // Center Y of the logo
-	const logoCenterX = '50%'; // Horizontally centered
+	const logoBottom = logoTopOffset + logoSize; // Bottom edge of the logo
 
-	// Star positioning - pixel offsets from logo center
-	const starRadius = 320; // Distance from logo center to buttons (increased for better spacing)
-	const buttonSize = 150; // Size of each button (increased from 120px)
+	// Horizontal row positioning below the logo
+	const buttonRowGap = 280; // Distance between button centers (adjust this to change spacing between cards)
+	const logoToButtonsGap = 200; // Distance from logo bottom to button row (adjust this to change distance from logo)
+	const buttonRowY = logoBottom + logoToButtonsGap; // Y position of button row
+	const buttonSize = 150; // Size of each button
 	const buttonOffset = buttonSize / 2; // Half button size for centering
 
 	// Floating animation configuration - easy for designers to tweak!
@@ -34,12 +35,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/portfolio_button_idle.png',
 			hoverImageSrc: '/assets/portfolio_button_hover.png',
 			label: translations.portfolio,
-			// Top position (12 o'clock)
+			// Left position in horizontal row
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY - starRadius - buttonOffset + 40}px`,
-				left: '50%',
-				transform: 'translateX(-50%)',
+				top: `${buttonRowY - buttonOffset}px`,
+				left: `calc(50% - ${buttonRowGap + buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
 			},
@@ -51,11 +51,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/about_button_idle.png',
 			hoverImageSrc: '/assets/about_button_hover.png',
 			label: translations.about,
-			// Bottom-right position (4 o'clock) - 120 degrees from top
+			// Center position in horizontal row
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 3.5)) - buttonOffset}px`,
-				right: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
+				top: `${buttonRowY - buttonOffset}px`,
+				left: `calc(50% - ${buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
 			},
@@ -67,11 +67,11 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/contact_button_idle.png',
 			hoverImageSrc: '/assets/contact_button_hover.png',
 			label: translations.contact,
-			// Bottom-left position (8 o'clock) - 240 degrees from top
+			// Right position in horizontal row
 			style: {
 				position: 'absolute' as const,
-				top: `${logoCenterY + (starRadius * Math.cos(Math.PI / 3.5)) - buttonOffset}px`,
-				left: `calc(50% - ${starRadius * Math.sin(Math.PI / 3) + buttonOffset}px)`,
+				top: `${buttonRowY - buttonOffset}px`,
+				left: `calc(50% + ${buttonRowGap - buttonOffset}px)`,
 				zIndex: 20,
 				pointerEvents: 'auto' as const
 			},

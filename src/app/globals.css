@@ -78,7 +78,7 @@
     @apply pointer-events-auto transition-all duration-300 hover:scale-110 active:scale-95;
   }
   
-  /* Navigation Menu - 5-point star layout */
+  /* Navigation Menu - Horizontal row layout below logo */
   .navigation-menu {
     @apply absolute inset-0 w-full h-full pointer-events-none;
   }
@@ -90,38 +90,6 @@
   
   .nav-button-image {
     @apply w-24 h-24 object-contain transition-all duration-200;
-  }
-  
-  /* 5-point star positioning around the center mascot */
-  /* Team button - Top (12 o'clock) */
-  .nav-button-team {
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  /* Illustrations button - Top-right (2 o'clock) */
-  .nav-button-illustrations {
-    top: 80px;
-    right: 40px;
-  }
-  
-  /* Games button - Bottom-right (4 o'clock) */
-  .nav-button-games {
-    bottom: 80px;
-    right: 40px;
-  }
-  
-  /* About button - Bottom-left (8 o'clock) */
-  .nav-button-about {
-    bottom: 80px;
-    left: 40px;
-  }
-  
-  /* Contact button - Top-left (10 o'clock) */
-  .nav-button-contact {
-    top: 80px;
-    left: 40px;
   }
   
   /* Language switcher styles */
@@ -234,25 +202,8 @@
       @apply w-16 h-16;
     }
     
-    .nav-button-team {
-      @apply top-4;
-    }
-    
-    .nav-button-illustrations {
-      @apply top-12 right-4;
-    }
-    
-    .nav-button-games {
-      @apply bottom-12 right-4;
-    }
-    
-    .nav-button-about {
-      @apply bottom-12 left-4;
-    }
-    
-    .nav-button-contact {
-      @apply top-12 left-4;
-    }
+    /* On mobile, buttons might need adjusted spacing */
+    /* You can add mobile-specific positioning here if needed */
   }
 
   /* Floating Card Animations - Magical floating effect for homepage cards */

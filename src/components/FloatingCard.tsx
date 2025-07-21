@@ -17,12 +17,12 @@ interface FloatingCardProps {
 
 export default function FloatingCard({
 	children,
-	radius = 30,
-	speed = 0.8,
-	intensity = 0.6,
+	radius = 20,
+	speed = 0.5,
+	intensity = 0.3,
 	rotationSpeed = 0.5,
-	pulseIntensity = 0.05,
-	delay = 0,
+	pulseIntensity = 0.02,
+	delay = 200,
 	className = ''
 }: FloatingCardProps) {
 	const cardRef = useRef<HTMLDivElement>(null);
