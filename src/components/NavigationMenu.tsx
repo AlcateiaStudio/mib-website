@@ -9,11 +9,11 @@ interface NavigationMenuProps {
 }
 
 export default function NavigationMenu({ translations }: NavigationMenuProps) {
-	// Floating animation configuration - easy for designers to tweak!
+	// Floating animation configuration - Balatro-style subtle animations
 	const floatingConfig = {
-		portfolio: { radius: 35, speed: 0.9, intensity: 0.7, delay: 0 },
-		about: { radius: 30, speed: 0.8, intensity: 0.6, delay: 500 },
-		contact: { radius: 32, speed: 0.7, intensity: 0.65, delay: 1000 }
+		portfolio: { radius: 0, speed: 2.3, intensity: 1.0, delay: 0 },
+		about: { radius: 0, speed: 2.1, intensity: 1.0, delay: 600 },
+		contact: { radius: 0, speed: 2.4, intensity: 1.0, delay: 1200 }
 	};
 
 	const buttons = [

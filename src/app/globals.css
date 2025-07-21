@@ -341,69 +341,22 @@
       calc(var(--phase-offset, 0) * 1s);
   }
 
-  /* Simple floating movement around anchor point */
+  /* Balatro-style floating movement - gentle rotation + vertical bobbing */
   @keyframes floatingMovement {
     0% {
-      transform: translate(0px, 0px) scale(1);
-    }
-    12.5% {
-      transform: 
-        translate(
-          calc(var(--float-radius, 30px) * 0.7),
-          calc(var(--float-radius, 30px) * -0.3)
-        )
-        scale(1.02);
+      transform: translateY(0px) rotate(0deg) scale(1);
     }
     25% {
-      transform: 
-        translate(
-          calc(var(--float-radius, 30px) * 1.0),
-          calc(var(--float-radius, 30px) * 0.1)
-        )
-        scale(0.98);
-    }
-    37.5% {
-      transform: 
-        translate(
-          calc(var(--float-radius, 30px) * 0.3),
-          calc(var(--float-radius, 30px) * 0.8)
-        )
-        scale(1.03);
+      transform: translateY(-15px) rotate(-6deg) scale(1.05);
     }
     50% {
-      transform: 
-        translate(
-          calc(var(--float-radius, 30px) * -0.2),
-          calc(var(--float-radius, 30px) * 0.6)
-        )
-        scale(1.01);
-    }
-    62.5% {
-      transform: 
-        translate(
-          calc(var(--float-radius, 30px) * -0.9),
-          calc(var(--float-radius, 30px) * 0.1)
-        )
-        scale(0.97);
+      transform: translateY(-8px) rotate(0deg) scale(0.95);
     }
     75% {
-      transform: 
-        translate(
-          calc(var(--float-radius, 30px) * -0.6),
-          calc(var(--float-radius, 30px) * -0.5)
-        )
-        scale(1.02);
-    }
-    87.5% {
-      transform: 
-        translate(
-          calc(var(--float-radius, 30px) * 0.1),
-          calc(var(--float-radius, 30px) * -0.7)
-        )
-        scale(0.99);
+      transform: translateY(-15px) rotate(6deg) scale(1.05);
     }
     100% {
-      transform: translate(0px, 0px) scale(1);
+      transform: translateY(0px) rotate(0deg) scale(1);
     }
   }
 
