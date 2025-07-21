@@ -9,11 +9,10 @@ interface NavigationMenuProps {
 }
 
 export default function NavigationMenu({ translations }: NavigationMenuProps) {
-	// Floating animation configuration - Balatro-style subtle animations
 	const floatingConfig = {
-		portfolio: { radius: 0, speed: 2.3, intensity: 1.0, delay: 0 },
-		about: { radius: 0, speed: 2.1, intensity: 1.0, delay: 600 },
-		contact: { radius: 0, speed: 2.4, intensity: 1.0, delay: 1200 }
+		portfolio: { speed: 2.3, delay: 0 },
+		about: { speed: 2.1, delay: 600 },
+		contact: { speed: 2.4, delay: 1200 }
 	};
 
 	const buttons = [
@@ -49,12 +48,8 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 				{buttons.map((button) => (
 					<div key={button.key} className="responsive-nav-button">
 						<FloatingCard
-							radius={button.floating.radius}
 							speed={button.floating.speed}
-							intensity={button.floating.intensity}
 							delay={button.floating.delay}
-							rotationSpeed={0.3}
-							pulseIntensity={0.08}
 						>
 							<NavButton
 								href={button.href}

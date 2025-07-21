@@ -329,7 +329,7 @@
     /* You can add mobile-specific positioning here if needed */
   }
 
-  /* Floating Card Animations - Magical floating effect for homepage cards */
+  /* Floating Card Animations */
   .floating-card {
     transition: transform 0.3s ease-out;
   }
@@ -341,7 +341,7 @@
       calc(var(--phase-offset, 0) * 1s);
   }
 
-  /* Balatro-style floating movement - gentle rotation + vertical bobbing */
+  /* Balatro-style floating movement */
   @keyframes floatingMovement {
     0% {
       transform: translateY(0px) rotate(0deg) scale(1);
@@ -360,7 +360,7 @@
     }
   }
 
-  /* Hover effect - temporarily pause floating and enhance */
+  /* Hover effect */
   .floating-card:hover.floating-active {
     animation-play-state: paused;
     transform: scale(1.1) translateZ(0);
