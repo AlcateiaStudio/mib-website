@@ -78,7 +78,7 @@
     @apply pointer-events-auto transition-all duration-300 hover:scale-110 active:scale-95;
   }
   
-  /* Navigation Menu - Horizontal row layout below logo */
+  /* Navigation Menu - Responsive horizontal row layout below logo */
   .navigation-menu {
     @apply absolute inset-0 w-full h-full pointer-events-none;
   }
@@ -89,7 +89,74 @@
   }
   
   .nav-button-image {
-    @apply w-24 h-24 object-contain transition-all duration-200;
+    @apply object-contain transition-all duration-200;
+    /* Responsive button sizing */
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Responsive Navigation Layout */
+  .responsive-nav-container {
+    @apply absolute inset-0 w-full h-full pointer-events-none z-20;
+  }
+
+  .responsive-nav-buttons {
+    @apply absolute w-full pointer-events-none;
+    /* Position buttons closer to bottom of screen with more distance from logo */
+    top: calc(100vh - 400px); /* Fixed distance from bottom instead of relative to logo */
+    
+    /* Create a flexbox container for the buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem; /* Increased from 4rem (64px) to 8rem (128px) for more spacing on desktop */
+    padding: 0 2rem; /* Side padding to prevent overflow */
+  }
+
+  .responsive-nav-button {
+    @apply pointer-events-auto;
+    /* Flexible sizing for responsive design */
+    flex-shrink: 0;
+  }
+
+  /* Responsive breakpoints */
+  @media (max-width: 1024px) {
+    .responsive-nav-buttons {
+      gap: 3rem; /* Reduce gap on tablets */
+      top: calc(100vh - 360px); /* Closer to bottom on tablets */
+    }
+    
+    .nav-button-image {
+      width: 130px;
+      height: 130px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .responsive-nav-buttons {
+      gap: 2rem; /* Further reduce gap on mobile */
+      top: calc(100vh - 360px); /* Closer to bottom on mobile */
+      padding: 0 1rem; /* Less side padding */
+    }
+    
+    .nav-button-image {
+      width: 110px;
+      height: 110px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .responsive-nav-buttons {
+      flex-direction: column; /* Stack vertically on very small screens */
+      gap: 1.5rem;
+      top: calc(100vh - 560px); /* More space needed for vertical stack */
+      align-items: center;
+    }
+    
+    .nav-button-image {
+      width: 100px;
+      height: 100px;
+    }
   }
   
   /* Language switcher styles */
@@ -141,6 +208,62 @@
   
   .homepage-layout {
     @apply h-screen overflow-hidden bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50;
+  }
+
+  /* Responsive Homepage Layout */
+  .responsive-homepage-container {
+    @apply relative w-full h-screen max-w-6xl mx-auto;
+    /* Ensure content is always visible */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .responsive-center-content {
+    @apply absolute w-full pointer-events-none;
+    /* Position logo closer to top of screen */
+    top: 30%; /* Moved from 50% to 30% - closer to top */
+    transform: translateY(-50%);
+    
+    /* Responsive adjustments */
+    padding: 0 1rem;
+  }
+
+  /* Responsive Logo Sizing */
+  .responsive-logo {
+    width: 224px;
+    height: 224px;
+  }
+
+  /* Mobile adjustments for center content */
+  @media (max-width: 768px) {
+    .responsive-center-content {
+      /* Keep logo higher up on mobile */
+      top: 30%;
+    }
+    
+    .responsive-logo {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .responsive-center-content {
+      /* Even higher on small screens to make room for vertical buttons */
+      top: 20%;
+    }
+    
+    .responsive-logo {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .responsive-homepage-container {
+      /* Allow scrolling on very small screens if needed */
+      min-height: 100vh;
+      overflow-y: auto;
+    }
   }
 }
 

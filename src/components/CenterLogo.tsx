@@ -8,9 +8,9 @@ export default function CenterLogo() {
 
   return (
     <div className="text-center relative z-10" style={{ pointerEvents: 'auto' }}>
-      {/* Logo */}
+      {/* Logo - Responsive sizing */}
       <div
-        className="w-56 h-56 mx-auto cursor-pointer transition-all duration-300 hover:scale-105 relative z-10"
+        className="responsive-logo mx-auto cursor-pointer transition-all duration-300 hover:scale-105 relative z-10"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

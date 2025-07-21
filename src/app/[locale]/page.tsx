@@ -19,18 +19,18 @@ export default async function HomePage({ params }: Props) {
 		<div
 			className={`homepage-layout center-content bg-gradient-to-br ${globalStyles.backgroundColor}`}
 		>
-			<div className="relative w-full h-screen max-w-6xl mx-auto">
-				{/* Navigation Menu with 5-point star layout - positioned first */}
+			{/* Language switcher - Fixed position at top-right */}
+			<LanguageSwitcher translations={t.common.language_switcher} />
+
+			<div className="responsive-homepage-container">
+				{/* Navigation Menu with responsive horizontal layout */}
 				<NavigationMenu translations={t.navigation} />
 
-				{/* Central content area */}
-				<div className="absolute w-full pointer-events-none" style={{ top: '265px' }}>
+				{/* Central content area - responsive positioning */}
+				<div className="responsive-center-content">
 					<div className="text-center space-y-6 pointer-events-auto">
 						{/* Center logo with hover effect */}
 						<CenterLogo />
-
-						{/* Functional language switcher */}
-						<LanguageSwitcher translations={t.common.language_switcher} />
 					</div>
 				</div>
 			</div>

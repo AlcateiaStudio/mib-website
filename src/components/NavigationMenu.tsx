@@ -9,18 +9,6 @@ interface NavigationMenuProps {
 }
 
 export default function NavigationMenu({ translations }: NavigationMenuProps) {
-	// Configuration for logo and button positioning
-	const logoTopOffset = 280; // Should match the top offset in page.tsx
-	const logoSize = 224; // 56 * 4 = 224px (w-56 h-56)
-	const logoBottom = logoTopOffset + logoSize; // Bottom edge of the logo
-
-	// Horizontal row positioning below the logo
-	const buttonRowGap = 280; // Distance between button centers (adjust this to change spacing between cards)
-	const logoToButtonsGap = 200; // Distance from logo bottom to button row (adjust this to change distance from logo)
-	const buttonRowY = logoBottom + logoToButtonsGap; // Y position of button row
-	const buttonSize = 150; // Size of each button
-	const buttonOffset = buttonSize / 2; // Half button size for centering
-
 	// Floating animation configuration - easy for designers to tweak!
 	const floatingConfig = {
 		portfolio: { radius: 35, speed: 0.9, intensity: 0.7, delay: 0 },
@@ -35,14 +23,6 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/portfolio_button_idle.png',
 			hoverImageSrc: '/assets/portfolio_button_hover.png',
 			label: translations.portfolio,
-			// Left position in horizontal row
-			style: {
-				position: 'absolute' as const,
-				top: `${buttonRowY - buttonOffset}px`,
-				left: `calc(50% - ${buttonRowGap + buttonOffset}px)`,
-				zIndex: 20,
-				pointerEvents: 'auto' as const
-			},
 			floating: floatingConfig.portfolio
 		},
 		{
@@ -51,14 +31,6 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/about_button_idle.png',
 			hoverImageSrc: '/assets/about_button_hover.png',
 			label: translations.about,
-			// Center position in horizontal row
-			style: {
-				position: 'absolute' as const,
-				top: `${buttonRowY - buttonOffset}px`,
-				left: `calc(50% - ${buttonOffset}px)`,
-				zIndex: 20,
-				pointerEvents: 'auto' as const
-			},
 			floating: floatingConfig.about
 		},
 		{
@@ -67,47 +39,33 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 			imageSrc: '/assets/contact_button_idle.png',
 			hoverImageSrc: '/assets/contact_button_hover.png',
 			label: translations.contact,
-			// Right position in horizontal row
-			style: {
-				position: 'absolute' as const,
-				top: `${buttonRowY - buttonOffset}px`,
-				left: `calc(50% + ${buttonRowGap - buttonOffset}px)`,
-				zIndex: 20,
-				pointerEvents: 'auto' as const
-			},
 			floating: floatingConfig.contact
 		}
 	];
 
 	return (
-		<div style={{
-			position: 'absolute',
-			top: 0,
-			left: 0,
-			right: 0,
-			bottom: 0,
-			zIndex: 15,
-			pointerEvents: 'none'
-		}}>
-			{buttons.map((button) => (
-				<div key={button.key} style={button.style}>
-					<FloatingCard
-						radius={button.floating.radius}
-						speed={button.floating.speed}
-						intensity={button.floating.intensity}
-						delay={button.floating.delay}
-						rotationSpeed={0.3}
-						pulseIntensity={0.08}
-					>
-						<NavButton
-							href={button.href}
-							imageSrc={button.imageSrc}
-							hoverImageSrc={button.hoverImageSrc}
-							labelTextKey={button.label}
-						/>
-					</FloatingCard>
-				</div>
-			))}
+		<div className="responsive-nav-container">
+			<div className="responsive-nav-buttons">
+				{buttons.map((button) => (
+					<div key={button.key} className="responsive-nav-button">
+						<FloatingCard
+							radius={button.floating.radius}
+							speed={button.floating.speed}
+							intensity={button.floating.intensity}
+							delay={button.floating.delay}
+							rotationSpeed={0.3}
+							pulseIntensity={0.08}
+						>
+							<NavButton
+								href={button.href}
+								imageSrc={button.imageSrc}
+								hoverImageSrc={button.hoverImageSrc}
+								labelTextKey={button.label}
+							/>
+						</FloatingCard>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }
