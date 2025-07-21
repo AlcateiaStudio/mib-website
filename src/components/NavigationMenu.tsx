@@ -10,9 +10,9 @@ interface NavigationMenuProps {
 
 export default function NavigationMenu({ translations }: NavigationMenuProps) {
 	const floatingConfig = {
-		portfolio: { speed: 2.3, delay: 0 },
-		about: { speed: 2.1, delay: 600 },
-		contact: { speed: 2.4, delay: 1200 }
+		portfolio: { speed: 2.0, delay: 0, direction: 'left' as const },
+		about: { speed: 1.8, delay: 900, direction: 'left' as const },
+		contact: { speed: 2.1, delay: 600, direction: 'right' as const }
 	};
 
 	const buttons = [
@@ -50,6 +50,7 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 						<FloatingCard
 							speed={button.floating.speed}
 							delay={button.floating.delay}
+							direction={button.floating.direction}
 						>
 							<NavButton
 								href={button.href}

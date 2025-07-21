@@ -339,6 +339,7 @@
       floatingMovement var(--orbit-duration, 20s) ease-in-out infinite;
     animation-delay: 
       calc(var(--phase-offset, 0) * 1s);
+    animation-direction: var(--animation-direction, normal);
   }
 
   /* Balatro-style floating movement */
@@ -347,13 +348,13 @@
       transform: translateY(0px) rotate(0deg) scale(1);
     }
     25% {
-      transform: translateY(-15px) rotate(-6deg) scale(1.05);
+      transform: translateY(-15px) rotate(-6deg) scale(1.03);
     }
     50% {
-      transform: translateY(-8px) rotate(0deg) scale(0.95);
+      transform: translateY(-8px) rotate(0deg) scale(0.97);
     }
     75% {
-      transform: translateY(-15px) rotate(6deg) scale(1.05);
+      transform: translateY(-15px) rotate(6deg) scale(1.03);
     }
     100% {
       transform: translateY(0px) rotate(0deg) scale(1);
