@@ -1,0 +1,58 @@
+{
+	"teamMembers": [
+		{
+			"id": 1,
+			"name": "Andress Martin",
+			"title": {
+				"en": "Technical Director",
+				"pt-BR": "Diretor Técnico"
+			},
+			"image": "/assets/team/Andress.png"
+		},
+		{
+			"id": 2,
+			"name": "Bela Lino",
+			"title": {
+				"en": "Art Director",
+				"pt-BR": "Diretora de Arte"
+			},
+			"image": "/assets/team/Bela.png"
+		},
+		{
+			"id": 3,
+			"name": "Henrique Martins",
+			"title": {
+				"en": "Developer",
+				"pt-BR": "Desenvolvedor"
+			},
+			"image": "/assets/team/Henrique.png"
+		},
+		{
+			"id": 4,
+			"name": "Nicolas Martin",
+			"title": {
+				"en": "Developer",
+				"pt-BR": "Desenvolvedor"
+			},
+			"image": "/assets/team/Nicolas.png"
+		},
+		{
+			"id": 5,
+			"name": "Kelvin Santos",
+			"title": {
+				"en": "UI / UX / Animation",
+				"pt-BR": "UI / UX / Animação"
+			},
+			"image": "/assets/team/Kelvin.png"
+		},
+		{
+			"id": 6,
+			"name": "Fernanda Pagidis",
+			"title": {
+				"en": "3D Artist",
+				"pt-BR": "Artista 3D"
+			},
+			"image": "/assets/team/Fernanda.png"
+		}
+	]
+}

@@ -1,5 +1,7 @@
 import { getTranslations, normalizeLocale } from '../../../lib/i18n';
 import ContentLayout from '../../../components/ContentLayout';
+import TeamCarousel from '../../../components/TeamCarousel';
+import teamData from '../../../data/team.json';
 
 interface Props {
 	params: Promise<{ locale: string }>;
@@ -48,6 +50,14 @@ export default async function AboutPage({ params }: Props) {
 							}
 						</p>
 					</div>
+				</div>
+
+				{/* Team Section */}
+				<div className="bg-white rounded-lg shadow-sm p-8">
+					<h2 className="font-h2 text-2xl font-bold mb-6 text-center">
+						{locale === 'en' ? 'Meet Our Team' : 'Conheça Nossa Equipe'}
+					</h2>
+					<TeamCarousel teamMembers={teamData.teamMembers} locale={locale} />
 				</div>
 			</div>
 		</ContentLayout>
