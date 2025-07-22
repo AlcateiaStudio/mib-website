@@ -15,6 +15,10 @@ export interface ProjectData {
 	year?: number;
 	category?: string;
 
+	// Header images for project pages
+	bannerImage?: string; // Wide banner image (1600x400) for background behind title
+	titleImage?: string; // Alternative to text title/subtitle - shows as main image
+
 	// Extended project information - easily customizable per project
 	description?: {
 		en: string;
@@ -107,7 +111,9 @@ export const projectsDatabase: ProjectData[] = [
 		cycleDuration: 1.8,
 		featured: true,
 		year: 2025,
-		category: 'unity'
+		category: 'unity',
+		bannerImage: '/assets/projects/asumi/banner2.png',
+		titleImage: '/assets/projects/asumi/title.png',
 	},
 	{
 		id: 'phora',
