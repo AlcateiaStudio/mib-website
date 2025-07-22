@@ -149,13 +149,13 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 								}}
 							>
 								{/* Team Member Image */}
-								<div className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl bg-gray-200 ${isInitialLoad
+								<div className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg transition-all duration-200 ease-out group-hover:scale-125 group-hover:shadow-2xl bg-gray-200 ${isInitialLoad
 									? 'transform rotate-[-120deg]'
 									: 'transform rotate-0'
 									}`}
 									style={{
-										transition: 'transform 0.75s ease-out, box-shadow 0.3s ease',
-										transitionDelay: `${index * 100}ms`,
+										transition: 'transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.25s ease-out',
+										transitionDelay: isInitialLoad ? `${index * 100}ms` : '0ms',
 									}}
 								>
 									{member.image ? (
@@ -188,7 +188,10 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 								</div>
 
 								{/* Hover Tooltip - Magical Tarot Card Style with Fixed Card Aspect Ratio */}
-								<div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none z-[9999] group-hover:scale-105 group-hover:-translate-y-2">
+								<div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none z-[9999] group-hover:scale-110 group-hover:-translate-y-3"
+									style={{
+										transition: 'opacity 0.3s ease-out, transform 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+									}}>
 									<div className="relative bg-gray-900 text-white rounded-xl shadow-2xl border-2 border-amber-300 transform rotate-6 group-hover:rotate-0 transition-transform duration-200 w-32 h-44 flex flex-col justify-center items-center p-3">
 										{/* Corner decorations */}
 										<div className="absolute -top-1 -left-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
