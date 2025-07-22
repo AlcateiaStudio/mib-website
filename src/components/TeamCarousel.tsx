@@ -47,7 +47,7 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setIsInitialLoad(false);
-		}, 100); // Small delay to ensure component is mounted
+		}, 200); // Reduced back to fast load time
 		return () => clearTimeout(timer);
 	}, []);
 
@@ -149,13 +149,12 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 								}}
 							>
 								{/* Team Member Image */}
-								<div className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg transition-all duration-200 ease-out group-hover:scale-125 group-hover:shadow-2xl bg-gray-200 ${isInitialLoad
-									? 'transform rotate-[-120deg]'
-									: 'transform rotate-0'
-									}`}
+								<div className={`team-member-container relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg bg-gray-200 ${isInitialLoad ? 'team-member-initial' : 'team-member-loaded'}`}
 									style={{
-										transition: 'transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.25s ease-out',
 										transitionDelay: isInitialLoad ? `${index * 100}ms` : '0ms',
+										transition: isInitialLoad
+											? `transform 0.75s ease-out ${index * 100}ms`
+											: 'transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.25s ease-out'
 									}}
 								>
 									{member.image ? (
