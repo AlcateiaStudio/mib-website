@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 // Simple arrow icons as SVG components
@@ -34,6 +34,7 @@ interface TeamCarouselProps {
 export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps) {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [clickedArrow, setClickedArrow] = useState<'left' | 'right' | null>(null);
+	const [isInitialLoad, setIsInitialLoad] = useState(true);
 	const maxVisible = 6;
 	const showArrows = teamMembers.length > maxVisible;
 
@@ -41,6 +42,14 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 	const getLocalizedTitle = (title: { en: string; 'pt-BR': string }) => {
 		return title[locale as keyof typeof title] || title.en;
 	};
+
+	// Trigger initial animation on component mount
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setIsInitialLoad(false);
+		}, 100); // Small delay to ensure component is mounted
+		return () => clearTimeout(timer);
+	}, []);
 
 	const handlePrevious = () => {
 		setClickedArrow('left');
@@ -131,13 +140,27 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 				{/* Team Members Container */}
 				<div className="flex-1">
 					<div className="flex justify-center space-x-6 py-4" style={{ paddingTop: '60px' }}>
-						{visibleMembers.map((member) => (
+						{visibleMembers.map((member, index) => (
 							<div
 								key={member.id}
-								className="group relative flex-shrink-0 z-50"
+								className={`group relative flex-shrink-0 z-50 transition-all duration-500 ease-out ${isInitialLoad
+									? 'opacity-0 transform translate-x-[-120px]'
+									: 'opacity-100 transform translate-x-0'
+									}`}
+								style={{
+									transitionDelay: `${index * 100}ms`, // Stagger the animations
+								}}
 							>
 								{/* Team Member Image */}
-								<div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl bg-gray-200">
+								<div className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl bg-gray-200 ${isInitialLoad
+									? 'transform rotate-[-120deg]'
+									: 'transform rotate-0'
+									}`}
+									style={{
+										transition: 'transform 0.75s ease-out, box-shadow 0.3s ease',
+										transitionDelay: `${index * 100}ms`,
+									}}
+								>
 									{member.image ? (
 										<Image
 											src={member.image}
