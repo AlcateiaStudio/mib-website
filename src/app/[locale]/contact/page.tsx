@@ -26,7 +26,7 @@ export default async function ContactPage({ params }: Props) {
 				<div className="max-w-4xl mx-auto">
 					<div className="grid md:grid-cols-2 gap-8">
 						{/* Contact Information */}
-						<div className="bg-white rounded-lg shadow-sm p-8">
+						<div className="content-card">
 							<div className="text-center space-y-6">
 								<div className="text-6xl">📧</div>
 								<h2 className="font-h2 text-2xl font-bold">
@@ -58,7 +58,7 @@ export default async function ContactPage({ params }: Props) {
 						</div>
 
 						{/* Work with Us / Collaboration */}
-						<div className="bg-white rounded-lg shadow-sm p-8">
+						<div className="content-card">
 							<div className="text-center space-y-6">
 								<div className="text-6xl">🤝</div>
 								<h2 className="font-h2 text-2xl font-bold">

@@ -97,6 +97,16 @@ h1,
     @apply w-8 h-8 transition-all duration-300;
   }
   
+  /* Content Card Component - Reusable white card with golden border */
+  .content-card {
+    @apply bg-white rounded-lg shadow-sm p-8 border-2 border-amber-300 shadow-amber-100;
+  }
+  
+  /* Variant for smaller content cards */
+  .content-card-sm {
+    @apply bg-white rounded-lg shadow-sm p-6 border-2 border-amber-300 shadow-amber-100;
+  }
+  
   /* Interactive mascot container */
   .mascot-container {
     @apply relative cursor-crayon transition-all duration-300 hover:scale-105;

@@ -50,7 +50,7 @@ export default async function ProjectPage({ params }: Props) {
 					{/* Left Column - Description */}
 					<div className="space-y-6">
 						{project.description && (
-							<div className="bg-white rounded-lg shadow-sm p-6">
+							<div className="content-card-sm">
 								<h3 className="font-h2 text-xl font-bold mb-3">
 									{locale === 'en' ? 'About' : 'Sobre'}
 								</h3>
@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: Props) {
 						)}
 
 						{project.longDescription && (
-							<div className="bg-white rounded-lg shadow-sm p-6">
+							<div className="content-card-sm">
 								<h3 className="font-h2 text-xl font-bold mb-3">
 									{locale === 'en' ? 'Detailed Description' : 'Descrição Detalhada'}
 								</h3>
@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: Props) {
 						)}
 
 						{project.features && project.features[locale as 'en' | 'pt-BR']?.length > 0 && (
-							<div className="bg-white rounded-lg shadow-sm p-6">
+							<div className="content-card-sm">
 								<h3 className="text-xl font-bold mb-3">
 									{locale === 'en' ? 'Features' : 'Características'}
 								</h3>

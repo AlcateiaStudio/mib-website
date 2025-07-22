@@ -29,7 +29,7 @@ export default async function AboutPage({ params }: Props) {
 
 				{/* About Content */}
 				<div className="prose prose-lg mx-auto">
-					<div className="bg-white rounded-lg shadow-sm p-8 border-2 border-amber-300 shadow-amber-100">
+					<div className="content-card">
 						<h2 className="font-h2 text-2xl font-bold mb-4">
 							{locale === 'en' ? 'Our Story' : 'Nossa História'}
 						</h2>
@@ -53,7 +53,7 @@ export default async function AboutPage({ params }: Props) {
 				</div>
 
 				{/* Team Section */}
-				<div className="bg-white rounded-lg shadow-sm p-8 border-2 border-amber-300 shadow-amber-100">
+				<div className="content-card">
 					<h2 className="font-h2 text-2xl font-bold mb-6 text-center">
 						{locale === 'en' ? 'Meet Our Team' : 'Conheça Nossa Equipe'}
 					</h2>
