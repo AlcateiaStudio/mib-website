@@ -23,17 +23,6 @@ export default function CenterLogo() {
           priority={true}
         />
       </div>
-
-      {/* Studio Name - Positioned very close to logo with lower z-index */}
-      <h1
-        className="font-logo text-2xl md:text-3xl font-medium text-gray-800 tracking-wide relative z-5"
-        style={{
-          marginTop: '4px',
-          pointerEvents: 'none'
-        }}
-      >
-        Made in Bugs
-      </h1>
     </div>
   );
 }

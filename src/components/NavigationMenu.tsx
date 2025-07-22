@@ -17,20 +17,20 @@ export default function NavigationMenu({ translations }: NavigationMenuProps) {
 
 	const buttons = [
 		{
-			key: 'portfolio',
-			href: '/portfolio',
-			imageSrc: '/assets/portfolio_button_idle.png',
-			hoverImageSrc: '/assets/portfolio_button_hover.png',
-			label: translations.portfolio,
-			floating: floatingConfig.portfolio
-		},
-		{
 			key: 'about',
 			href: '/about',
 			imageSrc: '/assets/about_button_idle.png',
 			hoverImageSrc: '/assets/about_button_hover.png',
 			label: translations.about,
 			floating: floatingConfig.about
+		},
+		{
+			key: 'portfolio',
+			href: '/portfolio',
+			imageSrc: '/assets/portfolio_button_idle.png',
+			hoverImageSrc: '/assets/portfolio_button_hover.png',
+			label: translations.portfolio,
+			floating: floatingConfig.portfolio
 		},
 		{
 			key: 'contact',
