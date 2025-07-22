@@ -151,10 +151,7 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 								{/* Team Member Image */}
 								<div className={`team-member-container relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg bg-gray-200 ${isInitialLoad ? 'team-member-initial' : 'team-member-loaded'}`}
 									style={{
-										transitionDelay: isInitialLoad ? `${index * 100}ms` : '0ms',
-										transition: isInitialLoad
-											? `transform 0.75s ease-out ${index * 100}ms`
-											: 'transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.25s ease-out'
+										transitionDelay: isInitialLoad ? `${index * 100}ms` : '0ms'
 									}}
 								>
 									{member.image ? (
