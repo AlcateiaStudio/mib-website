@@ -69,35 +69,54 @@ h1,
   /* Playful headings - simplified since we handle everything in the main H1 rule */
   .heading-crayon {
     @apply leading-relaxed;
-    /* All font styling handled by the H1 rule above */
   }
   
-  /* Team Carousel Arrow Styles - Eliminating repetition */
+  /* === TEAM CAROUSEL COMPONENTS === */
+  /* Base carousel arrow styles */
   .carousel-arrow {
-    @apply flex-shrink-0 transition-all duration-150 transform relative;
+    flex-shrink: 0;
+    transition: all 0.15s ease;
+    transform: scale(1);
+    position: relative;
   }
   
-  .carousel-arrow-left:hover:not(.carousel-arrow-clicked-left) {
-    @apply scale-125 -rotate-6;
+  /* Hover states for arrows */
+  .carousel-arrow-left:hover {
+    transform: scale(1.25) rotate(-6deg);
   }
   
-  .carousel-arrow-right:hover:not(.carousel-arrow-clicked-right) {
-    @apply scale-125 rotate-6;
+  .carousel-arrow-right:hover {
+    transform: scale(1.25) rotate(6deg);
   }
   
+  /* Click states override hover */
   .carousel-arrow-clicked-left {
-    @apply scale-[2] -rotate-12 animate-pulse;
+    transform: scale(2) rotate(-12deg);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
   
   .carousel-arrow-clicked-right {
-    @apply scale-[2] rotate-12 animate-pulse;
+    transform: scale(2) rotate(12deg);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Prevent hover when clicked */
+  .carousel-arrow-clicked-left:hover {
+    transform: scale(2) rotate(-12deg);
+  }
+  
+  .carousel-arrow-clicked-right:hover {
+    transform: scale(2) rotate(12deg);
   }
   
   .carousel-arrow-svg {
-    @apply w-8 h-8 transition-all duration-300;
+    width: 2rem;
+    height: 2rem;
+    transition: all 0.3s ease;
   }
   
-  /* Content Card Component - Reusable white card with golden border */
+  /* === CONTENT CARD COMPONENTS === */
+  /* Reusable white card with golden border */
   .content-card {
     @apply bg-white rounded-lg shadow-sm p-8 border-2 border-amber-300 shadow-amber-100;
   }
