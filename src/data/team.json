@@ -53,6 +53,15 @@
 				"pt-BR": "Artista 3D"
 			},
 			"image": "/assets/team/Fernanda.png"
+		},
+		{
+			"id": 7,
+			"name": "Sisyphus",
+			"title": {
+				"en": "Leaves a trail of bugs",
+				"pt-BR": "Deixa um rastro de bugs"
+			},
+			"image": "/assets/team/photo.jpg"
 		}
 	]
 }
