@@ -61,19 +61,6 @@ export default function NavButton({
           pointerEvents: 'none'
         }}
       />
-      {/* Button Label */}
-      <div style={{
-        position: 'absolute',
-        bottom: '-35px', // Adjusted for larger button size
-        left: '50%',
-        transform: 'translateX(-50%)',
-        whiteSpace: 'nowrap',
-        pointerEvents: 'none'
-      }}>
-        <h2 className="font-h2 text-sm font-semibold text-gray-700 text-center">
-          {labelTextKey}
-        </h2>
-      </div>
     </button>
   );
 }
