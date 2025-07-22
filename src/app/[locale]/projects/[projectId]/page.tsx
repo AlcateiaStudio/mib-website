@@ -92,7 +92,7 @@ export default async function ProjectPage({ params }: Props) {
 					<div className="space-y-6">
 						{/* Only show Project Info if there's meaningful content */}
 						{(project.status || project.releaseDate || project.teamSize) && (
-							<div className="bg-white rounded-lg shadow-sm p-6">
+							<div className="content-card-sm">
 								<h3 className="font-h2 text-xl font-bold mb-4">
 									{locale === 'en' ? 'Project Info' : 'Informações do Projeto'}
 								</h3>
@@ -134,7 +134,7 @@ export default async function ProjectPage({ params }: Props) {
 						)}
 
 						{project.links && Object.keys(project.links).length > 0 && (
-							<div className="bg-white rounded-lg shadow-sm p-6">
+							<div className="content-card-sm">
 								<h3 className="text-xl font-bold mb-3">
 									{locale === 'en' ? 'Links' : 'Links'}
 								</h3>
@@ -168,7 +168,7 @@ export default async function ProjectPage({ params }: Props) {
 						)}
 
 						{project.platform && project.platform.length > 0 && (
-							<div className="bg-white rounded-lg shadow-sm p-6">
+							<div className="content-card-sm">
 								<h3 className="text-xl font-bold mb-3">
 									{locale === 'en' ? 'Platforms' : 'Plataformas'}
 								</h3>
