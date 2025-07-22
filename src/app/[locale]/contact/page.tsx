@@ -17,7 +17,7 @@ export default async function ContactPage({ params }: Props) {
 			<div className="space-y-8">
 				{/* Page Header */}
 				<div className="text-center space-y-4">
-					<h1 className="text-4xl font-bold heading-crayon text-shadow-strong">
+					<h1 className="heading-crayon">
 						{t.pages.contact.title}
 					</h1>
 				</div>

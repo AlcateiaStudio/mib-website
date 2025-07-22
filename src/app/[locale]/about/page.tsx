@@ -19,7 +19,7 @@ export default async function AboutPage({ params }: Props) {
 			<div className="space-y-8">
 				{/* Page Header */}
 				<div className="text-center space-y-4">
-					<h1 className="text-4xl font-bold heading-crayon text-shadow-strong">
+					<h1 className="heading-crayon">
 						{t.pages.about.title}
 					</h1>
 					<p className="font-body text-lg text-gray-600 max-w-2xl mx-auto">

@@ -98,14 +98,11 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 				{showArrows && (
 					<button
 						onClick={handlePrevious}
-						className={`flex-shrink-0 transition-all duration-150 transform relative ${clickedArrow === 'left'
-							? 'scale-[2] -rotate-15 animate-pulse'
-							: 'hover:scale-125 hover:-rotate-6'
-							}`}
+						className={`carousel-arrow carousel-arrow-left ${clickedArrow === 'left' ? 'carousel-arrow-clicked-left' : ''}`}
 						aria-label="Previous team members"
 					>
 						<svg
-							className="w-8 h-8 transition-all duration-300"
+							className="carousel-arrow-svg"
 							fill="none"
 							viewBox="0 0 24 24"
 						>
@@ -227,14 +224,11 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 				{showArrows && (
 					<button
 						onClick={handleNext}
-						className={`flex-shrink-0 transition-all duration-150 transform relative ${clickedArrow === 'right'
-							? 'scale-[2] rotate-15 animate-pulse'
-							: 'hover:scale-125 hover:rotate-6'
-							}`}
+						className={`carousel-arrow carousel-arrow-right ${clickedArrow === 'right' ? 'carousel-arrow-clicked-right' : ''}`}
 						aria-label="Next team members"
 					>
 						<svg
-							className="w-8 h-8 transition-all duration-300"
+							className="carousel-arrow-svg"
 							fill="none"
 							viewBox="0 0 24 24"
 						>

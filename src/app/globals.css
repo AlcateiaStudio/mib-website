@@ -1,8 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&family=Comfortaa:wght@300;400;500&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&family=Comfortaa:wght@300;400;500&family=Inter:wght@400;500;600&display=swap');
+
+/* Cache Busting: Updated July 22, 2025 - 3:15 PM */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* HIGH PRIORITY: Tarot card H1 styling - Clean and simple */
+h1,
+.heading-crayon {
+  font-family: 'Amatic SC', cursive !important; /* H1 headings - Tarot card style */
+  font-weight: 700 !important;
+  font-size: 4rem !important; /* 48px - Larger tarot card style */
+  color: #B8860B !important; /* Dark goldenrod for mystical look */
+  text-shadow: -2px 1px 0px #000000 !important; /* Closer sharp black shadow */
+}
 
 /* Custom styles for hand-drawn, crayon-like aesthetic */
 @layer base {
@@ -17,10 +29,6 @@
   }
   
   /* Font classes for different elements */
-  .font-h1 {
-    font-family: 'Fredoka', 'Comic Sans MS', cursive !important; /* H1 headings */
-  }
-  
   .font-h2 {
     font-family: 'Nunito', 'Arial', sans-serif !important; /* H2 headings */
   }
@@ -58,10 +66,35 @@
     transform: rotate(0.5deg);
   }
   
-  /* Playful headings - now using new font system */
+  /* Playful headings - simplified since we handle everything in the main H1 rule */
   .heading-crayon {
-    @apply font-h1 text-primary-700 leading-relaxed;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    @apply leading-relaxed;
+    /* All font styling handled by the H1 rule above */
+  }
+  
+  /* Team Carousel Arrow Styles - Eliminating repetition */
+  .carousel-arrow {
+    @apply flex-shrink-0 transition-all duration-150 transform relative;
+  }
+  
+  .carousel-arrow-left:hover:not(.carousel-arrow-clicked-left) {
+    @apply scale-125 -rotate-6;
+  }
+  
+  .carousel-arrow-right:hover:not(.carousel-arrow-clicked-right) {
+    @apply scale-125 rotate-6;
+  }
+  
+  .carousel-arrow-clicked-left {
+    @apply scale-[2] -rotate-12 animate-pulse;
+  }
+  
+  .carousel-arrow-clicked-right {
+    @apply scale-[2] rotate-12 animate-pulse;
+  }
+  
+  .carousel-arrow-svg {
+    @apply w-8 h-8 transition-all duration-300;
   }
   
   /* Interactive mascot container */

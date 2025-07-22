@@ -30,7 +30,7 @@ export default async function ProjectPage({ params }: Props) {
 			<div className="space-y-8">
 				{/* Project Header */}
 				<div className="text-center space-y-4">
-					<h1 className="text-4xl font-bold heading-crayon text-shadow-strong">
+					<h1 className="heading-crayon">
 						{localizedTitle}
 					</h1>
 					<p className="font-body text-xl text-gray-600">
