@@ -107,22 +107,23 @@ h1,
     @apply bg-white rounded-lg shadow-sm p-6 border-2 border-amber-300 shadow-amber-100;
   }
   
-  /* Team member initial and loaded states - with proper rotation timing */
+  /* Team member initial and loaded states - only for rotation */
   .team-member-initial {
     transform: rotate(-120deg);
-    transition: transform 0.75s ease-out;
   }
   
   .team-member-loaded {
     transform: rotate(0deg);
-    transition: transform 0.75s ease-out;
   }
   
   /* Team member hover effects - fast and separate from rotation */
+  .team-member-container {
+    transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.25s ease-out;
+  }
+  
   .team-member-container:hover {
-    transform: scale(1.25) !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-    transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.25s ease-out !important;
+    transform: scale(1.25);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
   
   /* Interactive mascot container */
