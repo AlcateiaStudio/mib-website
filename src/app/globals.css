@@ -71,50 +71,6 @@ h1,
     @apply leading-relaxed;
   }
   
-  /* === TEAM CAROUSEL COMPONENTS === */
-  /* Base carousel arrow styles */
-  .carousel-arrow {
-    flex-shrink: 0;
-    transition: all 0.15s ease;
-    transform: scale(1);
-    position: relative;
-  }
-  
-  /* Hover states for arrows */
-  .carousel-arrow-left:hover {
-    transform: scale(1.25) rotate(-6deg);
-  }
-  
-  .carousel-arrow-right:hover {
-    transform: scale(1.25) rotate(6deg);
-  }
-  
-  /* Click states override hover */
-  .carousel-arrow-clicked-left {
-    transform: scale(2) rotate(-12deg);
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  
-  .carousel-arrow-clicked-right {
-    transform: scale(2) rotate(12deg);
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  
-  /* Prevent hover when clicked */
-  .carousel-arrow-clicked-left:hover {
-    transform: scale(2) rotate(-12deg);
-  }
-  
-  .carousel-arrow-clicked-right:hover {
-    transform: scale(2) rotate(12deg);
-  }
-  
-  .carousel-arrow-svg {
-    width: 2rem;
-    height: 2rem;
-    transition: all 0.3s ease;
-  }
-  
   /* === CONTENT CARD COMPONENTS === */
   /* Reusable white card with golden border */
   .content-card {
