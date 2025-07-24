@@ -4,6 +4,7 @@ import { getProjectById } from '../../../../lib/projects';
 import ContentLayout from '../../../../components/ContentLayout';
 import Image from 'next/image';
 import ProjectLinks from '../../../../components/ProjectLinks';
+import PlatformTags from '../../../../components/PlatformTags';
 
 interface Props {
 	params: Promise<{ locale: string; projectId: string }>;
@@ -199,18 +200,7 @@ export default async function ProjectPage({ params }: Props) {
 							)}
 
 							{project.platform && project.platform.length > 0 && (
-								<div className="content-card-sm">
-									<h3 className="text-xl font-bold mb-3">
-										{locale === 'en' ? 'Platforms' : 'Plataformas'}
-									</h3>
-									<div className="flex flex-wrap gap-2">
-										{project.platform.map((platform, index) => (
-											<span key={index} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-												{platform}
-											</span>
-										))}
-									</div>
-								</div>
+								<PlatformTags platforms={project.platform} locale={locale} />
 							)}
 						</div>
 					</div>

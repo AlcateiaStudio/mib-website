@@ -39,6 +39,10 @@ export interface ProjectData {
 		github?: string;
 		playStore?: string;
 		appStore?: string;
+		youtube?: string;
+		twitter?: string;
+		discord?: string;
+		linkedin?: string;
 	};
 	gallery?: string[]; // Additional images beyond the main cycling ones
 	videos?: string[]; // YouTube/Vimeo embed codes or video file paths
@@ -76,7 +80,7 @@ export const projectsDatabase: ProjectData[] = [
 			en: 'Asumi is our latest project that explores the beauty of small moments and their cumulative impact. Players guide Asumi through a world where every interaction matters, from watering flowers to helping forest creatures.\n\nThe game features:\n- Hand-drawn 2D animation\n- Emotional storytelling\n- Environmental puzzles\n- Multiple endings based on player choices',
 			'pt-BR': 'Asumi é nosso projeto mais recente que explora a beleza dos pequenos momentos e seu impacto cumulativo. Os jogadores guiam Asumi através de um mundo onde cada interação importa, desde regar flores até ajudar criaturas da floresta.\n\nO jogo apresenta:\n- Animação 2D desenhada à mão\n- Narrativa emocional\n- Quebra-cabeças ambientais\n- Múltiplos finais baseados nas escolhas do jogador'
 		},
-		platform: ['Windows', 'Mac', 'Steam'],
+		platform: ['Windows', 'Mac', 'Linux', 'Steam'],
 		status: 'development',
 		releaseDate: '2025 Q3',
 		teamSize: 6,
@@ -132,6 +136,7 @@ export const projectsDatabase: ProjectData[] = [
 		cycleDuration: 4,
 		year: 2025,
 		category: 'roblox',
+		platform: ['Roblox'],
 		links: {
 			github: 'https://github.com/madeinbugs/phora-lab',
 			website: 'https://madeinbugs.com/phora'
@@ -154,6 +159,7 @@ export const projectsDatabase: ProjectData[] = [
 		cycleDuration: 2.5,
 		year: 2024,
 		category: 'unity',
+		platform: ['Android', 'iOS'],
 		links: {
 			itchio: 'https://madeinbugs.itch.io/nik-mussarela',
 			playStore: 'https://play.google.com/store/apps/details?id=com.madeinbugs.pizza'
@@ -175,7 +181,8 @@ export const projectsDatabase: ProjectData[] = [
 		],
 		cycleDuration: 4,
 		year: 2023,
-		category: 'unity'
+		category: 'unity',
+		platform: ['Android', 'Web']
 	},
 	{
 		id: 'elementales',
@@ -194,25 +201,7 @@ export const projectsDatabase: ProjectData[] = [
 		cycleDuration: 2.5,
 		year: 2022,
 		category: 'unity'
-	},
-	{
-		id: 'monster girls',
-		title: {
-			en: 'monstergirls',
-			'pt-BR': 'monstergirls'
-		},
-		subtitle: {
-			en: 'Monster Catcher Mobile game',
-			'pt-BR': 'Jogo Mobile de Captura de Monstros'
-		},
-		images: [
-			'/assets/projects/monstergirls/monstergirls-1.jpg',
-			'/assets/projects/monstergirls/monstergirls-2.jpg',
-		],
-		cycleDuration: 2.7,
-		year: 2022,
-		category: 'unity'
-	},
+	}
 ];
 
 // Helper functions for project data
