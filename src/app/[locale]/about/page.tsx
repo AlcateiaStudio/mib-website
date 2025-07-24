@@ -28,8 +28,8 @@ export default async function AboutPage({ params }: Props) {
 					<div className="max-w-4xl mx-auto space-y-6">
 						<p className="text-2xl md:text-3xl font-bold text-gray-800">
 							{locale === 'en'
-								? 'Made in Bugs is a Brazilian indie game studio founded in 2024.'
-								: 'Made in Bugs é um estúdio indie brasileiro fundado em 2024.'
+								? 'Made in Bugs is a Brazilian indie game studio founded in 2024'
+								: 'Made in Bugs é um estúdio indie brasileiro fundado em 2024'
 							}
 						</p>
 						<p className="text-xl md:text-2xl text-gray-600 font-medium">
@@ -70,9 +70,9 @@ export default async function AboutPage({ params }: Props) {
 					<div className="text-center flex items-center justify-center pb-20">
 						<h3 className="font-h2 text-2xl font-bold">
 							{locale === 'en' ? (
-								<span>Received <span className="text-green-600">R$30,000</span> Investment</span>
+								<span>Received <span className="text-green-600">R$30,000</span> Investment!</span>
 							) : (
-								<span>Recebemos <span className="text-green-600">R$30.000</span> de Investimento</span>
+								<span>Recebemos <span className="text-green-600">R$30.000</span> de Investimento!</span>
 							)}
 						</h3>
 					</div>
