@@ -2,6 +2,7 @@ import { getTranslations, normalizeLocale } from '../../../lib/i18n';
 import ContentLayout from '../../../components/ContentLayout';
 import TeamCarousel from '../../../components/TeamCarousel';
 import teamData from '../../../data/team.json';
+import Image from 'next/image';
 
 interface Props {
 	params: Promise<{ locale: string }>;
@@ -27,8 +28,8 @@ export default async function AboutPage({ params }: Props) {
 					<div className="max-w-4xl mx-auto space-y-6">
 						<p className="text-2xl md:text-3xl font-bold text-gray-800">
 							{locale === 'en'
-								? 'Made in Bugs is a Brazilian indie game studio founded in 2024. We may be small, but our creativity is boundless!'
-								: 'Made in Bugs é um estúdio indie brasileiro fundado em 2024. Podemos ser pequenos, mas nossa criatividade é infinita!'
+								? 'Made in Bugs is a Brazilian indie game studio founded in 2024.'
+								: 'Made in Bugs é um estúdio indie brasileiro fundado em 2024.'
 							}
 						</p>
 						<p className="text-xl md:text-2xl text-gray-600 font-medium">
@@ -40,97 +41,45 @@ export default async function AboutPage({ params }: Props) {
 					</div>
 				</div>
 
-				{/* Values Cards */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-					<div className="content-card text-center">
-						<div className="text-4xl mb-4">💬</div>
-						<h3 className="font-h2 text-lg font-bold mb-2">
-							{locale === 'en' ? 'Communication' : 'Comunicação'}
+				{/* Achievements Cards */}
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div className="text-center">
+						<h3 className="font-h2 text-lg font-bold mb-4">
+							{locale === 'en' ? 'Paulo Gustavo Grant Winner' : 'Ganhamos o Edital Paulo Gustavo'}
 						</h3>
-						<p className="text-sm text-gray-600">
-							{locale === 'en'
-								? 'Always in sync'
-								: 'Sempre em sintonia'
-							}
-						</p>
-					</div>
-
-					<div className="content-card text-center">
-						<div className="text-4xl mb-4">🎮</div>
-						<h3 className="font-h2 text-lg font-bold mb-2">
-							{locale === 'en' ? 'Players First' : 'Jogadores Primeiro'}
-						</h3>
-						<p className="text-sm text-gray-600">
-							{locale === 'en'
-								? 'Always'
-								: 'Sempre'
-							}
-						</p>
-					</div>
-
-					<div className="content-card text-center">
-						<div className="text-4xl mb-4">🚀</div>
-						<h3 className="font-h2 text-lg font-bold mb-2">
-							{locale === 'en' ? 'No Fear of Risk' : 'Sem Medo de Risco'}
-						</h3>
-						<p className="text-sm text-gray-600">
-							{locale === 'en'
-								? 'Excellence through bold choices'
-								: 'Excelência através de escolhas ousadas'
-							}
-						</p>
-					</div>
-
-					<div className="content-card text-center">
-						<div className="text-4xl mb-4">🌱</div>
-						<h3 className="font-h2 text-lg font-bold mb-2">
-							{locale === 'en' ? 'Always Growing' : 'Sempre Crescendo'}
-						</h3>
-						<p className="text-sm text-gray-600">
-							{locale === 'en'
-								? 'Excellence & knowledge sharing'
-								: 'Excelência e compartilhamento'
-							}
-						</p>
-					</div>
-				</div>
-
-				{/* Victories Section */}
-				<div className="content-card">
-					<h2 className="font-h2 text-2xl font-bold mb-8 text-center">
-						{locale === 'en' ? 'Our Victories' : 'Nossas Vitórias'}
-					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-						{/* Paulo Gustavo Grant */}
-						<div className="text-center space-y-4">
-							<div className="bg-gray-100 rounded-lg p-8 aspect-square flex items-center justify-center">
-								<div className="text-4xl">🏆</div>
-								{/* TODO: Add Paulo Gustavo grant image here */}
-							</div>
-							<h3 className="font-h2 text-lg font-bold">
-								{locale === 'en' ? 'Paulo Gustavo Grant Winner' : 'Ganhamos o Edital Paulo Gustavo'}
-							</h3>
+						<div className="rounded-lg overflow-hidden">
+							<Image
+								src="/assets/about-us/paulo-gustavo.png"
+								alt={locale === 'en' ? 'Paulo Gustavo Grant Certificate' : 'Certificado Edital Paulo Gustavo'}
+								width={400}
+								height={300}
+								className="w-full h-auto object-cover"
+							/>
 						</div>
+					</div>
 
-						{/* Investment */}
-						<div className="text-center space-y-4">
-							<div className="bg-gray-100 rounded-lg p-8 aspect-square flex items-center justify-center">
-								<div className="text-4xl">💰</div>
-							</div>
-							<h3 className="font-h2 text-lg font-bold">
-								{locale === 'en' ? 'Received R$30,000 Investment' : 'Recebemos R$30.000 de Investimento'}
-							</h3>
-						</div>
+					<div className="text-center">
+						<h3 className="font-h2 text-lg font-bold mb-4">
+							{locale === 'en' ? (
+								<span>Received <span className="text-green-600">R$30,000</span> Investment</span>
+							) : (
+								<span>Recebemos <span className="text-green-600">R$30.000</span> de Investimento</span>
+							)}
+						</h3>
+					</div>
 
-						{/* Sebrae Mentorship */}
-						<div className="text-center space-y-4">
-							<div className="bg-gray-100 rounded-lg p-8 aspect-square flex items-center justify-center">
-								<div className="text-4xl">🎓</div>
-								{/* TODO: Add Sebrae mentorship image here */}
-							</div>
-							<h3 className="font-h2 text-lg font-bold">
-								{locale === 'en' ? 'Mentored by Sebrae Crie Games' : 'Fomos Mentorados pela Sebrae Crie Games'}
-							</h3>
+					<div className="text-center">
+						<h3 className="font-h2 text-lg font-bold mb-4">
+							{locale === 'en' ? 'Mentored by Sebrae Crie Games' : 'Mentoria da Sebrae Crie Games'}
+						</h3>
+						<div className="rounded-lg overflow-hidden">
+							<Image
+								src="/assets/about-us/crie-games.png"
+								alt={locale === 'en' ? 'Sebrae Crie Games Mentorship Certificate' : 'Certificado Mentoria Sebrae Crie Games'}
+								width={400}
+								height={300}
+								className="w-full h-auto object-cover"
+							/>
 						</div>
 					</div>
 				</div>
