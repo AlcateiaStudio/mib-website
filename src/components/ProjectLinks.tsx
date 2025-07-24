@@ -1,21 +1,20 @@
 'use client';
 
 import React from 'react';
-import {
-	FaGlobe,
-	FaGithub,
-	FaSteam,
+import { 
+	FaGlobe, 
+	FaGithub, 
+	FaSteam, 
 	FaGamepad,
 	FaAppStore,
 	FaGooglePlay,
 	FaYoutube,
 	FaTwitter,
 	FaDiscord,
-	FaLinkedin
+	FaLinkedin,
+	FaFigma
 } from 'react-icons/fa';
-import { SiItchdotio, SiUnity, SiUnrealengine } from 'react-icons/si';
-
-interface ProjectLinksProps {
+import { SiItchdotio, SiUnity, SiUnrealengine, SiRoblox } from 'react-icons/si';interface ProjectLinksProps {
 	links: {
 		website?: string;
 		steam?: string;
@@ -27,6 +26,8 @@ interface ProjectLinksProps {
 		twitter?: string;
 		discord?: string;
 		linkedin?: string;
+		figma?: string;
+		roblox?: string;
 	};
 	locale: string;
 }
@@ -92,6 +93,18 @@ const linkConfig = {
 		label: { en: 'LinkedIn', 'pt-BR': 'LinkedIn' },
 		color: 'text-blue-700 hover:text-blue-900',
 		bgColor: 'hover:bg-blue-50'
+	},
+	figma: {
+		icon: FaFigma,
+		label: { en: 'Figma', 'pt-BR': 'Figma' },
+		color: 'text-purple-600 hover:text-purple-800',
+		bgColor: 'hover:bg-purple-50'
+	},
+	roblox: {
+		icon: SiRoblox,
+		label: { en: 'Roblox', 'pt-BR': 'Roblox' },
+		color: 'text-red-600 hover:text-red-800',
+		bgColor: 'hover:bg-red-50'
 	}
 };
 

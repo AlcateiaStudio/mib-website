@@ -200,7 +200,12 @@ export default async function ProjectPage({ params }: Props) {
 							)}
 
 							{project.platform && project.platform.length > 0 && (
-								<PlatformTags platforms={project.platform} locale={locale} />
+								<PlatformTags 
+									platforms={project.platform} 
+									platformLinks={project.platformLinks}
+									platformMessages={project.platformMessages}
+									locale={locale} 
+								/>
 							)}
 						</div>
 					</div>

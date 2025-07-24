@@ -14,6 +14,7 @@ export interface ProjectData {
 	featured?: boolean; // Whether to highlight this project
 	year?: number;
 	category?: string;
+	hide?: boolean; // Whether to hide this project from public listings
 
 	// Header images for project pages
 	bannerImage?: string; // Wide banner image (1600x400) for background behind title
@@ -29,6 +30,15 @@ export interface ProjectData {
 		'pt-BR': string;
 	};
 	platform?: string[]; // ["Windows", "Mac", "Web", "Mobile"]
+	platformLinks?: { // Links specific to platforms - if no link, platform shows as "coming soon"
+		[platform: string]: string;
+	};
+	platformMessages?: { // Custom messages for platforms without links
+		[platform: string]: {
+			en: string;
+			'pt-BR': string;
+		};
+	};
 	status?: 'development' | 'released' | 'prototype' | 'cancelled';
 	releaseDate?: string;
 	teamSize?: number;
@@ -43,6 +53,8 @@ export interface ProjectData {
 		twitter?: string;
 		discord?: string;
 		linkedin?: string;
+		figma?: string;
+		roblox?: string;
 	};
 	gallery?: string[]; // Additional images beyond the main cycling ones
 	videos?: string[]; // YouTube/Vimeo embed codes or video file paths
@@ -80,13 +92,24 @@ export const projectsDatabase: ProjectData[] = [
 			en: 'Asumi is our latest project that explores the beauty of small moments and their cumulative impact. Players guide Asumi through a world where every interaction matters, from watering flowers to helping forest creatures.\n\nThe game features:\n- Hand-drawn 2D animation\n- Emotional storytelling\n- Environmental puzzles\n- Multiple endings based on player choices',
 			'pt-BR': 'Asumi é nosso projeto mais recente que explora a beleza dos pequenos momentos e seu impacto cumulativo. Os jogadores guiam Asumi através de um mundo onde cada interação importa, desde regar flores até ajudar criaturas da floresta.\n\nO jogo apresenta:\n- Animação 2D desenhada à mão\n- Narrativa emocional\n- Quebra-cabeças ambientais\n- Múltiplos finais baseados nas escolhas do jogador'
 		},
-		platform: ['Windows', 'Mac', 'Linux', 'Steam'],
+		platform: ['Android', 'iOS'],
+		platformMessages: {
+			android: {
+				en: 'Coming later this year...',
+				'pt-BR': 'Chegando ainda este ano...'
+			},
+			ios: {
+				en: 'Coming later this year...',
+				'pt-BR': 'Chegando ainda este ano...'
+			}
+		},
 		status: 'development',
 		releaseDate: '2025 Q3',
 		teamSize: 6,
 		links: {
 			steam: 'https://store.steampowered.com/app/asumi',
-			website: 'https://madeinbugs.com/asumi'
+			website: 'https://madeinbugs.com/asumi',
+			figma: 'https://figma.com/asumi-design'
 		},
 		features: {
 			en: [
@@ -126,8 +149,12 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Roblox Phora Lab'
 		},
 		subtitle: {
-			en: 'Roblox Fashion Game',
-			'pt-BR': 'Roblox Fashion Game',
+			en: 'Haircare Makeup Lab Saloon Game',
+			'pt-BR': 'Jogo de Salão de Beleza e Maquiagem',
+		},
+		description: {
+			en: 'A haircare makeup lab saloon game in Roblox where players can experiment with different styles and treatments.',
+			'pt-BR': 'Um jogo de salão de beleza e maquiagem no Roblox onde jogadores podem experimentar diferentes estilos e tratamentos.'
 		},
 		images: [
 			'/assets/projects/phora/phora-1.jpg',
@@ -137,6 +164,9 @@ export const projectsDatabase: ProjectData[] = [
 		year: 2025,
 		category: 'roblox',
 		platform: ['Roblox'],
+		platformLinks: {
+			roblox: 'https://roblox.com/games/phora-lab'
+		},
 		links: {
 			github: 'https://github.com/madeinbugs/phora-lab',
 			website: 'https://madeinbugs.com/phora'
@@ -160,6 +190,7 @@ export const projectsDatabase: ProjectData[] = [
 		year: 2024,
 		category: 'unity',
 		platform: ['Android', 'iOS'],
+		hide: true, // Hidden from public listings
 		links: {
 			itchio: 'https://madeinbugs.itch.io/nik-mussarela',
 			playStore: 'https://play.google.com/store/apps/details?id=com.madeinbugs.pizza'
@@ -172,8 +203,26 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Animunch'
 		},
 		subtitle: {
-			en: 'Mobile Arcade Puzzle Game',
-			'pt-BR': 'Jogo Mobile Puzzle Arcade'
+			en: 'Retro-Inspired Mobile Puzzle Game',
+			'pt-BR': 'Jogo Mobile Puzzle Inspirado em Clássicos'
+		},
+		description: {
+			en: 'A game inspired by retro puzzle games with modern mobile gameplay mechanics.',
+			'pt-BR': 'Um jogo inspirado em quebra-cabeças retrô com mecânicas modernas para mobile.'
+		},
+		features: {
+			en: [
+				'Online multiplayer',
+				'Cosmetics system',
+				'Five challenging levels',
+				'Endless mode for infinite fun'
+			],
+			'pt-BR': [
+				'Multijogador online',
+				'Sistema de cosméticos',
+				'Cinco níveis desafiadores',
+				'Modo infinito para diversão sem fim'
+			]
 		},
 		images: [
 			'/assets/projects/animunch/animunch-1.jpg',
@@ -182,7 +231,8 @@ export const projectsDatabase: ProjectData[] = [
 		cycleDuration: 4,
 		year: 2023,
 		category: 'unity',
-		platform: ['Android', 'Web']
+		platform: ['Android', 'iOS'],
+		teamSize: 4
 	},
 	{
 		id: 'elementales',
@@ -191,7 +241,7 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Elementales'
 		},
 		subtitle: {
-			en: 'Monster Catcher Mobile game',
+			en: 'Monster Catcher Mobile Game',
 			'pt-BR': 'Jogo Mobile de Captura de Monstros'
 		},
 		images: [
@@ -200,7 +250,32 @@ export const projectsDatabase: ProjectData[] = [
 		],
 		cycleDuration: 2.5,
 		year: 2022,
-		category: 'unity'
+		category: 'unity',
+		platform: ['Android'],
+		platformLinks: {
+			android: 'https://play.google.com/store/apps/details?id=com.madeinbugs.elementales'
+		},
+		teamSize: 3
+	},
+	{
+		id: 'monster girls',
+		title: {
+			en: 'monstergirls',
+			'pt-BR': 'monstergirls'
+		},
+		subtitle: {
+			en: 'Monster Catcher Mobile game',
+			'pt-BR': 'Jogo Mobile de Captura de Monstros'
+		},
+		images: [
+			'/assets/projects/monstergirls/monstergirls-1.jpg',
+			'/assets/projects/monstergirls/monstergirls-2.jpg',
+		],
+		cycleDuration: 2.7,
+		year: 2022,
+		category: 'unity',
+		platform: ['Android'],
+		hide: true // Hidden from public listings
 	}
 ];
 
@@ -210,15 +285,15 @@ export function getProjectById(id: string): ProjectData | undefined {
 }
 
 export function getProjectsByCategory(category: string): ProjectData[] {
-	return projectsDatabase.filter(project => project.category === category);
+	return projectsDatabase.filter(project => project.category === category && !project.hide);
 }
 
 export function getFeaturedProjects(): ProjectData[] {
-	return projectsDatabase.filter(project => project.featured);
+	return projectsDatabase.filter(project => project.featured && !project.hide);
 }
 
 export function getAllProjects(): ProjectData[] {
-	return projectsDatabase;
+	return projectsDatabase.filter(project => !project.hide);
 }
 
 // Get localized project data
