@@ -62,6 +62,7 @@ export interface ProjectData {
 		linkedin?: string;
 		figma?: string;
 		roblox?: string;
+		wiki?: string;
 	};
 	videos?: string[];
 	awards?: {
@@ -389,6 +390,9 @@ export const projectsDatabase: ProjectData[] = [
 		platform: ['Android'],
 		platformLinks: {
 			android: 'https://play.google.com/store/apps/details?id=com.P3TGaming.Elementales&hl=pt_BR'
+		},
+		links: {
+			wiki: 'https://cyber-father-c4f.notion.site/Elementales-Wiki-76245a98df0b4e8485e88a166c985e03'
 		},
 		teamSize: 3,
 		projectType: 'client',

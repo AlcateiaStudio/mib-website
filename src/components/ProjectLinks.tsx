@@ -12,7 +12,8 @@ import {
 	FaTwitter,
 	FaDiscord,
 	FaLinkedin,
-	FaFigma
+	FaFigma,
+	FaBook
 } from 'react-icons/fa';
 import { SiItchdotio, SiUnity, SiUnrealengine, SiRoblox } from 'react-icons/si'; interface ProjectLinksProps {
 	links: {
@@ -28,6 +29,7 @@ import { SiItchdotio, SiUnity, SiUnrealengine, SiRoblox } from 'react-icons/si';
 		linkedin?: string;
 		figma?: string;
 		roblox?: string;
+		wiki?: string;
 	};
 	locale: string;
 }
@@ -129,6 +131,14 @@ const linkConfig = {
 		bgColor: 'bg-red-100',
 		borderColor: 'border-red-200',
 		hoverBg: 'hover:bg-red-200'
+	},
+	wiki: {
+		icon: FaBook,
+		label: { en: 'Wiki', 'pt-BR': 'Wiki' },
+		color: 'text-blue-600',
+		bgColor: 'bg-blue-100',
+		borderColor: 'border-blue-200',
+		hoverBg: 'hover:bg-blue-200'
 	}
 };
 
