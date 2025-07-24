@@ -131,7 +131,11 @@ export const projectsDatabase: ProjectData[] = [
 		],
 		cycleDuration: 4,
 		year: 2025,
-		category: 'roblox'
+		category: 'roblox',
+		links: {
+			github: 'https://github.com/madeinbugs/phora-lab',
+			website: 'https://madeinbugs.com/phora'
+		}
 	},
 	{
 		id: 'pizza',
@@ -149,7 +153,11 @@ export const projectsDatabase: ProjectData[] = [
 		],
 		cycleDuration: 2.5,
 		year: 2024,
-		category: 'unity'
+		category: 'unity',
+		links: {
+			itchio: 'https://madeinbugs.itch.io/nik-mussarela',
+			playStore: 'https://play.google.com/store/apps/details?id=com.madeinbugs.pizza'
+		}
 	},
 	{
 		id: 'animunch',

@@ -3,6 +3,7 @@ import { getTranslations, normalizeLocale } from '../../../../lib/i18n';
 import { getProjectById } from '../../../../lib/projects';
 import ContentLayout from '../../../../components/ContentLayout';
 import Image from 'next/image';
+import ProjectLinks from '../../../../components/ProjectLinks';
 
 interface Props {
 	params: Promise<{ locale: string; projectId: string }>;
@@ -194,37 +195,7 @@ export default async function ProjectPage({ params }: Props) {
 							)}
 
 							{project.links && Object.keys(project.links).length > 0 && (
-								<div className="content-card-sm">
-									<h3 className="text-xl font-bold mb-3">
-										{locale === 'en' ? 'Links' : 'Links'}
-									</h3>
-									<div className="space-y-2">
-										{project.links.website && (
-											<a href={project.links.website} target="_blank" rel="noopener noreferrer"
-												className="block text-blue-600 hover:text-blue-800 underline">
-												🌐 Website
-											</a>
-										)}
-										{project.links.steam && (
-											<a href={project.links.steam} target="_blank" rel="noopener noreferrer"
-												className="block text-blue-600 hover:text-blue-800 underline">
-												� Steam
-											</a>
-										)}
-										{project.links.github && (
-											<a href={project.links.github} target="_blank" rel="noopener noreferrer"
-												className="block text-blue-600 hover:text-blue-800 underline">
-												💻 GitHub
-											</a>
-										)}
-										{project.links.itchio && (
-											<a href={project.links.itchio} target="_blank" rel="noopener noreferrer"
-												className="block text-blue-600 hover:text-blue-800 underline">
-												🎯 itch.io
-											</a>
-										)}
-									</div>
-								</div>
+								<ProjectLinks links={project.links} locale={locale} />
 							)}
 
 							{project.platform && project.platform.length > 0 && (
