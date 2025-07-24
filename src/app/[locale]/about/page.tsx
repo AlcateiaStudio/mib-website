@@ -41,13 +41,18 @@ export default async function AboutPage({ params }: Props) {
 					</div>
 				</div>
 
+				{/* Team Section */}
+				<div className="content-card">
+					<h2 className="font-h2 text-2xl font-bold mb-6 text-center">
+						{locale === 'en' ? 'Meet Our Team' : 'Conheça Nossa Equipe'}
+					</h2>
+					<TeamCarousel teamMembers={teamData.teamMembers} locale={locale} />
+				</div>
+
 				{/* Achievements Cards */}
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-					<div className="text-center">
-						<h3 className="font-h2 text-lg font-bold mb-2">
-							{locale === 'en' ? 'Paulo Gustavo Grant Winner' : 'Ganhamos o Edital Paulo Gustavo'}
-						</h3>
-						<div className="rounded-lg overflow-hidden h-48 flex items-center justify-center">
+					<div className="text-center relative group">
+						<div className="rounded-lg overflow-hidden h-48 flex items-center justify-center cursor-pointer">
 							<Image
 								src="/assets/about-us/paulo-gustavo.png"
 								alt={locale === 'en' ? 'Paulo Gustavo Grant Certificate' : 'Certificado Edital Paulo Gustavo'}
@@ -55,6 +60,10 @@ export default async function AboutPage({ params }: Props) {
 								height={300}
 								className="w-full h-full object-contain"
 							/>
+							{/* Tooltip */}
+							<div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-black text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
+								{locale === 'en' ? 'Paulo Gustavo Grant Winner' : 'Ganhamos o Edital Paulo Gustavo'}
+							</div>
 						</div>
 					</div>
 
@@ -68,11 +77,8 @@ export default async function AboutPage({ params }: Props) {
 						</h3>
 					</div>
 
-					<div className="text-center">
-						<h3 className="font-h2 text-lg font-bold mb-2">
-							{locale === 'en' ? 'Mentored by Sebrae Crie Games' : 'Mentoria da Sebrae Crie Games'}
-						</h3>
-						<div className="rounded-lg overflow-hidden h-48 flex items-center justify-center">
+					<div className="text-center relative group">
+						<div className="rounded-lg overflow-hidden h-48 flex items-center justify-center cursor-pointer">
 							<Image
 								src="/assets/about-us/crie-games.png"
 								alt={locale === 'en' ? 'Sebrae Crie Games Mentorship Certificate' : 'Certificado Mentoria Sebrae Crie Games'}
@@ -80,28 +86,12 @@ export default async function AboutPage({ params }: Props) {
 								height={300}
 								className="w-full h-full object-contain"
 							/>
+							{/* Tooltip */}
+							<div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-black text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
+								{locale === 'en' ? 'Mentored by Sebrae Crie Games' : 'Mentoria da Sebrae Crie Games'}
+							</div>
 						</div>
 					</div>
-				</div>
-
-				{/* Call to Action Message */}
-				<div className="text-center">
-					<div className="max-w-4xl mx-auto">
-						<p className="text-xl md:text-2xl text-gray-600 font-medium">
-							{locale === 'en'
-								? "Let's create memorable games together."
-								: 'Vamos criar jogos memoráveis juntos.'
-							}
-						</p>
-					</div>
-				</div>
-
-				{/* Team Section */}
-				<div className="content-card">
-					<h2 className="font-h2 text-2xl font-bold mb-6 text-center">
-						{locale === 'en' ? 'Meet Our Team' : 'Conheça Nossa Equipe'}
-					</h2>
-					<TeamCarousel teamMembers={teamData.teamMembers} locale={locale} />
 				</div>
 
 				{/* Nature Section */}
