@@ -39,9 +39,10 @@ export interface ProjectData {
 			'pt-BR': string;
 		};
 	};
-	status?: 'development' | 'released' | 'prototype' | 'cancelled';
+	status?: 'In development' | 'released' | 'prototype' | 'cancelled';
 	releaseDate?: string;
 	teamSize?: number;
+	projectType?: 'studio' | 'client';
 	links?: {
 		website?: string;
 		steam?: string;
@@ -103,9 +104,10 @@ export const projectsDatabase: ProjectData[] = [
 				'pt-BR': 'Chegando ainda este ano...'
 			}
 		},
-		status: 'development',
+		status: 'In development',
 		releaseDate: '2025 Q3',
 		teamSize: 6,
+		projectType: 'studio',
 		links: {
 			figma: 'https://figma.com/asumi-design'
 		},
@@ -147,21 +149,22 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Roblox Phora Lab'
 		},
 		subtitle: {
-			en: 'Haircare Makeup Lab Saloon Game',
-			'pt-BR': 'Jogo de Salão de Beleza e Maquiagem',
+			en: 'Your Own Makeup Lab',
+			'pt-BR': 'Seu Próprio Laboratório de Maquiagem'
 		},
 		description: {
-			en: 'A haircare makeup lab saloon game in Roblox where players can experiment with different styles and treatments.',
-			'pt-BR': 'Um jogo de salão de beleza e maquiagem no Roblox onde jogadores podem experimentar diferentes estilos e tratamentos.'
+			en: 'A makeup lab experience in Roblox where players can experiment with different styles and treatments.',
+			'pt-BR': 'Uma experiência Roblox de salão de beleza e maquiagem onde jogadores podem experimentar diferentes estilos e tratamentos.'
 		},
 		images: [
 			'/assets/projects/phora/phora-1.jpg',
 			'/assets/projects/phora/phora-2.jpg',
 		],
 		cycleDuration: 4,
-		year: 2025,
+		year: 2024,
 		category: 'roblox',
 		platform: ['Roblox'],
+		projectType: 'client',
 		platformLinks: {
 			roblox: 'https://roblox.com/games/phora-lab'
 		},
@@ -211,25 +214,32 @@ export const projectsDatabase: ProjectData[] = [
 			en: [
 				'Online multiplayer',
 				'Cosmetics system',
-				'Five challenging levels',
-				'Endless mode for infinite fun'
+				'Five challenging story levels',
+				'Extra puzzle levels',
+				'Endless mode'
 			],
 			'pt-BR': [
 				'Multijogador online',
 				'Sistema de cosméticos',
-				'Cinco níveis desafiadores',
-				'Modo infinito para diversão sem fim'
+				'Cinco níveis de história desafiadores',
+				'Níveis puzzle extras',
+				'Modo infinito'
 			]
 		},
 		images: [
-			'/assets/projects/animunch/animunch-1.jpg',
-			'/assets/projects/animunch/animunch-2.jpg'
+			'/assets/projects/animunch/animunch-3.png',
+			'/assets/projects/animunch/animunch-4.png',
+			'/assets/projects/animunch/animunch-5.png'
 		],
 		cycleDuration: 4,
-		year: 2023,
+		year: 2024,
 		category: 'unity',
 		platform: ['Android', 'iOS'],
-		teamSize: 4
+		featured: true,
+		teamSize: 4,
+		projectType: 'client',
+		bannerImage: '/assets/projects/animunch/banner.png',
+		titleImage: '/assets/projects/animunch/title.png',
 	},
 	{
 		id: 'elementales',
@@ -252,7 +262,8 @@ export const projectsDatabase: ProjectData[] = [
 		platformLinks: {
 			android: 'https://play.google.com/store/apps/details?id=com.madeinbugs.elementales'
 		},
-		teamSize: 3
+		teamSize: 3,
+		projectType: 'client'
 	},
 	{
 		id: 'monster girls',

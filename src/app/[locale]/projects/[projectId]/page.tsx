@@ -153,12 +153,26 @@ export default async function ProjectPage({ params }: Props) {
 						{/* Right Column - Technical Info */}
 						<div className="space-y-6">
 							{/* Only show Project Info if there's meaningful content */}
-							{(project.status || project.releaseDate || project.teamSize) && (
+							{(project.status || project.releaseDate || project.teamSize || project.projectType) && (
 								<div className="content-card-sm">
 									<h3 className="font-h2 text-xl font-bold mb-4">
 										{locale === 'en' ? 'Project Info' : 'Informações do Projeto'}
 									</h3>
 									<div className="space-y-3">
+										{project.projectType && (
+											<div className="flex justify-between">
+												<span className="font-body font-medium text-gray-700">
+													{locale === 'en' ? 'Type:' : 'Tipo:'}
+												</span>
+												<span className="font-body text-gray-600">
+													{project.projectType === 'studio' ?
+														(locale === 'en' ? '🏠 Studio Original' : '🏠 Autoral') :
+														(locale === 'en' ? '🤝 Client Work' : '🤝 Trabalho Externo')
+													}
+												</span>
+											</div>
+										)}
+
 										{project.status && (
 											<div className="flex justify-between">
 												<span className="font-body font-medium text-gray-700">
