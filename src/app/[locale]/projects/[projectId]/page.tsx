@@ -195,17 +195,17 @@ export default async function ProjectPage({ params }: Props) {
 								</div>
 							)}
 
-							{project.links && Object.keys(project.links).length > 0 && (
-								<ProjectLinks links={project.links} locale={locale} />
-							)}
-
 							{project.platform && project.platform.length > 0 && (
-								<PlatformTags 
-									platforms={project.platform} 
+								<PlatformTags
+									platforms={project.platform}
 									platformLinks={project.platformLinks}
 									platformMessages={project.platformMessages}
-									locale={locale} 
+									locale={locale}
 								/>
+							)}
+
+							{project.links && Object.keys(project.links).length > 0 && (
+								<ProjectLinks links={project.links} locale={locale} />
 							)}
 						</div>
 					</div>

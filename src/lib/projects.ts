@@ -107,8 +107,6 @@ export const projectsDatabase: ProjectData[] = [
 		releaseDate: '2025 Q3',
 		teamSize: 6,
 		links: {
-			steam: 'https://store.steampowered.com/app/asumi',
-			website: 'https://madeinbugs.com/asumi',
 			figma: 'https://figma.com/asumi-design'
 		},
 		features: {
@@ -169,7 +167,6 @@ export const projectsDatabase: ProjectData[] = [
 		},
 		links: {
 			github: 'https://github.com/madeinbugs/phora-lab',
-			website: 'https://madeinbugs.com/phora'
 		}
 	},
 	{

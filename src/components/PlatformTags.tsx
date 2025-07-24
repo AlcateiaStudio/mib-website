@@ -1,19 +1,19 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-	FaWindows, 
-	FaApple, 
-	FaLinux, 
-	FaAndroid, 
-	FaGlobe 
+import {
+	FaWindows,
+	FaApple,
+	FaLinux,
+	FaAndroid,
+	FaGlobe
 } from 'react-icons/fa';
 import { SiRoblox, SiIos } from 'react-icons/si';
 
 interface PlatformTagsProps {
 	platforms: string[];
 	platformLinks?: { [platform: string]: string };
-	platformMessages?: { 
+	platformMessages?: {
 		[platform: string]: {
 			en: string;
 			'pt-BR': string;
@@ -105,7 +105,6 @@ function normalizePlatformName(platform: string): string {
 
 export default function PlatformTags({ platforms, platformLinks, platformMessages, locale }: PlatformTagsProps) {
 	const [hoveredPlatform, setHoveredPlatform] = useState<string | null>(null);
-	const [showTooltip, setShowTooltip] = useState<string | null>(null);
 
 	if (!platforms || platforms.length === 0) {
 		return null;
@@ -115,9 +114,6 @@ export default function PlatformTags({ platforms, platformLinks, platformMessage
 		const link = platformLinks?.[normalizedPlatform];
 		if (link) {
 			window.open(link, '_blank', 'noopener,noreferrer');
-		} else {
-			// Show tooltip for platforms without links
-			setShowTooltip(showTooltip === normalizedPlatform ? null : normalizedPlatform);
 		}
 	};
 
@@ -132,20 +128,20 @@ export default function PlatformTags({ platforms, platformLinks, platformMessage
 	return (
 		<div className="content-card-sm">
 			<h3 className="font-h2 text-xl font-bold mb-4">
-				{locale === 'en' ? 'Platforms' : 'Plataformas'}
+				{locale === 'en' ? 'Links' : 'Links'}
 			</h3>
 			<div className="flex flex-wrap gap-3">
 				{platforms.map((platform, index) => {
 					const normalizedPlatform = normalizePlatformName(platform);
 					const config = platformConfig[normalizedPlatform as keyof typeof platformConfig];
 					const hasLink = platformLinks?.[normalizedPlatform];
-					const isShowingTooltip = showTooltip === normalizedPlatform;
-					
+					const isHovered = hoveredPlatform === normalizedPlatform;
+
 					// Fallback for unknown platforms
 					if (!config) {
 						return (
-							<span 
-								key={index} 
+							<span
+								key={index}
 								className="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium
 								text-gray-700 bg-gray-100 border border-gray-200"
 							>
@@ -174,10 +170,10 @@ export default function PlatformTags({ platforms, platformLinks, platformMessage
 								>
 									<Icon className="text-base flex-shrink-0" />
 									<span className="font-body">{label}</span>
-									<svg 
+									<svg
 										className="w-3 h-3 ml-1 opacity-60"
-										fill="none" 
-										stroke="currentColor" 
+										fill="none"
+										stroke="currentColor"
 										viewBox="0 0 24 24"
 									>
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -186,12 +182,12 @@ export default function PlatformTags({ platforms, platformLinks, platformMessage
 							) : (
 								// Grayed out tag for platforms without links (coming soon)
 								<button
-									onClick={() => handlePlatformClick(platform, normalizedPlatform)}
+									onMouseEnter={() => setHoveredPlatform(normalizedPlatform)}
+									onMouseLeave={() => setHoveredPlatform(null)}
 									className={`
 										inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium
-										transition-all duration-200 cursor-pointer relative
+										transition-all duration-200 cursor-default relative
 										text-gray-500 bg-gray-100 border border-gray-300
-										hover:bg-gray-200
 									`}
 								>
 									<Icon className="text-base flex-shrink-0 opacity-60" />
@@ -199,8 +195,8 @@ export default function PlatformTags({ platforms, platformLinks, platformMessage
 								</button>
 							)}
 
-							{/* Tooltip for platforms without links */}
-							{isShowingTooltip && !hasLink && (
+							{/* Tooltip for platforms without links - shows on hover */}
+							{isHovered && !hasLink && (
 								<div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-50">
 									<div className="bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
 										{getTooltipMessage(normalizedPlatform)}
