@@ -17,6 +17,9 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 	const [isHovered, setIsHovered] = useState(false);
 	const [imageLoaded, setImageLoaded] = useState(false);
+	const [displayedImagePosition, setDisplayedImagePosition] = useState(
+		project.imagePositions?.[0] || 'center'
+	);
 
 	// Cycle through images
 	useEffect(() => {
@@ -30,6 +33,19 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
 
 		return () => clearInterval(interval);
 	}, [project.images.length, project.cycleDuration]);
+
+	// Update position only when image changes and loads
+	useEffect(() => {
+		setImageLoaded(false);
+		// Don't update position immediately, wait for onLoad
+	}, [currentImageIndex]);
+
+	const handleImageLoad = () => {
+		setImageLoaded(true);
+		// Update position only after image loads
+		const newPosition = project.imagePositions?.[currentImageIndex] || 'center';
+		setDisplayedImagePosition(newPosition);
+	};
 
 	const localizedTitle = project.title[locale];
 	const localizedSubtitle = project.subtitle[locale];
@@ -55,7 +71,8 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
 						alt={localizedTitle}
 						fill
 						className="object-cover transition-transform duration-500 group-hover:scale-105"
-						onLoad={() => setImageLoaded(true)}
+						style={{ objectPosition: displayedImagePosition }}
+						onLoad={handleImageLoad}
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 					/>
 				</div>

@@ -10,6 +10,7 @@ export interface ProjectData {
 		'pt-BR': string;
 	};
 	images: string[];
+	imagePositions?: string[]; // CSS object-position values for thumbnail cropping (e.g., "top", "center", "bottom", "left top")
 	cycleDuration: number;
 	featured?: boolean;
 	year?: number;
@@ -153,8 +154,7 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Uma experiência Roblox de salão de beleza e maquiagem onde jogadores podem experimentar diferentes estilos e tratamentos.'
 		},
 		images: [
-			'/assets/projects/phora/phora-1.jpg',
-			'/assets/projects/phora/phora-2.jpg',
+			'/assets/projects/phora/phora-1.jpg'
 		],
 		cycleDuration: 4,
 		year: 2024,
@@ -228,6 +228,7 @@ export const projectsDatabase: ProjectData[] = [
 			'/assets/projects/animunch/animunch-6.png',
 			'/assets/projects/animunch/animunch-7.png',
 		],
+		imagePositions: ['50% 20%', '50% 20%'],
 		cycleDuration: 4,
 		year: 2024,
 		category: 'unity',
@@ -251,7 +252,6 @@ export const projectsDatabase: ProjectData[] = [
 		},
 		images: [
 			'/assets/projects/elementales/elementales-1.jpg',
-			'/assets/projects/elementales/elementales-2.png',
 		],
 		cycleDuration: 2.5,
 		year: 2022,
