@@ -6,15 +6,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProjectImageVisualizationProps {
 	imageSrc: string;
-	imageAlt: string;
-	imageCaption?: string; // Optional custom caption
+	imageCaption?: string; // Localized caption text
 	isOpen: boolean;
 	onClose: () => void;
 }
 
 export default function ProjectImageVisualization({
 	imageSrc,
-	imageAlt,
 	imageCaption,
 	isOpen,
 	onClose
@@ -95,7 +93,7 @@ export default function ProjectImageVisualization({
 						{/* Main image */}
 						<Image
 							src={imageSrc}
-							alt={imageAlt}
+							alt={imageCaption || "Project image"}
 							width={1200}
 							height={800}
 							className={`
@@ -108,7 +106,7 @@ export default function ProjectImageVisualization({
 						/>
 
 						{/* Image caption */}
-						{imageLoaded && (
+						{imageLoaded && imageCaption && (
 							<motion.div
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
@@ -116,7 +114,7 @@ export default function ProjectImageVisualization({
 								className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent rounded-b-lg"
 							>
 								<p className="text-white text-center font-medium drop-shadow-lg">
-									{imageCaption || imageAlt}
+									{imageCaption}
 								</p>
 							</motion.div>
 						)}

@@ -3,8 +3,10 @@ interface ProjectImage {
 	src: string;
 	type: 'thumbnail' | 'gallery' | 'both';
 	position?: string; // CSS object-position value (e.g., "center", "top", "25% 75%")
-	alt?: string; // Optional alt text override
-	caption?: string; // Optional custom caption for full-screen viewer
+	caption?: {
+		en: string;
+		'pt-BR': string;
+	}; // Optional localized caption for full-screen viewer
 }
 
 export interface ProjectData {
@@ -135,25 +137,37 @@ export const projectsDatabase: ProjectData[] = [
 				src: '/assets/projects/asumi/asumi-1.png',
 				type: 'both',
 				position: 'center',
-				caption: 'Player exploring their inventory at night'
+				caption: {
+					en: 'Player exploring their inventory at night',
+					'pt-BR': 'Jogador explorando seu inventário à noite'
+				}
 			},
 			{
 				src: '/assets/projects/asumi/asumi-2.png',
 				type: 'both',
 				position: '25% 25%',
-				caption: 'Player reading the Green Mantis\'s page'
+				caption: {
+					en: 'Player reading the Green Mantis\'s page',
+					'pt-BR': 'Jogador lendo a página do Louva-a-Deus Verde'
+				}
 			},
 			{
 				src: '/assets/projects/asumi/asumi-3.jpg',
 				type: 'both',
 				position: '75% 50%',
-				caption: 'Concept idea that includes taking care of a pet'
+				caption: {
+					en: 'Concept idea that includes taking care of a pet',
+					'pt-BR': 'Conceito que inclui cuidar de um animal de estimação'
+				}
 			},
 			{
 				src: '/assets/projects/asumi/gallery-1.png',
 				type: 'gallery',
 				position: 'center',
-				caption: 'Concept of the player\'s tome'
+				caption: {
+					en: 'The mystical tome that holds all of Asumi\'s collected knowledge and spells',
+					'pt-BR': 'O tomo místico que guarda todo o conhecimento e magias coletados por Asumi'
+				}
 			}
 		],
 		cycleDuration: 1.8,
@@ -275,13 +289,19 @@ export const projectsDatabase: ProjectData[] = [
 				src: '/assets/projects/animunch/animunch-4.png',
 				type: 'gallery',
 				position: 'center',
-				caption: 'Main gameplay interface with collectible items'
+				caption: {
+					en: 'Main gameplay interface with collectible items',
+					'pt-BR': 'Interface principal do jogo com itens colecionáveis'
+				}
 			},
 			{
 				src: '/assets/projects/animunch/animunch-1.png',
 				type: 'gallery',
 				position: '50% 85%',
-				caption: 'Character selection screen featuring various animals'
+				caption: {
+					en: 'Character selection screen featuring various animals',
+					'pt-BR': 'Tela de seleção de personagem com vários animais'
+				}
 			}
 		],
 		cycleDuration: 4,

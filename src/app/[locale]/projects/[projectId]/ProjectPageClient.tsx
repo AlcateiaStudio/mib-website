@@ -16,7 +16,7 @@ interface ProjectPageClientProps {
 }
 
 export default function ProjectPageClient({ project, locale, translations }: ProjectPageClientProps) {
-	const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; caption?: string } | null>(null);
+	const [selectedImage, setSelectedImage] = useState<{ src: string; caption?: string } | null>(null);
 
 	const localizedTitle = project.title[locale as 'en' | 'pt-BR'];
 	const localizedSubtitle = project.subtitle[locale as 'en' | 'pt-BR'];
@@ -240,14 +240,13 @@ export default function ProjectPageClient({ project, locale, translations }: Pro
 											key={index}
 											onClick={() => setSelectedImage({
 												src: image.src,
-												alt: image.alt || `${localizedTitle} - Gallery ${index + 1}`,
-												caption: image.caption
+												caption: image.caption?.[locale as 'en' | 'pt-BR']
 											})}
 											className="aspect-[4/3] relative overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
 										>
 											<Image
 												src={image.src}
-												alt={image.alt || `${localizedTitle} - Gallery ${index + 1}`}
+												alt={image.caption?.[locale as 'en' | 'pt-BR'] || `${localizedTitle} - Gallery ${index + 1}`}
 												fill
 												className="object-cover group-hover:scale-105 transition-transform duration-300"
 												style={{ objectPosition: image.position || 'center' }}
@@ -273,7 +272,6 @@ export default function ProjectPageClient({ project, locale, translations }: Pro
 			{/* Image Visualization Modal */}
 			<ProjectImageVisualization
 				imageSrc={selectedImage?.src || ''}
-				imageAlt={selectedImage?.alt || ''}
 				imageCaption={selectedImage?.caption}
 				isOpen={selectedImage !== null}
 				onClose={() => setSelectedImage(null)}
