@@ -34,32 +34,32 @@ export default async function AboutPage({ params }: Props) {
 						</p>
 						<p className="text-xl md:text-2xl text-gray-600 font-medium">
 							{locale === 'en'
-								? "Let's create memorable games together."
-								: 'Vamos criar jogos memoráveis juntos.'
+								? "With just one year of existence..."
+								: 'Com apenas um ano de existência...'
 							}
 						</p>
 					</div>
 				</div>
 
 				{/* Achievements Cards */}
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
 					<div className="text-center">
-						<h3 className="font-h2 text-lg font-bold mb-4">
+						<h3 className="font-h2 text-lg font-bold mb-2">
 							{locale === 'en' ? 'Paulo Gustavo Grant Winner' : 'Ganhamos o Edital Paulo Gustavo'}
 						</h3>
-						<div className="rounded-lg overflow-hidden">
+						<div className="rounded-lg overflow-hidden h-48 flex items-center justify-center">
 							<Image
 								src="/assets/about-us/paulo-gustavo.png"
 								alt={locale === 'en' ? 'Paulo Gustavo Grant Certificate' : 'Certificado Edital Paulo Gustavo'}
 								width={400}
 								height={300}
-								className="w-full h-auto object-cover"
+								className="w-full h-full object-contain"
 							/>
 						</div>
 					</div>
 
-					<div className="text-center">
-						<h3 className="font-h2 text-lg font-bold mb-4">
+					<div className="text-center flex items-center justify-center pb-20">
+						<h3 className="font-h2 text-2xl font-bold">
 							{locale === 'en' ? (
 								<span>Received <span className="text-green-600">R$30,000</span> Investment</span>
 							) : (
@@ -69,18 +69,30 @@ export default async function AboutPage({ params }: Props) {
 					</div>
 
 					<div className="text-center">
-						<h3 className="font-h2 text-lg font-bold mb-4">
+						<h3 className="font-h2 text-lg font-bold mb-2">
 							{locale === 'en' ? 'Mentored by Sebrae Crie Games' : 'Mentoria da Sebrae Crie Games'}
 						</h3>
-						<div className="rounded-lg overflow-hidden">
+						<div className="rounded-lg overflow-hidden h-48 flex items-center justify-center">
 							<Image
 								src="/assets/about-us/crie-games.png"
 								alt={locale === 'en' ? 'Sebrae Crie Games Mentorship Certificate' : 'Certificado Mentoria Sebrae Crie Games'}
 								width={400}
 								height={300}
-								className="w-full h-auto object-cover"
+								className="w-full h-full object-contain"
 							/>
 						</div>
+					</div>
+				</div>
+
+				{/* Call to Action Message */}
+				<div className="text-center">
+					<div className="max-w-4xl mx-auto">
+						<p className="text-xl md:text-2xl text-gray-600 font-medium">
+							{locale === 'en'
+								? "Let's create memorable games together."
+								: 'Vamos criar jogos memoráveis juntos.'
+							}
+						</p>
 					</div>
 				</div>
 
