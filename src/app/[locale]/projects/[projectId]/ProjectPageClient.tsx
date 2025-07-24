@@ -160,7 +160,7 @@ export default function ProjectPageClient({ project, locale, translations }: Pro
 												</span>
 												<span className="font-body text-gray-600">
 													{project.projectType === 'studio' ?
-														(locale === 'en' ? '🏠 Studio Original' : '🏠 Autoral do Estúdio') :
+														(locale === 'en' ? '✨ Studio Original' : '✨ Autoral') :
 														(locale === 'en' ? '🤝 Client Work' : '🤝 Trabalho Externo')
 													}
 												</span>

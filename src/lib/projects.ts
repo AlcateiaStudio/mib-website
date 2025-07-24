@@ -114,7 +114,7 @@ export const projectsDatabase: ProjectData[] = [
 		teamSize: 6,
 		projectType: 'studio',
 		links: {
-			figma: 'https://figma.com/asumi-design'
+			figma: 'https://www.figma.com/design/Pk52yH6ZwmdJxX6CwUtRb1/Asumi-%7C-Portf%C3%B3lio?node-id=0-1&p=f&t=2UqtblEiXyFUiK3E-0'
 		},
 		features: {
 			en: [
@@ -204,13 +204,14 @@ export const projectsDatabase: ProjectData[] = [
 		platform: ['Roblox'],
 		projectType: 'client',
 		status: 'released',
+		hide: true,
 		teamSize: 1,
 		platformLinks: {
-			roblox: 'https://roblox.com/games/phora-lab'
+			roblox: 'https://www.roblox.com/pt/games/120816315961165/Phora-Lab'
 		},
-		links: {
-			github: 'https://github.com/madeinbugs/phora-lab',
-		}
+		// links: {
+		// 	github: 'https://github.com/madeinbugs/phora-lab',
+		// }
 	},
 	{
 		id: 'pizza',
@@ -327,8 +328,28 @@ export const projectsDatabase: ProjectData[] = [
 		},
 		images: [
 			{
+				src: '/assets/projects/elementales/elementales-icon.png',
+				type: 'thumbnail',
+				position: 'center'
+			},
+			{
 				src: '/assets/projects/elementales/elementales-1.jpg',
 				type: 'both',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/elementales/elementales-2.png',
+				type: 'gallery',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/elementales/elementales-3.jpg',
+				type: 'gallery',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/elementales/elementales-4.png',
+				type: 'gallery',
 				position: 'center'
 			}
 		],
@@ -337,7 +358,7 @@ export const projectsDatabase: ProjectData[] = [
 		category: 'unity',
 		platform: ['Android'],
 		platformLinks: {
-			android: 'https://play.google.com/store/apps/details?id=com.madeinbugs.elementales'
+			android: 'https://play.google.com/store/apps/details?id=com.P3TGaming.Elementales&hl=pt_BR'
 		},
 		teamSize: 3,
 		projectType: 'client',
