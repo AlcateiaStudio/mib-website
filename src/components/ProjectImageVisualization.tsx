@@ -108,12 +108,12 @@ export default function ProjectImageVisualization({
 						{/* Image caption */}
 						{imageLoaded && imageCaption && (
 							<motion.div
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.3, delay: 0.2 }}
-								className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent rounded-b-lg"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ duration: 0.4, delay: 0.3 }}
+								className="absolute bottom-0 left-0 right-0 p-6 pb-4 bg-gradient-to-t from-black/85 via-black/60 via-black/40 to-transparent rounded-b-lg"
 							>
-								<p className="text-white text-center font-medium drop-shadow-lg">
+								<p className="text-white text-center font-medium drop-shadow-2xl">
 									{imageCaption}
 								</p>
 							</motion.div>
