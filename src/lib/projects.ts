@@ -225,9 +225,8 @@ export const projectsDatabase: ProjectData[] = [
 			]
 		},
 		images: [
-			'/assets/projects/animunch/animunch-3.png',
-			'/assets/projects/animunch/animunch-4.png',
-			'/assets/projects/animunch/animunch-5.png'
+			'/assets/projects/animunch/animunch-6.png',
+			'/assets/projects/animunch/animunch-7.png',
 		],
 		cycleDuration: 4,
 		year: 2024,
