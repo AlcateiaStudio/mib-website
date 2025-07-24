@@ -16,64 +16,80 @@ export default async function AboutPage({ params }: Props) {
 
 	return (
 		<ContentLayout translations={t} locale={locale}>
-			<div className="space-y-8">
-				{/* Page Header */}
-				<div className="text-center space-y-4">
+			<div className="space-y-12">
+				{/* Hero Section */}
+				<div className="text-center space-y-8">
 					<h1 className="heading-crayon">
 						{t.pages.about.title}
 					</h1>
-				</div>
 
-				{/* About Content */}
-				<div className="prose prose-lg mx-auto">
-					<div className="content-card">
-						<h2 className="font-h2 text-2xl font-bold mb-4">
-							{locale === 'en' ? 'Our Story' : 'Nossa História'}
-						</h2>
-						<p className="font-body text-gray-600 mb-6">
+					{/* Main message */}
+					<div className="max-w-4xl mx-auto space-y-6">
+						<p className="text-2xl md:text-3xl font-bold text-gray-800">
 							{locale === 'en'
-								? 'Made in Bugs was born in early 2024, founded by Andress and Bela. For us, games are a chaotic and cooperative art form. We seek people from different backgrounds to join our team, as we believe there are small potential sparks of creativity scattered around the world, and each individual\'s backstory brings something new.'
-								: 'Made in Bugs nasceu no comecinho de 2024, fundada por Andress e Bela. Para nós, o que fazemos é uma arte caótica e compartilhada. Buscamos pessoas de backgrounds distintos para incorporar o nosso time, pois cremos que existem pequenos brilhos potenciais de criatividade espalhados, e a história de cada indivíduo traz algo novo.'
+								? 'Made in Bugs is an indie game studio founded in 2024. We may be small, but our creativity is boundless!'
+								: 'Made in Bugs é um estúdio indie fundado em 2024. Podemos ser pequenos, mas nossa criatividade é infinita!'
 							}
 						</p>
-
-						<h3 className="font-h2 text-xl font-semibold mb-3">
-							{locale === 'en' ? 'Our Values' : 'Nossos Valores'}
-						</h3>
-						<ul className="font-body text-gray-600 mb-6 list-disc list-inside space-y-2">
-							<li>
-								{locale === 'en'
-									? 'Team communication and harmony'
-									: 'Comunicação e sintonia do time'
-								}
-							</li>
-							<li>
-								{locale === 'en'
-									? 'Sharing risks, responsibilities and profits'
-									: 'Compartilhamento de riscos, responsabilidades e lucros'
-								}
-							</li>
-							<li>
-								{locale === 'en'
-									? 'Players first, always'
-									: 'A vontade do jogador vem primeiro'
-								}
-							</li>
-							<li>
-								{locale === 'en'
-									? 'Calm, pursuit of excellence and knowledge sharing'
-									: 'Calma, busca pela excelência e compartilhamento de conhecimento'
-								}
-							</li>
-						</ul>
-
-						<h3 className="font-h2 text-xl font-semibold mb-3">
-							{locale === 'en' ? 'Our Approach' : 'Nossa Abordagem'}
-						</h3>
-						<p className="font-body text-gray-600">
+						<p className="text-xl md:text-2xl text-gray-600 font-medium">
 							{locale === 'en'
-								? 'Making games is difficult and we embrace this difficulty through organization, synchronization and empowerment. We have constant shared design sessions, do lots of playtesting and are always improving our methodology to increase the time we spend doing what we love. We daily seek to discover how to provide the most memorable experiences, without fear of having to redo or lose work. We don\'t make simple games, but we are always trying to simplify the process.'
-								: 'Fazer jogos é difícil e nós abraçamos essa dificuldade através da organização, sincronização e capacitação. Temos constantes sessões de design compartilhado, fazemos muito playtesting e estamos sempre melhorando nossa metodologia para crescer o tempo que a gente passa fazendo o que gosta. Nós buscamos diariamente descobrir como proporcionar as experiências mais memoráveis, sem medo de ter que refazer ou perder trabalho. Não fazemos jogos simples, mas estamos sempre tentando simplificar o processo.'
+								? "Let's create memorable games together."
+								: 'Vamos criar jogos memoráveis juntos.'
+							}
+						</p>
+					</div>
+				</div>
+
+				{/* Values Cards */}
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+					<div className="content-card text-center">
+						<div className="text-4xl mb-4">🤝</div>
+						<h3 className="font-h2 text-lg font-bold mb-2">
+							{locale === 'en' ? 'Team First' : 'Time em Primeiro'}
+						</h3>
+						<p className="text-sm text-gray-600">
+							{locale === 'en'
+								? 'Communication and harmony'
+								: 'Comunicação e sintonia'
+							}
+						</p>
+					</div>
+
+					<div className="content-card text-center">
+						<div className="text-4xl mb-4">🎮</div>
+						<h3 className="font-h2 text-lg font-bold mb-2">
+							{locale === 'en' ? 'Players First' : 'Jogadores Primeiro'}
+						</h3>
+						<p className="text-sm text-gray-600">
+							{locale === 'en'
+								? 'Always'
+								: 'Sempre'
+							}
+						</p>
+					</div>
+
+					<div className="content-card text-center">
+						<div className="text-4xl mb-4">⚖️</div>
+						<h3 className="font-h2 text-lg font-bold mb-2">
+							{locale === 'en' ? 'Shared Success' : 'Sucesso Compartilhado'}
+						</h3>
+						<p className="text-sm text-gray-600">
+							{locale === 'en'
+								? 'Risks, responsibilities & profits'
+								: 'Riscos, responsabilidades e lucros'
+							}
+						</p>
+					</div>
+
+					<div className="content-card text-center">
+						<div className="text-4xl mb-4">🌱</div>
+						<h3 className="font-h2 text-lg font-bold mb-2">
+							{locale === 'en' ? 'Always Growing' : 'Sempre Crescendo'}
+						</h3>
+						<p className="text-sm text-gray-600">
+							{locale === 'en'
+								? 'Excellence & knowledge sharing'
+								: 'Excelência e compartilhamento'
 							}
 						</p>
 					</div>
@@ -88,28 +104,30 @@ export default async function AboutPage({ params }: Props) {
 				</div>
 
 				{/* Nature Section */}
-				<div className="content-card">
-					<h2 className="font-h2 text-2xl font-bold mb-6 text-center">
+				<div className="content-card text-center">
+					<div className="text-6xl mb-4">🐛</div>
+					<h2 className="font-h2 text-2xl font-bold mb-4">
 						{locale === 'en' ? 'Love for Nature' : 'Amor pela Natureza'}
 					</h2>
-					<p className="font-body text-gray-600 mb-8 text-center max-w-3xl mx-auto">
+					<p className="font-body text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
 						{locale === 'en'
-							? 'Our studio was also born from our love for animals'
-							: 'Nosso estúdio também nasceu do nosso amor pelos animais.'
+							? 'Our studio was born from our love for animals, especially insects and their incredible diversity.'
+							: 'Nosso estúdio nasceu do nosso amor pelos animais, especialmente insetos e sua incrível diversidade.'
 						}
 					</p>
 
 					{/* Pets Gallery Section */}
 					<div className="space-y-6">
-						<h2 className="font-h2 text-xl font-semibold text-center">
+						<h3 className="font-h2 text-lg font-semibold">
 							{locale === 'en'
-								? 'To all the pets and rescues that passed through our lives and guided us'
-								: 'A todos os pets e resgates que passaram por nossas vidas e nos guiaram'
+								? 'To all the pets and rescues that guided us'
+								: 'A todos os pets e resgates que nos guiaram'
 							}
-						</h2>
+						</h3>
 
 						{/* TODO: Add pets gallery component here */}
-						<div className="text-center text-gray-500 py-8">
+						<div className="text-center text-gray-500 py-8 bg-gray-50 rounded-lg">
+							<div className="text-4xl mb-2">📸</div>
 							<p className="font-body">
 								{locale === 'en'
 									? 'Pet gallery coming soon...'
@@ -117,6 +135,33 @@ export default async function AboutPage({ params }: Props) {
 								}
 							</p>
 						</div>
+					</div>
+				</div>
+
+				{/* Call to Action */}
+				<div className="content-card text-center bg-gradient-to-br from-purple-50 to-blue-50">
+					<h2 className="font-h2 text-2xl font-bold mb-4">
+						{locale === 'en' ? 'Ready to Create Something Amazing?' : 'Pronto para Criar Algo Incrível?'}
+					</h2>
+					<p className="font-body text-lg text-gray-600 mb-6">
+						{locale === 'en'
+							? 'We\'re always looking for passionate people to join our creative journey.'
+							: 'Estamos sempre procurando pessoas apaixonadas para se juntar à nossa jornada criativa.'
+						}
+					</p>
+					<div className="flex flex-col sm:flex-row gap-4 justify-center">
+						<a
+							href={`/${locale}/contact`}
+							className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors"
+						>
+							{locale === 'en' ? 'Work With Us' : 'Trabalhe Conosco'}
+						</a>
+						<a
+							href={`/${locale}/portfolio`}
+							className="inline-block border border-purple-600 text-purple-600 px-6 py-3 rounded-lg font-medium hover:bg-purple-50 transition-colors"
+						>
+							{locale === 'en' ? 'See Our Games' : 'Veja Nossos Jogos'}
+						</a>
 					</div>
 				</div>
 			</div>
