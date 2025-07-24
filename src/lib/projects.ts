@@ -326,6 +326,26 @@ export const projectsDatabase: ProjectData[] = [
 			en: 'Monster Catcher Mobile Game',
 			'pt-BR': 'Jogo Mobile de Captura de Monstros'
 		},
+		description: {
+			en: 'An adventure game where you collect Elemantors and battle using dice-based combat in the world of Ellion.',
+			'pt-BR': 'Um jogo de aventura onde você coleta Elemantors e batalha usando combate baseado em dados no mundo de Ellion.'
+		},
+		features: {
+			en: [
+				'Pokémon-like battles with dice mechanics',
+				'Fishing and planting activities',
+				'Epic story quest for the Time Elixir',
+				'60+ Elemantors of varying rarity to catch',
+				'20+ areas to explore, some hidden'
+			],
+			'pt-BR': [
+				'Batalhas estilo Pokémon com mecânicas de dados',
+				'Atividades de pesca e plantio',
+				'Missão épica pelo Elixir do Tempo',
+				'60+ Elemantors de raridade variada para capturar',
+				'20+ áreas para explorar, algumas escondidas'
+			]
+		},
 		images: [
 			{
 				src: '/assets/projects/elementales/elementales-icon.png',
@@ -334,7 +354,7 @@ export const projectsDatabase: ProjectData[] = [
 			},
 			{
 				src: '/assets/projects/elementales/elementales-1.jpg',
-				type: 'both',
+				type: 'gallery',
 				position: 'center'
 			},
 			{
@@ -349,6 +369,16 @@ export const projectsDatabase: ProjectData[] = [
 			},
 			{
 				src: '/assets/projects/elementales/elementales-4.png',
+				type: 'gallery',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/elementales/elementales-5.png',
+				type: 'gallery',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/elementales/elementales-6.png',
 				type: 'gallery',
 				position: 'center'
 			}
