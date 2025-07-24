@@ -178,12 +178,19 @@ export default async function ProjectPage({ params }: Props) {
 												<span className="font-body font-medium text-gray-700">
 													{locale === 'en' ? 'Status:' : 'Status:'}
 												</span>
-												<span className={`font-body capitalize px-2 py-1 rounded text-sm ${project.status === 'released' ? 'bg-green-100 text-green-800' :
+												<span className={`font-body px-2 py-1 rounded text-sm ${project.status === 'released' ? 'bg-green-100 text-green-800' :
 													project.status === 'development' ? 'bg-blue-100 text-blue-800' :
 														project.status === 'prototype' ? 'bg-yellow-100 text-yellow-800' :
 															'bg-gray-100 text-gray-800'
 													}`}>
-													{project.status}
+													{project.status === 'released' ?
+														(locale === 'en' ? 'Released' : 'Lançado') :
+														project.status === 'development' ?
+															(locale === 'en' ? 'In Development' : 'Em Desenvolvimento') :
+															project.status === 'prototype' ?
+																(locale === 'en' ? 'Prototype' : 'Protótipo') :
+																(locale === 'en' ? 'Cancelled' : 'Cancelado')
+													}
 												</span>
 											</div>
 										)}

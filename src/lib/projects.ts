@@ -9,18 +9,14 @@ export interface ProjectData {
 		en: string;
 		'pt-BR': string;
 	};
-	images: string[]; // Array of image paths
-	cycleDuration: number; // Seconds to cycle through images
-	featured?: boolean; // Whether to highlight this project
+	images: string[];
+	cycleDuration: number;
+	featured?: boolean;
 	year?: number;
 	category?: string;
-	hide?: boolean; // Whether to hide this project from public listings
-
-	// Header images for project pages
-	bannerImage?: string; // Wide banner image (1600x400) for background behind title
-	titleImage?: string; // Alternative to text title/subtitle - shows as main image
-
-	// Extended project information - easily customizable per project
+	hide?: boolean;
+	bannerImage?: string;
+	titleImage?: string;
 	description?: {
 		en: string;
 		'pt-BR': string;
@@ -29,17 +25,17 @@ export interface ProjectData {
 		en: string;
 		'pt-BR': string;
 	};
-	platform?: string[]; // ["Windows", "Mac", "Web", "Mobile"]
-	platformLinks?: { // Links specific to platforms - if no link, platform shows as "coming soon"
+	platform?: string[];
+	platformLinks?: {
 		[platform: string]: string;
 	};
-	platformMessages?: { // Custom messages for platforms without links
+	platformMessages?: {
 		[platform: string]: {
 			en: string;
 			'pt-BR': string;
 		};
 	};
-	status?: 'In development' | 'released' | 'prototype' | 'cancelled';
+	status?: 'development' | 'released' | 'prototype' | 'cancelled';
 	releaseDate?: string;
 	teamSize?: number;
 	projectType?: 'studio' | 'client';
@@ -57,8 +53,8 @@ export interface ProjectData {
 		figma?: string;
 		roblox?: string;
 	};
-	gallery?: string[]; // Additional images beyond the main cycling ones
-	videos?: string[]; // YouTube/Vimeo embed codes or video file paths
+	gallery?: string[];
+	videos?: string[];
 	awards?: {
 		en: string[];
 		'pt-BR': string[];
@@ -73,7 +69,7 @@ export interface ProjectData {
 	};
 }
 
-// Projects database - Add new projects here
+// Projects database
 export const projectsDatabase: ProjectData[] = [
 	{
 		id: 'asumi',
@@ -104,7 +100,7 @@ export const projectsDatabase: ProjectData[] = [
 				'pt-BR': 'Chegando ainda este ano...'
 			}
 		},
-		status: 'In development',
+		status: 'development',
 		releaseDate: '2025 Q3',
 		teamSize: 6,
 		projectType: 'studio',
@@ -128,12 +124,12 @@ export const projectsDatabase: ProjectData[] = [
 			]
 		},
 		gallery: [
-			'/assets/projects/asumi/gallery-1.jpg',
+			'/assets/projects/asumi/gallery-1.png',
 		],
 		images: [
 			'/assets/projects/asumi/asumi-1.png',
 			'/assets/projects/asumi/asumi-2.png',
-			'/assets/projects/asumi/asumi-3.png'
+			'/assets/projects/asumi/asumi-3.jpg'
 		],
 		cycleDuration: 1.8,
 		featured: true,
@@ -165,6 +161,8 @@ export const projectsDatabase: ProjectData[] = [
 		category: 'roblox',
 		platform: ['Roblox'],
 		projectType: 'client',
+		status: 'released',
+		teamSize: 1,
 		platformLinks: {
 			roblox: 'https://roblox.com/games/phora-lab'
 		},
@@ -190,7 +188,7 @@ export const projectsDatabase: ProjectData[] = [
 		year: 2024,
 		category: 'unity',
 		platform: ['Android', 'iOS'],
-		hide: true, // Hidden from public listings
+		hide: true,
 		links: {
 			itchio: 'https://madeinbugs.itch.io/nik-mussarela',
 			playStore: 'https://play.google.com/store/apps/details?id=com.madeinbugs.pizza'
@@ -238,6 +236,7 @@ export const projectsDatabase: ProjectData[] = [
 		featured: true,
 		teamSize: 4,
 		projectType: 'client',
+		status: 'development',
 		bannerImage: '/assets/projects/animunch/banner.png',
 		titleImage: '/assets/projects/animunch/title.png',
 	},
@@ -263,7 +262,8 @@ export const projectsDatabase: ProjectData[] = [
 			android: 'https://play.google.com/store/apps/details?id=com.madeinbugs.elementales'
 		},
 		teamSize: 3,
-		projectType: 'client'
+		projectType: 'client',
+		status: 'released'
 	},
 	{
 		id: 'monster girls',
@@ -283,11 +283,11 @@ export const projectsDatabase: ProjectData[] = [
 		year: 2022,
 		category: 'unity',
 		platform: ['Android'],
-		hide: true // Hidden from public listings
+		hide: true
 	}
 ];
 
-// Helper functions for project data
+// Helper functions
 export function getProjectById(id: string): ProjectData | undefined {
 	return projectsDatabase.find(project => project.id === id);
 }
