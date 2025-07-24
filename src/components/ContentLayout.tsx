@@ -85,41 +85,38 @@ export default function ContentLayout({ children, translations, locale }: Conten
 			{/* Header - seamless with background, 50% larger */}
 			<header className="static z-50 pt-9 pb-6">
 				<div className="max-w-6xl mx-auto px-6">
-					<div className="flex items-center justify-center">
-						{/* Centered content: Logo + Navigation + Language Switcher */}
-						<div className="flex items-center space-x-12">
-							{/* Logo - slightly larger */}
-							<Link href={`/${locale}`} className="flex-shrink-0">
-								<div className="w-16 h-16 relative hover:scale-105 transition-transform duration-200">
-									<Image
-										src="/assets/logo_center.png"
-										alt="Made in Bugs Logo"
-										width={64}
-										height={64}
-										className="w-full h-full object-contain"
-										priority
-									/>
-								</div>
-							</Link>
-
-							{/* Navigation Buttons */}
-							<nav className="hidden md:flex items-center space-x-12">
-								{navItems.map((item) => (
-									<NavButtonHeader
-										key={item.key}
-										href={item.href}
-										imageSrc={item.imageSrc}
-										hoverImageSrc={item.hoverImageSrc}
-										label={item.label}
-										isActive={pathname === item.href}
-									/>
-								))}
-							</nav>
-
-							{/* Language Switcher */}
-							<div className="flex-shrink-0">
-								<LanguageSwitcher translations={translations.common.language_switcher} />
+					<div className="flex items-center justify-between">
+						{/* Logo - left aligned and larger */}
+						<Link href={`/${locale}`} className="flex-shrink-0">
+							<div className="w-24 h-24 relative hover:scale-105 transition-transform duration-200">
+								<Image
+									src="/assets/logo-no-title.png"
+									alt="Made in Bugs Logo"
+									width={96}
+									height={96}
+									className="w-full h-full object-contain"
+									priority
+								/>
 							</div>
+						</Link>
+
+						{/* Navigation Buttons - centered */}
+						<nav className="hidden md:flex items-center space-x-12 absolute left-1/2 transform -translate-x-1/2">
+							{navItems.map((item) => (
+								<NavButtonHeader
+									key={item.key}
+									href={item.href}
+									imageSrc={item.imageSrc}
+									hoverImageSrc={item.hoverImageSrc}
+									label={item.label}
+									isActive={pathname === item.href}
+								/>
+							))}
+						</nav>
+
+						{/* Language Switcher - right aligned */}
+						<div className="flex-shrink-0">
+							<LanguageSwitcher translations={translations.common.language_switcher} />
 						</div>
 					</div>
 

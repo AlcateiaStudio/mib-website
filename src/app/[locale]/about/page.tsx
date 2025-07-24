@@ -102,11 +102,15 @@ export default async function AboutPage({ params }: Props) {
 
 				{/* Nature Section */}
 				<div className="content-card text-center">
-					{/* Nature Image Placeholder */}
-					<div className="w-32 h-32 mx-auto mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
-						<div className="text-gray-400 text-sm">
-							{locale === 'en' ? 'Nature Image' : 'Imagem da Natureza'}
-						</div>
+					{/* Nature Image - Using logo-no-title */}
+					<div className="w-32 h-32 mx-auto mb-2 flex items-center justify-center">
+						<Image
+							src="/assets/logo-no-title.png"
+							alt={locale === 'en' ? 'Made in Bugs Logo' : 'Logo Made in Bugs'}
+							width={128}
+							height={128}
+							className="w-full h-full object-contain"
+						/>
 					</div>
 					<h2 className="font-h2 text-2xl font-bold mb-4">
 						{locale === 'en' ? 'Love for Nature' : 'Amor pela Natureza'}
