@@ -4,6 +4,7 @@ interface ProjectImage {
 	type: 'thumbnail' | 'gallery' | 'both';
 	position?: string; // CSS object-position value (e.g., "center", "top", "25% 75%")
 	alt?: string; // Optional alt text override
+	caption?: string; // Optional custom caption for full-screen viewer
 }
 
 export interface ProjectData {
@@ -133,22 +134,26 @@ export const projectsDatabase: ProjectData[] = [
 			{
 				src: '/assets/projects/asumi/asumi-1.png',
 				type: 'both',
-				position: 'center'
+				position: 'center',
+				caption: 'Player exploring their inventory at night'
 			},
 			{
 				src: '/assets/projects/asumi/asumi-2.png',
-				type: 'thumbnail',
-				position: '25% 25%'
+				type: 'both',
+				position: '25% 25%',
+				caption: 'Player reading the Green Mantis\'s page'
 			},
 			{
 				src: '/assets/projects/asumi/asumi-3.jpg',
 				type: 'both',
-				position: '75% 50%'
+				position: '75% 50%',
+				caption: 'Concept idea that includes taking care of a pet'
 			},
 			{
 				src: '/assets/projects/asumi/gallery-1.png',
 				type: 'gallery',
-				position: 'center'
+				position: 'center',
+				caption: 'Concept of the player\'s tome'
 			}
 		],
 		cycleDuration: 1.8,
@@ -269,12 +274,14 @@ export const projectsDatabase: ProjectData[] = [
 			{
 				src: '/assets/projects/animunch/animunch-4.png',
 				type: 'gallery',
-				position: 'center'
+				position: 'center',
+				caption: 'Main gameplay interface with collectible items'
 			},
 			{
 				src: '/assets/projects/animunch/animunch-1.png',
 				type: 'gallery',
-				position: '50% 85%'
+				position: '50% 85%',
+				caption: 'Character selection screen featuring various animals'
 			}
 		],
 		cycleDuration: 4,
