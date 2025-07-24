@@ -1,4 +1,11 @@
 // Project data structure and management
+interface ProjectImage {
+	src: string;
+	type: 'thumbnail' | 'gallery' | 'both';
+	position?: string; // CSS object-position value (e.g., "center", "top", "25% 75%")
+	alt?: string; // Optional alt text override
+}
+
 export interface ProjectData {
 	id: string;
 	title: {
@@ -9,8 +16,7 @@ export interface ProjectData {
 		en: string;
 		'pt-BR': string;
 	};
-	images: string[];
-	imagePositions?: string[]; // CSS object-position values for thumbnail cropping (e.g., "top", "center", "bottom", "left top")
+	images: ProjectImage[];
 	cycleDuration: number;
 	featured?: boolean;
 	year?: number;
@@ -54,7 +60,6 @@ export interface ProjectData {
 		figma?: string;
 		roblox?: string;
 	};
-	gallery?: string[];
 	videos?: string[];
 	awards?: {
 		en: string[];
@@ -124,13 +129,27 @@ export const projectsDatabase: ProjectData[] = [
 				'Trilha sonora original por compositores independentes'
 			]
 		},
-		gallery: [
-			'/assets/projects/asumi/gallery-1.png',
-		],
 		images: [
-			'/assets/projects/asumi/asumi-1.png',
-			'/assets/projects/asumi/asumi-2.png',
-			'/assets/projects/asumi/asumi-3.jpg'
+			{
+				src: '/assets/projects/asumi/asumi-1.png',
+				type: 'both',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/asumi/asumi-2.png',
+				type: 'thumbnail',
+				position: '25% 25%'
+			},
+			{
+				src: '/assets/projects/asumi/asumi-3.jpg',
+				type: 'both',
+				position: '75% 50%'
+			},
+			{
+				src: '/assets/projects/asumi/gallery-1.png',
+				type: 'gallery',
+				position: 'center'
+			}
 		],
 		cycleDuration: 1.8,
 		featured: true,
@@ -154,7 +173,11 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Uma experiência Roblox de salão de beleza e maquiagem onde jogadores podem experimentar diferentes estilos e tratamentos.'
 		},
 		images: [
-			'/assets/projects/phora/phora-1.jpg'
+			{
+				src: '/assets/projects/phora/phora-1.jpg',
+				type: 'both',
+				position: 'center'
+			}
 		],
 		cycleDuration: 4,
 		year: 2024,
@@ -181,8 +204,16 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Jogo Mobile de Captura Arcade'
 		},
 		images: [
-			'/assets/projects/pizza/pizza-1.jpg',
-			'/assets/projects/pizza/pizza-2.jpg',
+			{
+				src: '/assets/projects/pizza/pizza-1.jpg',
+				type: 'both',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/pizza/pizza-2.jpg',
+				type: 'both',
+				position: 'center'
+			}
 		],
 		cycleDuration: 2.5,
 		year: 2024,
@@ -225,10 +256,27 @@ export const projectsDatabase: ProjectData[] = [
 			]
 		},
 		images: [
-			'/assets/projects/animunch/animunch-6.png',
-			'/assets/projects/animunch/animunch-7.png',
+			{
+				src: '/assets/projects/animunch/animunch-7.png',
+				type: 'thumbnail',
+				position: '50% 20%'
+			},
+			{
+				src: '/assets/projects/animunch/animunch-6.png',
+				type: 'thumbnail',
+				position: '50% 20%'
+			},
+			{
+				src: '/assets/projects/animunch/animunch-4.png',
+				type: 'gallery',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/animunch/animunch-1.png',
+				type: 'gallery',
+				position: '50% 85%'
+			}
 		],
-		imagePositions: ['50% 20%', '50% 20%'],
 		cycleDuration: 4,
 		year: 2024,
 		category: 'unity',
@@ -251,7 +299,11 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Jogo Mobile de Captura de Monstros'
 		},
 		images: [
-			'/assets/projects/elementales/elementales-1.jpg',
+			{
+				src: '/assets/projects/elementales/elementales-1.jpg',
+				type: 'both',
+				position: 'center'
+			}
 		],
 		cycleDuration: 2.5,
 		year: 2022,
@@ -275,8 +327,16 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Jogo Mobile de Captura de Monstros'
 		},
 		images: [
-			'/assets/projects/monstergirls/monstergirls-1.jpg',
-			'/assets/projects/monstergirls/monstergirls-2.jpg',
+			{
+				src: '/assets/projects/monstergirls/monstergirls-1.jpg',
+				type: 'both',
+				position: 'center'
+			},
+			{
+				src: '/assets/projects/monstergirls/monstergirls-2.jpg',
+				type: 'both',
+				position: 'center'
+			}
 		],
 		cycleDuration: 2.7,
 		year: 2022,
@@ -301,6 +361,24 @@ export function getFeaturedProjects(): ProjectData[] {
 
 export function getAllProjects(): ProjectData[] {
 	return projectsDatabase.filter(project => !project.hide);
+}
+
+// Get images filtered by type
+export function getThumbnailImages(project: ProjectData): ProjectImage[] {
+	return project.images.filter(img => img.type === 'thumbnail' || img.type === 'both');
+}
+
+export function getGalleryImages(project: ProjectData): ProjectImage[] {
+	return project.images.filter(img => img.type === 'gallery' || img.type === 'both');
+}
+
+// Legacy compatibility - get image sources as strings for existing components
+export function getThumbnailImageSources(project: ProjectData): string[] {
+	return getThumbnailImages(project).map(img => img.src);
+}
+
+export function getThumbnailImagePositions(project: ProjectData): string[] {
+	return getThumbnailImages(project).map(img => img.position || 'center');
 }
 
 // Get localized project data

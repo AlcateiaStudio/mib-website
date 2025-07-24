@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getTranslations, normalizeLocale } from '../../../../lib/i18n';
-import { getProjectById } from '../../../../lib/projects';
+import { getProjectById, getGalleryImages } from '../../../../lib/projects';
 import ContentLayout from '../../../../components/ContentLayout';
 import Image from 'next/image';
 import ProjectLinks from '../../../../components/ProjectLinks';
@@ -231,31 +231,24 @@ export default async function ProjectPage({ params }: Props) {
 						</div>
 					</div>
 
-					{/* Gallery - Includes both thumbnail and additional gallery images */}
+					{/* Gallery - Shows all gallery-type images */}
 					{(() => {
-						// Combine project images with gallery images, avoiding duplicates
-						const allImages = [...project.images];
-						if (project.gallery) {
-							project.gallery.forEach(galleryImage => {
-								if (!allImages.includes(galleryImage)) {
-									allImages.push(galleryImage);
-								}
-							});
-						}
+						const galleryImages = getGalleryImages(project);
 
-						return allImages.length > 0 && (
+						return galleryImages.length > 0 && (
 							<div className="space-y-4">
 								<h3 className="text-2xl font-bold text-center">
 									{locale === 'en' ? 'Gallery' : 'Galeria'}
 								</h3>
 								<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-									{allImages.map((image, index) => (
+									{galleryImages.map((image, index) => (
 										<div key={index} className="aspect-[4/3] relative overflow-hidden shadow-lg">
 											<Image
-												src={image}
-												alt={`${localizedTitle} - Gallery ${index + 1}`}
+												src={image.src}
+												alt={image.alt || `${localizedTitle} - Gallery ${index + 1}`}
 												fill
 												className="object-cover hover:scale-105 transition-transform duration-300"
+												style={{ objectPosition: image.position || 'center' }}
 												sizes="(max-width: 768px) 100vw, 33vw"
 											/>
 										</div>

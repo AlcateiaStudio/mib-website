@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { globalStyles } from '../lib/styles';
 import type { ProjectData } from '../lib/projects';
+import { getThumbnailImages } from '../lib/projects';
 
 interface ProjectThumbnailProps {
 	project: ProjectData;
@@ -14,25 +15,26 @@ interface ProjectThumbnailProps {
 }
 
 export default function ProjectThumbnail({ project, locale, className = '' }: ProjectThumbnailProps) {
+	const thumbnailImages = getThumbnailImages(project);
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 	const [isHovered, setIsHovered] = useState(false);
 	const [imageLoaded, setImageLoaded] = useState(false);
 	const [displayedImagePosition, setDisplayedImagePosition] = useState(
-		project.imagePositions?.[0] || 'center'
+		thumbnailImages[0]?.position || 'center'
 	);
 
 	// Cycle through images
 	useEffect(() => {
-		if (project.images.length <= 1) return;
+		if (thumbnailImages.length <= 1) return;
 
 		const interval = setInterval(() => {
 			setCurrentImageIndex((prevIndex) =>
-				(prevIndex + 1) % project.images.length
+				(prevIndex + 1) % thumbnailImages.length
 			);
 		}, project.cycleDuration * 1000);
 
 		return () => clearInterval(interval);
-	}, [project.images.length, project.cycleDuration]);
+	}, [thumbnailImages.length, project.cycleDuration]);
 
 	// Update position only when image changes and loads
 	useEffect(() => {
@@ -43,13 +45,13 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
 	const handleImageLoad = () => {
 		setImageLoaded(true);
 		// Update position only after image loads
-		const newPosition = project.imagePositions?.[currentImageIndex] || 'center';
+		const newPosition = thumbnailImages[currentImageIndex]?.position || 'center';
 		setDisplayedImagePosition(newPosition);
 	};
 
 	const localizedTitle = project.title[locale];
 	const localizedSubtitle = project.subtitle[locale];
-	const currentImage = project.images[currentImageIndex];
+	const currentImage = thumbnailImages[currentImageIndex];
 
 	return (
 		<Link href={`/${locale}/projects/${project.id}`}>
@@ -67,7 +69,7 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
 				{/* Background Image */}
 				<div className="absolute inset-0">
 					<Image
-						src={currentImage}
+						src={currentImage?.src || ''}
 						alt={localizedTitle}
 						fill
 						className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -85,9 +87,9 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
 				)}
 
 				{/* Image cycle indicator */}
-				{project.images.length > 1 && (
+				{thumbnailImages.length > 1 && (
 					<div className="absolute top-3 right-3 flex space-x-1">
-						{project.images.map((_, index) => (
+						{thumbnailImages.map((_, index) => (
 							<div
 								key={index}
 								className={`
