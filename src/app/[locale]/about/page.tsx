@@ -32,6 +32,20 @@ export default async function AboutPage({ params }: Props) {
 								: 'Made in Bugs é um estúdio indie brasileiro fundado em 2024'
 							}
 						</p>
+					</div>
+				</div>
+
+				{/* Team Section */}
+				<div className="content-card">
+					<h2 className="font-h2 text-2xl font-bold mb-4 text-center">
+						{locale === 'en' ? 'Meet Our Team' : 'Conheça Nossa Equipe'}
+					</h2>
+					<TeamCarousel teamMembers={teamData.teamMembers} locale={locale} />
+				</div>
+
+				{/* Intro to Achievements */}
+				<div className="text-center">
+					<div className="max-w-4xl mx-auto">
 						<p className="text-xl md:text-2xl text-gray-600 font-medium">
 							{locale === 'en'
 								? "With just one year of existence..."
@@ -39,14 +53,6 @@ export default async function AboutPage({ params }: Props) {
 							}
 						</p>
 					</div>
-				</div>
-
-				{/* Team Section */}
-				<div className="content-card">
-					<h2 className="font-h2 text-2xl font-bold mb-6 text-center">
-						{locale === 'en' ? 'Meet Our Team' : 'Conheça Nossa Equipe'}
-					</h2>
-					<TeamCarousel teamMembers={teamData.teamMembers} locale={locale} />
 				</div>
 
 				{/* Achievements Cards */}
@@ -96,7 +102,12 @@ export default async function AboutPage({ params }: Props) {
 
 				{/* Nature Section */}
 				<div className="content-card text-center">
-					<div className="text-6xl mb-4">🐛</div>
+					{/* Nature Image Placeholder */}
+					<div className="w-32 h-32 mx-auto mb-4 bg-gray-100 rounded-lg flex items-center justify-center">
+						<div className="text-gray-400 text-sm">
+							{locale === 'en' ? 'Nature Image' : 'Imagem da Natureza'}
+						</div>
+					</div>
 					<h2 className="font-h2 text-2xl font-bold mb-4">
 						{locale === 'en' ? 'Love for Nature' : 'Amor pela Natureza'}
 					</h2>
