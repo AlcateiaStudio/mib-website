@@ -309,7 +309,7 @@ export const projectsDatabase: ProjectData[] = [
 		year: 2024,
 		category: 'unity',
 		platform: ['Android', 'iOS'],
-		featured: true,
+		featured: false,
 		teamSize: 4,
 		projectType: 'client',
 		status: 'development',
@@ -327,8 +327,8 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Jogo Mobile de Captura de Monstros'
 		},
 		description: {
-			en: 'An adventure game where you collect Elemantors and battle using dice-based combat in the world of Ellion.',
-			'pt-BR': 'Um jogo de aventura onde você coleta Elemantors e batalha usando combate baseado em dados no mundo de Ellion.'
+			en: 'An adventure game where you collect Elemantors, battle using dice, and explore the world of Ellion.',
+			'pt-BR': 'Um jogo de aventura onde você coleta Elemantors, batalha usando dados, e explora o mundo de Ellion.'
 		},
 		features: {
 			en: [
@@ -375,12 +375,12 @@ export const projectsDatabase: ProjectData[] = [
 			{
 				src: '/assets/projects/elementales/elementales-5.png',
 				type: 'gallery',
-				position: 'center'
+				position: '30% 50%'
 			},
 			{
 				src: '/assets/projects/elementales/elementales-6.png',
 				type: 'gallery',
-				position: 'center'
+				position: '18% 50%'
 			}
 		],
 		cycleDuration: 2.5,
