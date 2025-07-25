@@ -5,9 +5,10 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  // GitHub Pages configuration
-  basePath: process.env.NODE_ENV === 'production' ? '/mib-website' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/mib-website/' : '',
+  // GitHub Pages configuration - only use basePath for subdirectory deployment
+  // When using custom domain, these should be empty
+  basePath: process.env.USE_BASE_PATH === 'true' ? '/mib-website' : '',
+  assetPrefix: process.env.USE_BASE_PATH === 'true' ? '/mib-website/' : '',
 };
 
 module.exports = nextConfig;
