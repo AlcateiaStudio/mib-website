@@ -65,10 +65,10 @@ export default async function ContactPage({ params }: Props) {
 									{locale === 'en' ? 'Ready to make some bugs... I mean, games?' : 'Hora de fazer alguns bugs... digo, jogos?'}
 								</p>
 								<a
-									href="mailto:work@madeinbugs.com.br"
+									href="mailto:hello@madeinbugs.com.br"
 									className="inline-block text-lg md:text-xl font-semibold text-green-600 hover:text-green-800 transition-colors duration-200 hover:scale-105 transform"
 								>
-									work@madeinbugs.com.br
+									hello@madeinbugs.com.br
 								</a>
 							</div>
 						</div>
