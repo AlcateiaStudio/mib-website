@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { getImagePath } from '../lib/imagePaths';
 
 // Types
 export interface TeamMember {
@@ -99,7 +100,7 @@ const TeamMemberAvatar = ({
 			>
 				{member.image ? (
 					<Image
-						src={member.image}
+						src={getImagePath(member.image)}
 						alt={`${member.name} - ${getLocalizedTitle(member.title)}`}
 						fill
 						className="object-cover"

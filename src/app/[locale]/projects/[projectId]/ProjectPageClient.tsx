@@ -7,6 +7,7 @@ import ProjectLinks from '../../../../components/ProjectLinks';
 import PlatformTags from '../../../../components/PlatformTags';
 import ProjectImageVisualization from '../../../../components/ProjectImageVisualization';
 import { getGalleryImages } from '../../../../lib/projects';
+import { getImagePath } from '../../../../lib/imagePaths';
 import type { ProjectData } from '../../../../lib/projects';
 
 interface ProjectPageClientProps {
@@ -28,7 +29,7 @@ export default function ProjectPageClient({ project, locale, translations }: Pro
 				<div className="relative h-[200px] w-full overflow-hidden">
 					{/* Banner Background */}
 					<Image
-						src={project.bannerImage}
+						src={getImagePath(project.bannerImage)}
 						alt={`${localizedTitle} Banner`}
 						fill
 						className="object-cover"
@@ -44,7 +45,7 @@ export default function ProjectPageClient({ project, locale, translations }: Pro
 							{project.titleImage ? (
 								<div className="flex justify-center">
 									<Image
-										src={project.titleImage}
+										src={getImagePath(project.titleImage)}
 										alt={localizedTitle}
 										width={300}
 										height={120}

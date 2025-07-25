@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import { globalStyles } from '../lib/styles';
+import { getImagePath } from '../lib/imagePaths';
 import type { Translations } from '../lib/i18n';
 
 interface ContentLayoutProps {
@@ -59,22 +60,22 @@ export default function ContentLayout({ children, translations, locale }: Conten
 			key: 'about',
 			href: `/${locale}/about`,
 			label: translations.navigation.about,
-			imageSrc: '/assets/about_button_idle.png',
-			hoverImageSrc: '/assets/about_button_hover.png'
+			imageSrc: getImagePath('/assets/about_button_idle.png'),
+			hoverImageSrc: getImagePath('/assets/about_button_hover.png')
 		},
 		{
 			key: 'portfolio',
 			href: `/${locale}/portfolio`,
 			label: translations.navigation.portfolio,
-			imageSrc: '/assets/portfolio_button_idle.png',
-			hoverImageSrc: '/assets/portfolio_button_hover.png'
+			imageSrc: getImagePath('/assets/portfolio_button_idle.png'),
+			hoverImageSrc: getImagePath('/assets/portfolio_button_hover.png')
 		},
 		{
 			key: 'contact',
 			href: `/${locale}/contact`,
 			label: translations.navigation.contact,
-			imageSrc: '/assets/contact_button_idle.png',
-			hoverImageSrc: '/assets/contact_button_hover.png'
+			imageSrc: getImagePath('/assets/contact_button_idle.png'),
+			hoverImageSrc: getImagePath('/assets/contact_button_hover.png')
 		}
 	];
 
@@ -90,7 +91,7 @@ export default function ContentLayout({ children, translations, locale }: Conten
 						<Link href={`/${locale}`} className="flex-shrink-0">
 							<div className="w-24 h-24 relative hover:scale-105 transition-transform duration-200">
 								<Image
-									src="/assets/logo-no-title.png"
+									src={getImagePath('/assets/logo-no-title.png')}
 									alt="Made in Bugs Logo"
 									width={96}
 									height={96}

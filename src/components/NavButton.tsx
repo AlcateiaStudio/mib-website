@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { getImagePath } from '../lib/imagePaths';
 
 interface NavButtonProps {
   href: string;
@@ -49,7 +50,7 @@ export default function NavButton({
     >
       {/* Temporary: using regular img instead of Next.js Image */}
       <img
-        src={isHovered ? hoverImageSrc : imageSrc}
+        src={getImagePath(isHovered ? hoverImageSrc : imageSrc)}
         alt={labelTextKey}
         width={150} // Increased from 120
         height={150} // Increased from 120

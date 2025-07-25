@@ -3,6 +3,7 @@ import ContentLayout from '../../../components/ContentLayout';
 import TeamCarousel from '../../../components/TeamCarousel';
 import teamData from '../../../data/team.json';
 import Image from 'next/image';
+import { getImagePath } from '../../../lib/imagePaths';
 
 interface Props {
 	params: Promise<{ locale: string }>;
@@ -86,7 +87,7 @@ export default async function AboutPage({ params }: Props) {
 					<div className="text-center relative group">
 						<div className="rounded-lg overflow-hidden h-48 flex items-center justify-center cursor-pointer">
 							<Image
-								src="/assets/about-us/crie-games.png"
+								src={getImagePath('/assets/about-us/crie-games.png')}
 								alt={locale === 'en' ? 'Sebrae Crie Games Mentorship Certificate' : 'Certificado Mentoria Sebrae Crie Games'}
 								width={400}
 								height={300}
@@ -105,7 +106,7 @@ export default async function AboutPage({ params }: Props) {
 					{/* Nature Image - Using logo-no-title */}
 					<div className="w-32 h-32 mx-auto mb-2 flex items-center justify-center">
 						<Image
-							src="/assets/logo-no-title.png"
+							src={getImagePath('/assets/logo-no-title.png')}
 							alt={locale === 'en' ? 'Made in Bugs Logo' : 'Logo Made in Bugs'}
 							width={128}
 							height={128}

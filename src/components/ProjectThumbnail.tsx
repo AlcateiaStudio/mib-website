@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { globalStyles } from '../lib/styles';
+import { getImagePath } from '../lib/imagePaths';
 import type { ProjectData } from '../lib/projects';
 import { getThumbnailImages } from '../lib/projects';
 
@@ -69,7 +70,7 @@ export default function ProjectThumbnail({ project, locale, className = '' }: Pr
 				{/* Background Image */}
 				<div className="absolute inset-0">
 					<Image
-						src={currentImage?.src || ''}
+						src={getImagePath(currentImage?.src || '')}
 						alt={localizedTitle}
 						fill
 						className="object-cover transition-transform duration-500 group-hover:scale-105"

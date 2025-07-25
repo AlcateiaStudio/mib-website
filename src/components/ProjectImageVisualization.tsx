@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getImagePath } from '../lib/imagePaths';
 
 interface ProjectImageVisualizationProps {
 	imageSrc: string;
@@ -92,7 +93,7 @@ export default function ProjectImageVisualization({
 
 						{/* Main image */}
 						<Image
-							src={imageSrc}
+							src={getImagePath(imageSrc)}
 							alt={imageCaption || "Project image"}
 							width={1200}
 							height={800}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { getImagePath } from '../lib/imagePaths';
 
 export default function CenterLogo() {
   const [isHovered, setIsHovered] = useState(false);
@@ -15,7 +16,7 @@ export default function CenterLogo() {
         onMouseLeave={() => setIsHovered(false)}
       >
         <Image
-          src={isHovered ? '/assets/logo_center_hover.png' : '/assets/logo_center.png'}
+          src={getImagePath(isHovered ? '/assets/logo_center_hover.png' : '/assets/logo_center.png')}
           alt="Made in Bugs Logo"
           width={224}
           height={224}
