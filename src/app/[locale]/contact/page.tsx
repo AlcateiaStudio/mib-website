@@ -34,9 +34,15 @@ export default async function ContactPage({ params }: Props) {
 						{/* General Contact */}
 						<div className="content-card text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
 							<div className="space-y-4">
+								<div className="text-5xl group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300 cursor-pointer">
+									🦋
+								</div>
 								<h2 className="text-xl md:text-2xl font-bold text-gray-800">
 									{locale === 'en' ? 'Say Hello!' : 'Diga Olá!'}
 								</h2>
+								<p className="text-sm md:text-base text-gray-600">
+									{locale === 'en' ? 'Send us some insect pics!' : 'Nos mande fotos de insetos!'}
+								</p>
 								<a
 									href="mailto:hello@madeinbugs.com.br"
 									className="inline-block text-lg md:text-xl font-semibold text-purple-600 hover:text-purple-800 transition-colors duration-200 hover:scale-105 transform"
@@ -49,9 +55,15 @@ export default async function ContactPage({ params }: Props) {
 						{/* Work/Jobs Contact */}
 						<div className="content-card text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
 							<div className="space-y-4">
+								<div className="text-5xl group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300 cursor-pointer">
+									🐞
+								</div>
 								<h2 className="text-xl md:text-2xl font-bold text-gray-800">
 									{locale === 'en' ? 'Work With Us!' : 'Trabalhe Conosco!'}
 								</h2>
+								<p className="text-sm md:text-base text-gray-600">
+									{locale === 'en' ? 'Ready to make some bugs... I mean, games?' : 'Hora de fazer alguns bugs... digo, jogos?'}
+								</p>
 								<a
 									href="mailto:work@madeinbugs.com.br"
 									className="inline-block text-lg md:text-xl font-semibold text-green-600 hover:text-green-800 transition-colors duration-200 hover:scale-105 transform"
@@ -102,21 +114,6 @@ export default async function ContactPage({ params }: Props) {
 								<path d="M7.953 15.066c-.08.163-.08.324-.08.486.08.162.08.325.162.486.162.162.324.162.486.162.162 0 .324-.08.486-.162.08-.161.162-.324.162-.486 0-.162-.08-.323-.162-.486-.162-.08-.324-.162-.486-.162-.162 0-.324.08-.486.162zm8.104 0c-.08.163-.08.324-.08.486.08.162.08.325.162.486.162.162.324.162.486.162.162 0 .324-.08.486-.162.08-.161.162-.324.162-.486 0-.162-.08-.323-.162-.486-.162-.08-.324-.162-.486-.162-.162 0-.324.08-.486.162zM12 13.633c-.486 0-.973-.162-1.297-.486l-4.864-4.864c-.324-.324-.324-.891 0-1.297.324-.324.972-.324 1.297 0l4.864 4.864 4.864-4.864c.324-.324.972-.324 1.297 0 .324.406.324.973 0 1.297l-4.864 4.864c-.324.324-.811.486-1.297.486z" />
 							</svg>
 						</a>
-					</div>
-				</div>
-
-				{/* Fun Call to Action */}
-				<div className="max-w-3xl mx-auto text-center">
-					<div className="content-card bg-gradient-to-br from-purple-50 to-blue-50 group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-						<div className="space-y-4">
-							<div className="text-6xl group-hover:animate-bounce">🐛</div>
-							<p className="text-xl md:text-2xl font-bold text-gray-800">
-								{locale === 'en'
-									? "Ready to make some bugs... I mean, games? 🎮"
-									: 'Prontos para fazer alguns bugs... quer dizer, jogos? 🎮'
-								}
-							</p>
-						</div>
 					</div>
 				</div>
 			</div>
