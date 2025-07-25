@@ -61,7 +61,7 @@ export default async function AboutPage({ params }: Props) {
 					<div className="text-center relative group">
 						<div className="rounded-lg overflow-hidden h-48 flex items-center justify-center cursor-pointer">
 							<Image
-								src="/assets/about-us/paulo-gustavo.png"
+								src={getImagePath('/assets/about-us/paulo-gustavo.png')}
 								alt={locale === 'en' ? 'Paulo Gustavo Grant Certificate' : 'Certificado Edital Paulo Gustavo'}
 								width={400}
 								height={300}

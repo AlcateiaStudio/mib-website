@@ -246,7 +246,7 @@ export default function ProjectPageClient({ project, locale, translations }: Pro
 											className="aspect-[4/3] relative overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
 										>
 											<Image
-												src={image.src}
+												src={getImagePath(image.src)}
 												alt={image.caption?.[locale as 'en' | 'pt-BR'] || `${localizedTitle} - Gallery ${index + 1}`}
 												fill
 												className="object-cover group-hover:scale-105 transition-transform duration-300"
