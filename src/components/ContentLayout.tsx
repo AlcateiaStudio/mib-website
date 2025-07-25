@@ -149,7 +149,7 @@ export default function ContentLayout({ children, translations, locale }: Conten
 			<footer className="bg-gray-900 text-white py-8 mt-16">
 				<div className="max-w-6xl mx-auto px-6 text-center">
 					<p className="text-gray-400">
-						© 2025 Made in Bugs Studio. All rights reserved.
+						© 2025 Made in Bugs. All rights reserved.
 					</p>
 				</div>
 			</footer>
