@@ -1,7 +1,30 @@
 import { notFound } from 'next/navigation';
 import { getTranslations, normalizeLocale } from '../../../../lib/i18n';
-import { getProjectById } from '../../../../lib/projects';
+import { getProjectById, projectsDatabase } from '../../../../lib/projects';
 import ProjectPageClient from './ProjectPageClient';
+
+interface Props {
+	params: Promise<{ locale: string; projectId: string }>;
+}
+
+// Generate static params for all locale/project combinations
+export async function generateStaticParams() {
+	const locales = ['en', 'pt-BR'];
+	const params = [];
+
+	for (const locale of locales) {
+		for (const project of projectsDatabase) {
+			if (!project.hide) { // Only include non-hidden projects
+				params.push({
+					locale: locale,
+					projectId: project.id,
+				});
+			}
+		}
+	}
+
+	return params;
+}
 
 interface Props {
 	params: Promise<{ locale: string; projectId: string }>;
