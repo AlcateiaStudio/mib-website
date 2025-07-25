@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export', // Will be enabled for production build
+  output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true
   },
-  // Production configuration for GitHub Pages (disabled for development)
-  // basePath: process.env.NODE_ENV === 'production' ? '/made-in-bugs-website' : '',
-  // assetPrefix: process.env.NODE_ENV === 'production' ? '/made-in-bugs-website/' : '',
+  // GitHub Pages configuration
+  basePath: process.env.NODE_ENV === 'production' ? '/mib-website' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/mib-website/' : '',
 };
 
 module.exports = nextConfig;
