@@ -37,7 +37,7 @@ jobs:
           NODE_ENV: production
           # Set to 'true' only when deploying to GitHub Pages subdirectory (alcateiastudio.github.io/mib-website)
           # Set to 'false' or omit when using custom domain (www.madeinbugs.com.br)
-          USE_BASE_PATH: 'false'
+          USE_BASE_PATH: "false"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

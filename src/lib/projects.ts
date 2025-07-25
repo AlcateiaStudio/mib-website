@@ -92,12 +92,12 @@ export const projectsDatabase: ProjectData[] = [
 			'pt-BR': 'Pequenas Coisas'
 		},
 		description: {
-			en: 'A charming adventure game where small actions create big changes in a beautifully hand-drawn world.',
-			'pt-BR': 'Um jogo de aventura encantador onde pequenas ações criam grandes mudanças em um mundo lindamente desenhado à mão.'
+			en: 'A cozy exploration game where you live alongside exotic animals on your own island.',
+			'pt-BR': 'Um jogo de exploração cozy onde você convive com os animais exóticos da sua própria ilha.'
 		},
 		longDescription: {
-			en: 'Asumi is our latest project that explores the beauty of small moments and their cumulative impact. Players guide Asumi through a world where every interaction matters, from watering flowers to helping forest creatures.\n\nThe game features:\n- Hand-drawn 2D animation\n- Emotional storytelling\n- Environmental puzzles\n- Multiple endings based on player choices',
-			'pt-BR': 'Asumi é nosso projeto mais recente que explora a beleza dos pequenos momentos e seu impacto cumulativo. Os jogadores guiam Asumi através de um mundo onde cada interação importa, desde regar flores até ajudar criaturas da floresta.\n\nO jogo apresenta:\n- Animação 2D desenhada à mão\n- Narrativa emocional\n- Quebra-cabeças ambientais\n- Múltiplos finais baseados nas escolhas do jogador'
+			en: 'Asumi is a cozy mobile-first exploration and social game, designed to be fun on both PC and mobile devices. Explore your own island filled with Brazilian fauna animals, make friendships, play music, interact with your friends, take memorable photos, and customize your character.',
+			'pt-BR': 'Asumi é um jogo "cozy" mobile-first de exploração e convivência, criado para ser divertido tanto no PC quanto em celulares e tablets. Explore sua própria ilha cheia de animais da fauna brasileira, faça amizades, toque música, interaja com seus amigos, tire fotos memoráveis e customize seu personagem.'
 		},
 		platform: ['Android', 'iOS'],
 		platformMessages: {
@@ -119,18 +119,16 @@ export const projectsDatabase: ProjectData[] = [
 		},
 		features: {
 			en: [
-				'Beautiful hand-drawn animations',
-				'Emotional storytelling with multiple endings',
-				'Environmental puzzles that affect the world',
-				'Relaxing gameplay focused on small interactions',
-				'Original soundtrack by indie composers'
+				'20+ original animals, complete with animation and a complex routine system',
+				'15+ collectible items that help players get closer for the perfect photo',
+				'Exploration tools like camera, flute, and flashlight',
+				'Photo sharing with friends'
 			],
 			'pt-BR': [
-				'Belas animações desenhadas à mão',
-				'Narrativa emocional com múltiplos finais',
-				'Quebra-cabeças ambientais que afetam o mundo',
-				'Jogabilidade relaxante focada em pequenas interações',
-				'Trilha sonora original por compositores independentes'
+				'20+ animais originais, completos com animação e um sistema complexo de rotina',
+				'15+ itens coletáveis que ajudam o player a se aproximar para tirar a foto perfeita',
+				'Ferramentas de exploração, como a câmera, a flauta e a lanterna',
+				'Compartilhamento de fotos com os amigos'
 			]
 		},
 		images: [
