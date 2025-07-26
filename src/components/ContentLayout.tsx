@@ -32,10 +32,10 @@ function NavButtonHeader({ href, imageSrc, hoverImageSrc, label, isActive, isMob
 		<Link
 			href={href}
 			className={`
-        relative transition-all duration-200 hover:scale-105
-        ${isMobile ? 'w-20 h-20' : 'w-28 h-28'}
-        ${isActive ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
-      `}
+		relative transition-all duration-200 hover:scale-105
+		${isMobile ? 'w-20 h-20' : 'w-28 h-28'}
+		${isActive ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
+	  `}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 			title={label}
@@ -86,7 +86,39 @@ export default function ContentLayout({ children, translations, locale }: Conten
 			{/* Header - seamless with background, 50% larger */}
 			<header className="static z-50 pt-9 pb-6">
 				<div className="max-w-6xl mx-auto px-6">
-					<div className="flex items-center justify-between">
+					{/* Mobile: Centered logo and cards below 768px */}
+					<div className="md:hidden flex flex-col items-center">
+						<Link href={`/${locale}`} className="w-24 h-24 mx-auto mb-2">
+							<div className="w-24 h-24 relative hover:scale-105 transition-transform duration-200">
+								<Image
+									src={getImagePath('/assets/logo-no-title.png')}
+									alt="Made in Bugs Logo"
+									width={96}
+									height={96}
+									className="w-full h-full object-contain"
+									priority
+								/>
+							</div>
+						</Link>
+						<nav className="w-full flex justify-center mt-2">
+							<div className="flex flex-row justify-center items-center gap-12 w-full">
+								{navItems.map((item) => (
+									<NavButtonHeader
+										key={item.key}
+										href={item.href}
+										imageSrc={item.imageSrc}
+										hoverImageSrc={item.hoverImageSrc}
+										label={item.label}
+										isActive={pathname === item.href}
+										isMobile={true}
+									/>
+								))}
+							</div>
+						</nav>
+					</div>
+
+					{/* Desktop: Original layout */}
+					<div className="hidden md:flex items-center justify-between">
 						{/* Logo - left aligned and larger */}
 						<Link href={`/${locale}`} className="flex-shrink-0">
 							<div className="w-24 h-24 relative hover:scale-105 transition-transform duration-200">
@@ -102,7 +134,7 @@ export default function ContentLayout({ children, translations, locale }: Conten
 						</Link>
 
 						{/* Navigation Buttons - centered */}
-						<nav className="hidden md:flex items-center space-x-12 absolute left-1/2 transform -translate-x-1/2">
+						<nav className="flex items-center space-x-12">
 							{navItems.map((item) => (
 								<NavButtonHeader
 									key={item.key}
@@ -120,23 +152,6 @@ export default function ContentLayout({ children, translations, locale }: Conten
 							<LanguageSwitcher translations={translations.common.language_switcher} />
 						</div>
 					</div>
-
-					{/* Mobile Navigation - centered */}
-					<nav className="md:hidden mt-6 flex justify-center">
-						<div className="grid grid-cols-5 gap-6">
-							{navItems.map((item) => (
-								<NavButtonHeader
-									key={item.key}
-									href={item.href}
-									imageSrc={item.imageSrc}
-									hoverImageSrc={item.hoverImageSrc}
-									label={item.label}
-									isActive={pathname === item.href}
-									isMobile={true}
-								/>
-							))}
-						</div>
-					</nav>
 				</div>
 			</header>
 
