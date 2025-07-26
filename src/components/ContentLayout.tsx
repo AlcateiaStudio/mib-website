@@ -101,7 +101,7 @@ export default function ContentLayout({ children, translations, locale }: Conten
 							</div>
 						</Link>
 						<nav className="w-full flex justify-center mt-2">
-							<div className="flex flex-row justify-center items-center gap-12 w-full">
+							<div className="flex flex-row justify-center items-center gap-12 w-full custom-gap">
 								{navItems.map((item) => (
 									<NavButtonHeader
 										key={item.key}
@@ -152,6 +152,13 @@ export default function ContentLayout({ children, translations, locale }: Conten
 							<LanguageSwitcher translations={translations.common.language_switcher} />
 						</div>
 					</div>
+					<style jsx global>{`
+				@media (max-width: 400px) {
+					.custom-gap {
+						gap: 4px !important;
+					}
+				}
+			`}</style>
 				</div>
 			</header>
 
