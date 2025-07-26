@@ -76,13 +76,18 @@ const TeamMemberAvatar = ({
 	member,
 	index,
 	isInitialLoad,
-	getLocalizedTitle
+	getLocalizedTitle,
+	variant = 'desktop'
 }: {
 	member: TeamMember;
 	index: number;
 	isInitialLoad: boolean;
 	getLocalizedTitle: (title: { en: string; 'pt-BR': string }) => string;
+	variant?: 'mobile' | 'desktop';
 }) => {
+	const sizeClasses = variant === 'mobile' ? 'w-32 h-32' : 'w-32 h-32';
+	const imageSize = variant === 'mobile' ? '128px' : '128px';
+
 	return (
 		<div
 			className={`group relative flex-shrink-0 z-50 transition-all duration-500 ease-out ${isInitialLoad ? 'opacity-0 transform translate-x-[-120px]' : 'opacity-100 transform translate-x-0'
@@ -91,7 +96,7 @@ const TeamMemberAvatar = ({
 		>
 			{/* Avatar Image */}
 			<div
-				className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg transition-all duration-200 ease-out group-hover:scale-125 group-hover:shadow-2xl bg-gray-200 ${isInitialLoad ? 'transform rotate-[-120deg]' : 'transform rotate-0'
+				className={`relative ${sizeClasses} rounded-full overflow-hidden shadow-lg transition-all duration-200 ease-out group-hover:scale-125 group-hover:shadow-2xl bg-gray-200 ${isInitialLoad ? 'transform rotate-[-120deg]' : 'transform rotate-0'
 					}`}
 				style={{
 					transition: 'transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.25s ease-out',
@@ -104,7 +109,7 @@ const TeamMemberAvatar = ({
 						alt={`${member.name} - ${getLocalizedTitle(member.title)}`}
 						fill
 						className="object-cover"
-						sizes="(max-width: 768px) 96px, 128px"
+						sizes={imageSize}
 						onError={(e) => {
 							const placeholder = e.currentTarget.nextElementSibling as HTMLElement;
 							if (placeholder) placeholder.style.display = 'flex';
@@ -205,8 +210,8 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 	return (
 		<div className="relative">
 			{/* Mobile Grid Layout (< md) */}
-			<div className="block md:hidden">
-				<div className="grid grid-cols-2 gap-4 sm:gap-6 justify-items-center py-4">
+			<div className="block md:hidden px-4">
+				<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 justify-items-center py-4 max-w-full overflow-hidden">
 					{teamMembers.map((member, index) => (
 						<TeamMemberAvatar
 							key={member.id}
@@ -214,6 +219,7 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 							index={index}
 							isInitialLoad={isInitialLoad}
 							getLocalizedTitle={getLocalizedTitle}
+							variant="mobile"
 						/>
 					))}
 				</div>
