@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description: 'Made in Bugs indie game studio - Embracing the chaotic nature of game development with perseverance and creativity.',
   other: {
     'mib-version': versionInfo.version,
-    'mib-build': versionInfo.build,
   },
   icons: {
     icon: [
@@ -39,7 +38,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         {/* Version info for debugging - check page source */}
-        {/* Made in Bugs Version: {versionInfo.version} | Build: {versionInfo.build} */}
+        {/* Made in Bugs Version: {versionInfo.version} */}
       </head>
       <body className="font-sans text-neutral-800">
         <VersionLogger />
