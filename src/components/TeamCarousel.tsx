@@ -209,9 +209,9 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 
 	return (
 		<div className="relative">
-			{/* Mobile Grid Layout (< md) */}
-			<div className="block md:hidden px-4">
-				<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 justify-items-center py-4 max-w-full overflow-hidden">
+			{/* Mobile Grid Layout (< 1024px) */}
+			<div className="block lg:hidden px-4">
+				<div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 justify-items-center py-4 max-w-full overflow-hidden">
 					{teamMembers.map((member, index) => (
 						<TeamMemberAvatar
 							key={member.id}
@@ -225,8 +225,8 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 				</div>
 			</div>
 
-			{/* Desktop Carousel Layout (>= md) */}
-			<div className="hidden md:block">
+			{/* Desktop Carousel Layout (>= 1024px) */}
+			<div className="hidden lg:block">
 				<div className="flex items-center justify-center space-x-4">
 					{/* Left Navigation Arrow */}
 					{showArrows && (
