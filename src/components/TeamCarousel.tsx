@@ -204,41 +204,59 @@ export default function TeamCarousel({ teamMembers, locale }: TeamCarouselProps)
 
 	return (
 		<div className="relative">
-			<div className="flex items-center justify-center space-x-4">
-				{/* Left Navigation Arrow */}
-				{showArrows && (
-					<CarouselArrow
-						direction="left"
-						onClick={() => handleNavigation('left')}
-						isClicked={clickedArrow === 'left'}
-						aria-label="Previous team members"
-					/>
-				)}
-
-				{/* Team Members Display */}
-				<div className="flex-1">
-					<div className="flex justify-center space-x-6 py-4" style={{ paddingTop: '60px' }}>
-						{visibleMembers.map((member, index) => (
-							<TeamMemberAvatar
-								key={member.id}
-								member={member}
-								index={index}
-								isInitialLoad={isInitialLoad}
-								getLocalizedTitle={getLocalizedTitle}
-							/>
-						))}
-					</div>
+			{/* Mobile Grid Layout (< md) */}
+			<div className="block md:hidden">
+				<div className="grid grid-cols-2 gap-4 sm:gap-6 justify-items-center py-4">
+					{teamMembers.map((member, index) => (
+						<TeamMemberAvatar
+							key={member.id}
+							member={member}
+							index={index}
+							isInitialLoad={isInitialLoad}
+							getLocalizedTitle={getLocalizedTitle}
+						/>
+					))}
 				</div>
+			</div>
 
-				{/* Right Navigation Arrow */}
-				{showArrows && (
-					<CarouselArrow
-						direction="right"
-						onClick={() => handleNavigation('right')}
-						isClicked={clickedArrow === 'right'}
-						aria-label="Next team members"
-					/>
-				)}
+			{/* Desktop Carousel Layout (>= md) */}
+			<div className="hidden md:block">
+				<div className="flex items-center justify-center space-x-4">
+					{/* Left Navigation Arrow */}
+					{showArrows && (
+						<CarouselArrow
+							direction="left"
+							onClick={() => handleNavigation('left')}
+							isClicked={clickedArrow === 'left'}
+							aria-label="Previous team members"
+						/>
+					)}
+
+					{/* Team Members Display */}
+					<div className="flex-1">
+						<div className="flex justify-center space-x-6 py-4" style={{ paddingTop: '60px' }}>
+							{visibleMembers.map((member, index) => (
+								<TeamMemberAvatar
+									key={member.id}
+									member={member}
+									index={index}
+									isInitialLoad={isInitialLoad}
+									getLocalizedTitle={getLocalizedTitle}
+								/>
+							))}
+						</div>
+					</div>
+
+					{/* Right Navigation Arrow */}
+					{showArrows && (
+						<CarouselArrow
+							direction="right"
+							onClick={() => handleNavigation('right')}
+							isClicked={clickedArrow === 'right'}
+							aria-label="Next team members"
+						/>
+					)}
+				</div>
 			</div>
 		</div>
 	);
